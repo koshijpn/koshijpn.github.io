@@ -1,0 +1,31 @@
+*{
+    color: #000;
+    font-family: Inter;
+    font-weight: 100;
+}
+
+#selection{
+    display:flex;
+    margin-top:60px;
+}
+
+#selection button{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-style: normal;
+    line-height: normal;
+    margin-right: 60px;
+
+}
+
+.active {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.all{
+    margin-left: 80px;
+    padding-right:30px;
+    /* border-right: 1px solid #000; Example border style and color */
+}

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>KOSHI Digital Namecard</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="https://kit.fontawesome.com/bef1030735.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <link href="./css/load.css" rel="stylesheet">
+    <link href="./css/scroll.css" rel="stylesheet">
+    <link href="./css/menu.css" rel="stylesheet">
+    <link href="./css/works.css" rel="stylesheet">
+    <link href="./css/card.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="load">
+        <div id="load_text"></div>
+    </div>
+        <main>
+            <div id="hero">
+                <div class="openbtn"><span></span><span></span><span></span></div>
+                    <nav id="g-nav">
+                        <div id="g-nav-list"><!--In case of increasing the number of navigation items, use this div to enable vertical scrolling※You can remove it if unnecessary--> 
+                          <ul>
+                                <li><a href="#hero">Top</a></li> 
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#history">History</a></li> 
+                                <li><a href="#links">Links</a></li>
+                                <li><a href="#works">Works</a></li>
+                                <!-- <div class="language-menu">
+                                  <span class="material-symbols-outlined">language</span>
+                                  <div class="language-buttons">
+                                    <button onclick="changeLanguage('en',event)" class="en">EN</button>
+                                    <button onclick="changeLanguage('ja',event)" class="ja">JA</button>
+                                    <button onclick="changeLanguage('zh',event)" class="zh">ZH</button>
+                                    <button onclick="changeLanguage('tw',event)" class="tw">TW</button>
+                                    <button onclick="changeLanguage('ko',event)" class="ko">KO</button>
+                                    <button onclick="changeLanguage('th',event)" class="th">TH</button>
+                                    <button onclick="changeLanguage('vi',event)" class="vi">VI</button>
+                                    <button onclick="changeLanguage('es',event)" class="es">ES</button>
+                                  </div>
+                                </div>  -->
+                            </ul>
+                        </div>
+                    </nav> 
+            </div>
+                <div id="container">
+                    <div class="hero-video">
+                            <video id="video01" poster="" autoplay muted playsinline controls metadata controls="controls" >
+                              <source src="./movie/design.mp4">
+                            </video>
+                            <video id="video02" poster="" muted autoplay playsinline controls metadata controls="controls" style="display: none;">
+                                <source src="./movie/code.mp4">
+                            </video>
+                            <video id="video03" poster="" muted autoplay playsinline controls metadata controls="controls" style="display: none;">
+                                <source src="./movie/code2.mp4">
+                            </video>
+                            <video id="video04" poster="" muted autoplay playsinline controls metadata controls="controls" style="display: none;">
+                                <source src="./movie/programmer.mp4">
+                            </video>
+                            <video id="video05" poster="" muted autoplay playsinline controls metadata controls="controls" style="display: none;">
+                                <source src="./movie/dj.mp4">
+                            </video>
+                            <video id="video06" poster="" muted autoplay playsinline controls metadata controls="controls" style="display: none;">
+                                <source src="./movie/photo.mp4">
+                            </video>
+                        <img class="logo" src="./img/logo.png" alt="Logo">
+                        <div class="scrolldown"><span></span></div>
+                    </div>
+
+                    <section id="about">
+                        <div class="split-screen">
+                            <div class="left-panel">
+                                <div class="introduction">
+                                    <div class="category">
+                                        <div class="border"></div>
+                                        <p>About</p>
+                                     </div>
+                                    <img src="./img/intro.png" alt="" class="m-top50">
+                                    <h1 id="firstname">Koshi</h1>
+                                    <span id="age"></span>
+                                    <p class="personal">1997/08/17</p>
+                                    <p class="personal" id="map">From Sapporo, Japan</p>
+                                    <p class="personal" id="ocupation">Sleep Late Lab - Representative</p>
+                                    <p class="personal" id="speak">Japanese, English, Mandarin, Thai</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="right-panel">
+                                <div id="language" class="category category-click" onclick="toggleDetails()">
+                                    <div class="border"></div>
+                                    <p>Language</p>
+                                  </div>
+                                  
+                                  <div id="language-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Japanese</h4>
+                                      <p>★★★★★ / Native</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>English</h4>
+                                      <p>★★★★☆ / Advanced</p>
+                                      <p>Studied in Philippines & U.S.</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Chinese</h4>
+                                      <p>★★★★☆ / Intermediate-High</p>
+                                      <p>Studied in Taiwan</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Thai</h4>
+                                      <p>★★★☆☆ / Intermediate</p>
+                                      <p>Studied in Thailand</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Korean</h4>
+                                      <p>★★☆☆☆ / Beginner</p>
+                                      <p>Studied in Korea</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Vietnamese</h4>
+                                      <p>★☆☆☆☆ / Entry</p>
+                                      <p>Studied at Home</p>
+                                    </div>
+                                  </div>
+
+                                <div id="dj" onclick="toggleDetails()">
+                                    <div class="category category-click">
+                                      <div class="border"></div>
+                                      <p>DJ</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="dj-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Gold Sounds Academy - Complete DJ Course / Malaysia</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2023 / Apr. -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Favorite Genres</h4>
+                                      <p>Electro, J-POP, Dance, Disco, Jazz</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Music Experience</h4>
+                                      <p>Drums, Guitar, Bass, Piano</p>
+                                    </div>
+                                    <div class="links">
+                                      <a href="https://dj.koshijpn.com/home/">See Works ></a>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="craft" onclick="toggleDetails()">
+                                    <div class="category category-click">
+                                      <div class="border"></div>
+                                      <p>Craft</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="craft-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Chiang Mai / Thailand</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2020 / Jan. -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>What I can make</h4>
+                                      <p>Leather Products, Silver accessories</p>
+                                    </div>
+                                    <div class="links">
+                                      <a href="https://koshileather.theshop.jp/">Visit Website ></a>
+                                    </div>
+                                  </div>
+
+                                  <div id="design" onclick="toggleDetails()">
+                                    <div class="category category-click">
+                                      <div class="border"></div>
+                                      <p>Design</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="design-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Web Courses Bangkok - Web Professional / Thailand</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2020 / Oct. -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>What I can do</h4>
+                                      <p>Graphic Design, Web Design</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>My Tools</h4>
+                                      <p>Figma</p>
+                                      <p>Canva</p>
+                                      <p>Adobe Photoshop</p>
+                                      <p>Adobe Illustrator</p>
+                                    </div>
+                                    <div class="links">
+                                    <a href="https://code.koshijpn.com/">See Works ></a>
+                                    </div>
+                                  </div>
+
+                                  <div id="code" onclick="toggleDetails()">
+                                    <div class="category category-click">
+                                      <div class="border"></div>
+                                      <p>Code</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="code-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Taiwan Normal University - Computer Science Major</p>
+                                      <p>NEXT Academy - Full Stack Web Development / Malaysia</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2018 / Sep. -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>What I can do</h4>
+                                      <p>Front End, Back End, WordPress</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Language</h4>
+                                      <p>C</p>
+                                      <p>HTML, CSS, JS...</p>
+                                      <p>Node, Svelte, SQL, git, Docker...</p>
+                                    </div>
+                                    <div class="links">
+                                      <a href="https://code.koshijpn.com/">See Works ></a>
+                                    </div>
+                                  </div>
+
+                                  <div id="video" onclick="toggleDetails()">
+                                    <div class="category category-click">
+                                      <div class="border"></div>
+                                      <p>Video</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="video-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Otemae University - Digital Hollywood Program / Japan</p>
+                                      <p>Official Adobe Course / Online, Japan</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2013 (High School) -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>What I can do</h4>
+                                      <p>Record, Edit, and Direction</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>My Tools</h4>
+                                      <p>Adobe Premiere Pro / After Effects</p>
+                                      <p>Final Cut Pro / Motion 5</p>
+                                    </div>
+                                    <div class="links">
+                                      <a href="https://www.youtube.com/@koshijpn">Visit Youtube Channel ></a>
+                                    </div>
+                                  </div>
+
+                                  <div class="category-click" id="camera" onclick="toggleDetails()">
+                                    <div class="category">
+                                      <div class="border"></div>
+                                      <p>Photography</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="camera-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Where To Get Skill</h4>
+                                      <p>Web Courses Bangkok - Professional Photography / Thailand</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>When I Started</h4>
+                                      <p>2020 Oct. -</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>My Camera & Tools</h4>
+                                      <p>Adobe Lightroom Classic</p>
+                                      <p>Canon M80</p>
+                                      <p>DJI Pocket 2</p>
+                                    </div>
+                                    <div class="links">
+                                      <a href="https://photo.koshijpn.com/home/">Visit Website ></a>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="category-click" id="other" onclick="toggleDetails()">
+                                    <div class="category">
+                                      <div class="border"></div>
+                                      <p>Other Skills</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div id="other-details" style="display: none;">
+                                    <div class="detail m-top50">
+                                      <h4>Vehicle License</h4>
+                                      <p>Car / Bike</p>
+                                    </div>
+                                    <div class="detail m-top50">
+                                      <h4>Diving License</h4>
+                                      <p>Advanced By SDI</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Massage</h4>
+                                      <p>General Thai Massage / Foot Massage</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Teacher</h4>
+                                      <p>Japanese / English / Chinese / Thai</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Fortune Teller</h4>
+                                      <p>Palm Reading / Tarot / Yi-Ching / Ba-zi (八字/四柱推命)</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Barista</h4>
+                                      <p>Make Delicious Coffee</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Chef</h4>
+                                      <p>Curry / Japanese / Thai</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Mahout</h4>
+                                      <p>Elephant Trainer</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Karate</h4>
+                                      <p>From Elementary school to Middle school</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Calligraphy</h4>
+                                      <p>Japanese / Alphabet</p>
+                                    </div>
+                                    <div class="detail m-top30">
+                                      <h4>Sake Navigator</h4>
+                                      <p>Knowing the basics of Sake</p>
+                                    </div>
+                                  </div>
+                                  
+                                  </div>
+                            </div>
+           
+                    </section>
+
+                    <section id="history">
+                      <div class="category">
+                        <div class="border"></div>
+                        <p>History</p>
+                      </div>
+                                          
+                      <div class="timeline">
+                        <p class="year" id="year-1997">1997</p>
+                        <div class="event" id="event-1997"></div>
+                        <p class="description" id="description-1997">Aug: Born in Hokkaido, Japan</p>
+                      
+                        <p class="year" id="year-2013">2013</p>
+                        <div class="event" id="event-2013"></div>
+                        <p class="description" id="description-2013">
+                          Feb: Completed the University of Visayas English as a Second Language Program<br>
+                          Mar: Graduated from Asuka Mirai High School
+                        </p>  <p class="year" id="year-2017">2017</p>
+                        <div class="event" id="event-2017"></div>
+                        <p class="description" id="description-2017">Apr: Withdrew from Emporia State University Communication Major</p>
+                      
+                        <p class="year" id="year-2018">2018</p>
+                        <div class="event" id="event-2018"></div>
+                        <p class="description" id="description-2018">Jul: Completed the Chinese Culture University Mandarin Learning Center</p>
+                      
+                        <p class="year" id="year-2019">2019</p>
+                        <div class="event" id="event-2019"></div>
+                        <p class="description" id="description-2019">Mar: Withdrew from National Taiwan Normal University, Computer Science and Information Technology Major</p>
+                      
+                        <p class="year" id="year-2020">2020</p>
+                        <div class="event" id="event-2020"></div>
+                        <p class="description" id="description-2020">
+                          Mar: Completed the Chiang Mai Polytechnic College Leather Course<br>
+                          Jul: Completed the Chiang Mai University Thai Language and Culture Program<br>
+                          Dec: Completed the Web Courses Bangkok Web Professional Bootcamp / Photography Course
+                        </p>
+                      
+                        <p class="year" id="year-2021">2021</p>
+                        <div class="event" id="event-2021"></div>
+                        <p class="description" id="description-2021">Aug: Founded Sleep Late Lab</p>
+                      
+                        <p class="year" id="year-2022">2022</p>
+                        <div class="event" id="event-2022"></div>
+                        <p class="description" id="description-2022">
+                          Mar: Started selling leather products (Sleep Late Lab)<br>
+                          Nov: Completed Level A-2 at Seoul Korean Language Academy
+                        </p>
+                      
+                        <p class="year" id="year-2023">2023</p>
+                        <div class="event" id="event-2023"></div>
+                        <p class="description" id="description-2023">
+                          Jul: Completed NEXT Academy Full Stack Web Development Course<br>
+                          Jul: Completed Gold Sounds Academy DJ course
+                        </p>
+                      </div>
+                      
+
+                    </section>
+
+                    <div class="category" id="links">
+                        <div class="border"></div>
+                        <p>Links</p>
+                     </div>
+                    <section class="social-links">
+                      <div class="social-card">
+                          <a href="https://bit.ly/koshi-fb">
+                              <img src="sns-logo/Facebook_Logo_Primary.png" alt="fb" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://bit.ly/koshi-instagram">
+                              <img src="sns-logo/Instagram_Glyph_Gradient.png" alt="ig" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://bit.ly/koshi-x">
+                              <img src="sns-logo/x_logo-black.png" alt="x" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://bit.ly/koshi-linkedin">
+                              <img src="sns-logo/LI-In-Bug.png" alt="linkedin" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://bit.ly/3tiIePJ">
+                              <img src="sns-logo/yt_icon_rgb.png" alt="youtube" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://note.com/koshijpn">
+                              <img src="sns-logo/note_logo_black.png" alt="note" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://coconala.com/users/2884425">
+                              <img src="sns-logo/coconara.jpg" alt="coconara" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                          <a href="https://www.mixcloud.com/koshijpn/">
+                              <img src="sns-logo/mixcloud.jpg" alt="mixcloud" class="sns-logo">
+                          </a>
+                      </div>
+                      <div class="social-card">
+                        <a href="https://github.com/koshijpn">
+                            <img src="sns-logo/github.png" alt="github" class="sns-logo">
+                        </a>
+                    </div>
+                    </section>
+
+                    <section id="works">
+                        <div class="category">
+                            <div class="border"></div>
+                             <p>Works</p>
+                 </div>
+                 <div class="card-container">
+                     <!-- カード1 -->
+                     
+                     <div class="card">
+                         <div class="card-inner koshijpn-color">
+                             <div class="card-front">
+                                 <img src="img/koshi-logo.png" alt="Koshi-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://koshijpn.com/">
+                                     <p>Self Introduction Page</p>
+                                     <img src="img/qrkoshijpn.png" alt="">
+                                     koshijpn.com</a>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- カード2 -->
+                     <div class="card">
+                         <div class="card-inner sll-color">
+                             <div class="card-front">
+                                 <img src="img/sleeplatelab-logo.png" alt="sleeplate-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://sleeplatelab.com/">
+                                     <p>Blog and Business Page</p>
+                                     <img src="img/qrsleeplate.png" alt="">
+                                     sleeplatelab.com</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-container">
+                     <!-- カード3 -->
+                     <div class="card">
+                         <div class="card-inner koshicraft-color">
+                             <div class="card-front">
+                                 <img src="img/koshicraft.jpg" alt="Koshicraft-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://koshileather.theshop.jp/">
+                                     <p>Leather Products Website</p>
+                                     <img src="img/qrleather.png" alt="">
+                                     koshileather.theshop.jp</a>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- カード4 -->
+                     <div class="card">
+                         <div class="card-inner koshiphoto-color">
+                             <div class="card-front">
+                                 <img src="img/koshi-photo.jpg" alt="Koshiphoto-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://photo.koshijpn.com/home/">
+                                     <p>Photography Portfolio Website</p>
+                                     <img src="img/qrphoto.png" alt="">
+                                     photo.koshijpn.com</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="card-container">
+                     <!-- カード5 -->
+                     <div class="card">
+                         <div class="card-inner">
+                             <div class="card-front">
+                                 <img src="img/code-koshi.jpeg" alt="Koshicode-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://code.koshijpn.com/">
+                                     <p>Design and Web Development Portfolio Website</p>
+                                     <img src="img/qrcodekoshi.png" alt="">
+                                     code.koshijpn.com</a>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- カード6 -->
+                     <div class="card">
+                         <div class="card-inner">
+                             <div class="card-front">
+                                 <img src="img/djkoshi.jpg" alt="djKoshi-logo">
+                             </div>
+                             <div class="card-back">
+                                 <a href="https://dj.koshijpn.com/home/">
+                                     <p>DJ Portfolio Website</p>
+                                     <img src="img/qrdjkoshi.png" alt="">
+                                     dj.koshijpn.com</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                    </section>
+
+                    <a href="#" id="page_top">
+                        <i class="fas fa-caret-up fa-lg" style="color: #000000;"></i>          
+                    </a>
+                    <footer>
+                      <p class="footer-text" id="footer"></p>                    
+                    </footer>   
+                </div>
+                </div>
+        </main>
+     <!-- ==============JQuery Load===============S-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <!--Custom JS-->
+    <script src="js/load.js"></script>
+    <script src="js/link-scroll.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/age.js"></script>
+    <script src="js/totop.js"></script>
+    <script src="js/year.js"></script>
+    <script src="js/category-open.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
