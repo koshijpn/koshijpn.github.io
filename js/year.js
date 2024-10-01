@@ -69,4 +69,5 @@ document.addEventListener("DOMContentLoaded", function() {
   handleYearHover("2021");
   handleYearHover("2022");
   handleYearHover("2023");
+  handleYearHover("2024");
 });
