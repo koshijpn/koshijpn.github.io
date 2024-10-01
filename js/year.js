@@ -4,7 +4,7 @@ function toggleYearDetails(yearId) {
   var eventElement = document.getElementById("event-" + yearId);
   if (yearDetails && eventElement) {
     // Close other tabs
-    var yearIds = ["1997", "2013", "2017", "2018", "2019", "2020", "2021", "2022", "2023"];
+    var yearIds = ["1997", "2013", "2017", "2018", "2019", "2020", "2021", "2022", "2023","2024"];
     yearIds.forEach(function(id) {
       if (id !== yearId) {
         var otherYearDetails = document.getElementById("description-" + id);
