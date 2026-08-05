@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koshijpn.github.io/sitemap.xml
