@@ -5,6 +5,15 @@ const GITHUB_USER = "koshijpn";
 const GITHUB_REPOS_ENDPOINT = `https://api.github.com/users/${GITHUB_USER}/repos?type=public&sort=pushed&per_page=100`;
 const FEATURED_REPOSITORY_LIMIT = 5;
 const EXPERIMENT_TOPICS = new Set(["experiment", "prototype", "learning", "study"]);
+const PROJECT_IMAGES = {
+  "next-ecomm-frontend": { src: "./img/projects/next-ecomm.png", width: 1080, height: 675 },
+  "next-ecomm-backend": { src: "./img/projects/next-ecomm.png", width: 1080, height: 675 },
+  "next-jobs-frontend": { src: "./img/projects/next-jobs.png", width: 1080, height: 675 },
+  "next-jobs-backend": { src: "./img/projects/next-jobs.png", width: 1080, height: 675 },
+  "Project_Luno_Premium": { src: "./img/projects/luno-premium.png", width: 1080, height: 396 },
+  "email-automator": { src: "./img/projects/email-automator.png", width: 1080, height: 675 },
+  "koshijpn.github.io": { src: "./img/projects/developer-portfolio.png", width: 1024, height: 423 }
+};
 
 const skillGroups = [
   {
@@ -64,6 +73,11 @@ function localizedSkillDetail(detail) {
   return skillTranslations[language]?.[detail] || detail;
 }
 
+function projectPreviewLabel() {
+  const language = window.getCurrentLanguage?.() || "ja";
+  return language === "ja" ? "プロジェクト画面" : language === "zh-TW" ? "專案畫面" : "project preview";
+}
+
 function repositoryCategory(repository, featuredIndex) {
   const topics = repository.topics || [];
   if (topics.some((topic) => EXPERIMENT_TOPICS.has(topic.toLowerCase()))) return "experiment";
@@ -83,7 +97,8 @@ function repositoryToProject(repository, featuredIndex) {
     githubUrl: repository.html_url,
     demoUrl: repository.homepage || null,
     updatedAt: repository.pushed_at,
-    stars: repository.stargazers_count || 0
+    stars: repository.stargazers_count || 0,
+    image: PROJECT_IMAGES[repository.name] || null
   };
 }
 
@@ -103,8 +118,20 @@ function createProjectCard(project, index) {
 
   const visual = document.createElement("div");
   visual.className = "project-visual project-visual-placeholder";
-  visual.setAttribute("aria-hidden", "true");
-  visual.textContent = project.title.slice(0, 2).toUpperCase();
+  if (project.image) {
+    const image = document.createElement("img");
+    image.src = project.image.src;
+    image.alt = `${project.title} ${projectPreviewLabel()}`;
+    image.width = project.image.width;
+    image.height = project.image.height;
+    image.loading = "lazy";
+    image.decoding = "async";
+    visual.classList.remove("project-visual-placeholder");
+    visual.append(image);
+  } else {
+    visual.setAttribute("aria-hidden", "true");
+    visual.textContent = project.title.slice(0, 2).toUpperCase();
+  }
 
   const body = document.createElement("div");
   body.className = "project-card-body";
