@@ -9,7 +9,7 @@ const certificationGroups = [
   ]},
   { id: "education", items: [
     ["社会調査士（一般社団法人 社会調査協会）", "2024-12-20"], ["認定心理士（公益社団法人 日本心理学会）", "2024-12-07"],
-    ["大手前大学 日本語教員養成課程 修了", "2024-09-30"], ["大手前大学 学士（学術）・心理学メジャー", "2024-09-30"]
+    ["大手前大学 日本語教員養成課程 修了", "2024-09-30"]
   ]},
   { id: "technology", items: [
     ["Codecademy Back-End Engineer", "2024-02-03"], ["Codecademy Full-Stack Engineer", "2024-02-03"],

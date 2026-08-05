@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu(false)));
+  navigation?.addEventListener("click", (event) => {
+    if (!navigation.classList.contains("open")) return;
+    if (!event.target.closest("a, select, label")) closeMenu(false);
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && navigation?.classList.contains("open")) closeMenu(true);
     if (event.key !== "Tab" || !navigation?.classList.contains("open")) return;
