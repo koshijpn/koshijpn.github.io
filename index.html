@@ -55,13 +55,12 @@
     <nav class="site-nav" id="site-navigation" aria-label="Main navigation" data-i18n-aria-label="a11y.navigation">
       <ul>
         <li><a href="#home" data-i18n="nav.home">Home</a></li>
-        <li><a href="#about" data-i18n="nav.about">About</a></li>
-        <li><a href="#career" data-i18n="nav.career">Education &amp; Career</a></li>
-        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="#certifications" data-i18n="nav.certifications">Qualifications</a></li>
         <li><a href="#featured-projects" data-i18n="nav.featured">Featured Projects</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#career" data-i18n="nav.career">Experience</a></li>
         <li><a href="#other-projects" data-i18n="nav.otherProjects">Other Projects</a></li>
-        <li><a href="#experiments" data-i18n="nav.experiments">Experiments</a></li>
+        <li><a href="#certifications" data-i18n="nav.certifications">Credentials</a></li>
         <li><a href="#github" data-i18n="nav.github">GitHub</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -97,13 +96,19 @@
           <a class="button button-outline-light" href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to About" data-i18n-aria-label="a11y.scrollAbout"><span></span></a>
+      <a class="scroll-cue" href="#featured-projects" aria-label="Scroll to projects" data-i18n-aria-label="a11y.scrollProjects"><span></span></a>
+    </section>
+
+    <section class="section section-muted" id="featured-projects" aria-labelledby="featured-title">
+      <div class="section-heading"><span class="heading-line"></span><p>01</p><h2 id="featured-title" data-i18n="section.featured">Featured Projects</h2></div>
+      <p class="section-intro content-width" data-i18n="projects.intro">Representative projects selected for practical value, completeness, and technical character.</p>
+      <div class="project-grid project-grid-featured content-width" id="featured-project-grid"></div>
     </section>
 
     <section class="section about-section" id="about" aria-labelledby="about-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>01</p>
+        <p>02</p>
         <h2 id="about-title" data-i18n="section.about">About</h2>
       </div>
       <div class="about-grid content-width">
@@ -122,79 +127,47 @@
       </div>
     </section>
 
-    <section class="section" id="career" aria-labelledby="career-title">
-      <div class="section-heading">
-        <span class="heading-line"></span>
-        <p>02</p>
-        <h2 id="career-title" data-i18n="section.career">Education &amp; Career</h2>
-      </div>
-      <ol class="career-timeline content-width">
-        <li class="career-item"><time class="career-year">1997</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.1997">北海道生まれ</p></div></li>
-        <li class="career-item"><time class="career-year">2013</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2013a">University of the Visayas ESLプログラム修了</p><p data-i18n="career.2013b">飛鳥未来高等学校 卒業</p></div></li>
-        <li class="career-item"><time class="career-year">2017</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2017">Emporia State University コミュニケーション専攻 中途退学</p></div></li>
-        <li class="career-item"><time class="career-year">2018</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2018">中国文化大学 華語中心 修了</p></div></li>
-        <li class="career-item"><time class="career-year">2019</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2019">国立台湾師範大学 コンピューターサイエンス専攻 中途退学</p></div></li>
-        <li class="career-item"><time class="career-year">2020</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2020a">チェンマイ職業訓練校 レザーコース修了</p><p data-i18n="career.2020b">チェンマイ大学 タイ語・文化プログラム修了</p><p data-i18n="career.2020c">Web Courses Bangkok Web Professional Bootcamp・Photography Course修了</p></div></li>
-        <li class="career-item"><time class="career-year">2021</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2021">Sleep Late Lab設立</p></div></li>
-        <li class="career-item"><time class="career-year">2022</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2022a">Sleep Late Labで革製品販売を開始</p><p data-i18n="career.2022b">Seoul Korean Language Academy Level A2修了</p></div></li>
-        <li class="career-item"><time class="career-year">2023</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2023a">NEXT Academy Full-Stack Web Development修了</p><p data-i18n="career.2023b">Gold Sounds Academy DJ Course修了</p></div></li>
-        <li class="career-item"><time class="career-year">2024</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2024">大手前大学 卒業・学士（学術）／心理学メジャー</p></div></li>
-        <li class="career-item"><time class="career-year">2026</time><span class="career-dot" aria-hidden="true"></span><div class="career-copy"><p data-i18n="career.2026a">北海道情報大学 卒業予定</p><p data-i18n="career.2026b">文藻外語大学 華語中心の中国語コースを4期にわたり受講し、校内最高レベルを修了</p><p data-i18n="career.2026c">文藻外語大学 国際企業管理系修士課程 入学予定</p></div></li>
-      </ol>
-    </section>
-
     <section class="section section-muted" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading">
-        <span class="heading-line"></span>
-        <p>03</p>
-        <h2 id="skills-title" data-i18n="section.skills">Skills</h2>
-      </div>
+      <div class="section-heading"><span class="heading-line"></span><p>03</p><h2 id="skills-title" data-i18n="section.skills">Skills</h2></div>
       <div class="skills-grid content-width" id="skills-grid"></div>
     </section>
 
-    <section class="section" id="certifications" aria-labelledby="certifications-title">
+    <section class="section" id="career" aria-labelledby="career-title">
       <div class="section-heading">
         <span class="heading-line"></span>
         <p>04</p>
-        <h2 id="certifications-title" data-i18n="section.certifications">Qualifications &amp; Learning</h2>
+        <h2 id="career-title" data-i18n="section.career">Education &amp; Experience</h2>
       </div>
-      <p class="section-intro content-width" data-i18n="certifications.intro">Selected qualifications, certifications, awards, and completed courses. Evidence links are not published.</p>
-      <div class="certification-groups content-width" id="certification-groups"></div>
-    </section>
-
-    <section class="section section-muted" id="featured-projects" aria-labelledby="featured-title">
-      <div class="section-heading">
-        <span class="heading-line"></span>
-        <p>05</p>
-        <h2 id="featured-title" data-i18n="section.featured">Featured Projects</h2>
+      <div class="career-groups content-width">
+        <section><h3 data-i18n="career.education">Education</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013b">飛鳥未来高等学校 卒業</p></div></li><li class="career-item"><time class="career-year">2024</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2024">大手前大学 卒業・学士（学術）／心理学メジャー</p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026a">北海道情報大学 在学中・卒業に向けて履修中</p><p data-i18n="career.2026c">文藻外語大学 国際企業管理系修士課程 入学予定</p></div></li></ol></section>
+        <section><h3 data-i18n="career.professional">Professional &amp; Projects</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2021</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2021">Sleep Late Lab設立</p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022a">革製品販売を開始</p></div></li></ol></section>
+        <details class="career-more"><summary data-i18n="career.international">International Learning</summary><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013a"></p></div></li><li class="career-item"><time class="career-year">2018</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2018"></p></div></li><li class="career-item"><time class="career-year">2020</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2020b"></p><p data-i18n="career.2020c"></p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022b"></p></div></li><li class="career-item"><time class="career-year">2023</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2023a"></p><p data-i18n="career.2023b"></p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026b"></p></div></li></ol></details>
       </div>
-      <p class="section-intro content-width" data-i18n="projects.intro">Public repositories are loaded automatically from GitHub.</p>
-      <div class="project-grid project-grid-featured content-width" id="featured-project-grid" aria-live="polite"></div>
     </section>
 
     <section class="section" id="other-projects" aria-labelledby="other-projects-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>06</p>
+        <p>05</p>
         <h2 id="other-projects-title" data-i18n="section.otherProjects">Other Projects</h2>
       </div>
       <div class="project-grid content-width" id="other-project-grid"></div>
     </section>
 
-    <section class="section section-muted" id="experiments" aria-labelledby="experiments-title">
+    <section class="section section-muted" id="certifications" aria-labelledby="certifications-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>07</p>
-        <h2 id="experiments-title" data-i18n="section.experiments">Experiments</h2>
+        <p>06</p>
+        <h2 id="certifications-title" data-i18n="section.certifications">Featured Credentials</h2>
       </div>
-      <p class="section-intro content-width" data-i18n="experiments.intro">Small prototypes used to explore interfaces, data structures, and multilingual ideas.</p>
-      <div class="project-grid content-width" id="experiment-project-grid"></div>
+      <p class="section-intro content-width" data-i18n="certifications.intro">Selected qualifications, certifications, awards, and completed courses. Evidence links are not published.</p>
+      <div class="content-width"><div class="featured-credentials" id="featured-credentials"></div><details class="all-credentials"><summary data-i18n="certifications.viewAll">View all credentials</summary><div class="certification-groups" id="certification-groups"></div></details></div>
     </section>
 
     <section class="section github-section" id="github" aria-labelledby="github-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>08</p>
+        <p>07</p>
         <h2 id="github-title">GitHub</h2>
       </div>
       <div class="github-panel content-width">
@@ -206,6 +179,8 @@
       </div>
     </section>
 
+    <section class="section" id="beyond-code" aria-labelledby="beyond-code-title"><div class="section-heading"><span class="heading-line"></span><p>08</p><h2 id="beyond-code-title" data-i18n="section.beyond">Beyond Code</h2></div><div class="beyond-panel content-width"><p data-i18n="beyond.body">Photography, video, writing, and independent brand work inform how I design web experiences.</p><div class="contact-links"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a></div></div></section>
+
     <section class="section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="section-heading">
         <span class="heading-line"></span>
@@ -215,9 +190,11 @@
       <div class="contact-panel content-width">
         <p class="lead" data-i18n="contact.lead">Have a project or collaboration in mind?</p>
         <p data-i18n="contact.body">Connect with me through GitHub or LinkedIn.</p>
+        <div class="availability"><h3 data-i18n="contact.available">Available for</h3><ul><li data-i18n="contact.web">Web development</li><li data-i18n="contact.static">Static site projects</li><li data-i18n="contact.wordpress">WordPress migration</li><li data-i18n="contact.multilingual">Multilingual content</li><li data-i18n="contact.collaboration">Technical collaboration</li></ul></div>
         <div class="contact-links">
           <a href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://bit.ly/koshi-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a>
         </div>
       </div>
     </section>

@@ -42,6 +42,16 @@ const certificationGroups = [
   ]}
 ];
 
+const featuredCredentials = [
+  ["大手前大学 学士（学術）・心理学メジャー", "2024-09-30"],
+  ["NEXT ACADEMY Full-Stack Web Development Bootcamp", "2023-07"],
+  ["華語文能力測驗（TOCFL）進階級 Level 3", "2025-09-27"],
+  ["Duolingo English Test 105", "2022-09-30"],
+  ["TOEFL iBT 64", "2017-04-01"],
+  ["Web Courses Bangkok Professional Web Design and Management", "2020-12-22"],
+  ["Web Courses Bangkok Photography Essentials", "2020-11"]
+];
+
 function renderCertifications() {
   const container = document.getElementById("certification-groups");
   if (!container) return;
@@ -67,5 +77,16 @@ function renderCertifications() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", renderCertifications);
-document.addEventListener("languagechange", renderCertifications);
+function renderFeaturedCredentials() {
+  const container = document.getElementById("featured-credentials");
+  if (!container) return;
+  container.textContent = "";
+  featuredCredentials.forEach(([name, date]) => {
+    const article = document.createElement("article");
+    article.innerHTML = `<h3>${name}</h3><time>${date}</time>`;
+    container.append(article);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => { renderFeaturedCredentials(); renderCertifications(); });
+document.addEventListener("languagechange", () => { renderFeaturedCredentials(); renderCertifications(); });
