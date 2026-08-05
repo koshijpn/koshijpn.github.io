@@ -38,7 +38,7 @@ const translations = {
   es: {"nav.home":"Inicio","nav.about":"Acerca de","nav.skills":"Habilidades","nav.featured":"Proyectos destacados","nav.otherProjects":"Otros proyectos","nav.github":"GitHub","nav.contact":"Contacto","language.label":"Idioma","hero.eyebrow":"Desarrollador / Ingeniero","hero.title":"Creando experiencias útiles para la web.","hero.copy":"Diseño y desarrollo sitios accesibles y aplicaciones web prácticas, desde la interfaz hasta el despliegue.","hero.projects":"Ver proyectos","section.about":"Acerca de","section.skills":"Habilidades","section.featured":"Proyectos destacados","section.otherProjects":"Otros proyectos","section.contact":"Contacto"}
 };
 
-let currentLanguage = "en";
+let currentLanguage = "ja";
 function getTranslation(key) { return translations[currentLanguage]?.[key] || translations.en[key] || key; }
 function getCurrentLanguage() { return currentLanguage; }
 
@@ -66,9 +66,7 @@ window.changeLanguage = changeLanguage;
 
 document.addEventListener("DOMContentLoaded", () => {
   const saved = localStorage.getItem("preferredLanguage");
-  const browser = navigator.language;
-  const short = browser.split("-")[0];
-  const initial = saved || (translations[browser] ? browser : browser.startsWith("zh") ? "zh-TW" : translations[short] ? short : "en");
+  const initial = saved && translations[saved] ? saved : "ja";
   changeLanguage(initial);
   document.getElementById("language-select")?.addEventListener("change", (event) => changeLanguage(event.target.value));
 });
