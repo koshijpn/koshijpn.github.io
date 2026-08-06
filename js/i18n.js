@@ -43,6 +43,25 @@ const translations = {
   es: {"nav.home":"Inicio","nav.about":"Acerca de","nav.skills":"Habilidades","nav.featured":"Proyectos destacados","nav.otherProjects":"Otros proyectos","nav.github":"GitHub","nav.contact":"Contacto","language.label":"Idioma","hero.eyebrow":"Desarrollador / Ingeniero","hero.title":"Creando experiencias útiles para la web.","hero.copy":"Diseño y desarrollo sitios accesibles y aplicaciones web prácticas, desde la interfaz hasta el despliegue.","hero.projects":"Ver proyectos","section.about":"Acerca de","section.skills":"Habilidades","section.featured":"Proyectos destacados","section.otherProjects":"Otros proyectos","section.contact":"Contacto"}
 };
 
+Object.assign(translations.en, {
+  "hero.line1":"Static Websites.","hero.line2":"AI-assisted Workflows.","hero.line3":"Multilingual Products.","hero.tagsLabel":"Core technologies","hero.statLanguages":"Language learning since 2013","hero.statCommercial":"Commercial web project · before tax","hero.statFounded":"Founded SLEEP LATE LAB",
+  "commercial.eyebrow":"Selected Commercial Work","commercial.title":"Corporate Website","commercial.visibility":"Client name withheld under confidentiality","commercial.value":"Project Value","commercial.delivery":"Delivery","commercial.scope":"Planning, production, and launch",
+  "github.loading":"Loading public GitHub data…","github.publicRepos":"Public repositories","github.languages":"Primary languages","github.latestActivity":"Latest public activity","github.recent":"Recently updated","github.latestCommit":"Latest commit","github.fallback":"GitHub data is temporarily unavailable. Public repositories remain available on the GitHub profile.",
+  "contact.replyLabel":"Typical reply","contact.reply":"Within 48 hours","contact.modeLabel":"Collaboration","contact.mode":"Remote","contact.regionLabel":"Regions","contact.region":"Japan · Taiwan · Worldwide"
+});
+Object.assign(translations.ja, {
+  "hero.eyebrow":"Creative Developer","hero.line1":"静的Webサイト。","hero.line2":"AI支援ワークフロー。","hero.line3":"多言語プロダクト。","hero.copy":"日本・台湾・アジアをつなぐ、実用的なデジタルプロダクトを設計・開発しています。","hero.tagsLabel":"主な技術","hero.statLanguages":"2013年から語学学習を継続","hero.statCommercial":"商用Web案件・税別","hero.statFounded":"SLEEP LATE LAB設立",
+  "commercial.eyebrow":"主な商用実績","commercial.title":"企業Webサイト","commercial.visibility":"守秘義務によりクライアント名非公開","commercial.value":"案件規模","commercial.delivery":"対応範囲","commercial.scope":"企画・制作・公開対応",
+  "github.loading":"GitHubの公開データを読み込んでいます…","github.publicRepos":"Publicリポジトリ","github.languages":"主要言語","github.latestActivity":"最新の公開アクティビティ","github.recent":"最近更新されたリポジトリ","github.latestCommit":"最新コミット","github.fallback":"GitHubの公開データを一時的に取得できません。PublicリポジトリはGitHubプロフィールで確認できます。",
+  "contact.replyLabel":"返信目安","contact.reply":"通常48時間以内","contact.modeLabel":"対応形式","contact.mode":"リモート協業","contact.regionLabel":"対応地域","contact.region":"日本・台湾・Worldwide"
+});
+Object.assign(translations["zh-TW"], {
+  "hero.eyebrow":"Creative Developer","hero.line1":"靜態網站。","hero.line2":"AI輔助工作流程。","hero.line3":"多語言產品。","hero.copy":"設計並開發連結日本、台灣與亞洲的實用數位產品。","hero.tagsLabel":"核心技術","hero.statLanguages":"自2013年持續學習語言","hero.statCommercial":"商業網站專案・未稅","hero.statFounded":"成立SLEEP LATE LAB",
+  "commercial.eyebrow":"精選商業實績","commercial.title":"企業網站","commercial.visibility":"依保密義務不公開客戶名稱","commercial.value":"專案規模","commercial.delivery":"交付範圍","commercial.scope":"企劃、製作與發布",
+  "github.loading":"正在載入GitHub公開資料…","github.publicRepos":"Public儲存庫","github.languages":"主要語言","github.latestActivity":"最新公開動態","github.recent":"最近更新","github.latestCommit":"最新提交","github.fallback":"目前暫時無法取得GitHub公開資料；可前往GitHub個人頁面查看Public儲存庫。",
+  "contact.replyLabel":"通常回覆","contact.reply":"48小時內","contact.modeLabel":"合作形式","contact.mode":"遠端合作","contact.regionLabel":"服務地區","contact.region":"日本・台灣・全球"
+});
+
 let currentLanguage = "ja";
 function getTranslation(key) { return translations[currentLanguage]?.[key] || translations.en[key] || key; }
 function getCurrentLanguage() { return currentLanguage; }

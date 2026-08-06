@@ -1,0 +1,11 @@
+{
+  "name": "Koshi Developer Portfolio",
+  "short_name": "KOSHI",
+  "description": "Multilingual web developer portfolio for Japan, Taiwan and Asia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "icons": [{ "src": "./img/koshi-logo.png", "sizes": "4000x4000", "type": "image/png", "purpose": "any maskable" }]
+}

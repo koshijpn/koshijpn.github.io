@@ -15,3 +15,7 @@ Please do not include real API keys, passwords, access tokens, or unrelated pers
 In scope: source files and assets served from `koshijpn.github.io`.
 
 Third-party services linked from the site, GitHub itself, and SLEEP LATE LAB are governed by their respective security policies. Commercial inquiries should use the SLEEP LATE LAB contact form, not security reporting.
+
+## Hosting limitations
+
+GitHub Pages controls HTTP response headers. The repository cannot independently configure HSTS or `X-Frame-Options`; those protections depend on GitHub Pages. The site uses a restrictive meta Content Security Policy where supported, a strict referrer policy, no authentication, and no client-side storage of secrets. A standards-based disclosure file is published at `/.well-known/security.txt`.
