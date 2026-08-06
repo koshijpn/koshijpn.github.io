@@ -46,7 +46,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to content</a>
 
   <header class="site-header" id="home">
@@ -56,14 +56,10 @@
     </button>
     <nav class="site-nav" id="site-navigation" aria-label="Main navigation" data-i18n-aria-label="a11y.navigation">
       <ul>
-        <li><a href="#home" data-i18n="nav.home">Home</a></li>
-        <li><a href="#featured-projects" data-i18n="nav.featured">Featured Projects</a></li>
+        <li><a href="#featured-projects" data-i18n="nav.featured">Projects</a></li>
         <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
         <li><a href="#career" data-i18n="nav.career">Experience</a></li>
-        <li><a href="#other-projects" data-i18n="nav.otherProjects">Other Projects</a></li>
-        <li><a href="#certifications" data-i18n="nav.certifications">Credentials</a></li>
-        <li><a href="#insights" data-i18n="nav.insights">Articles / Case Studies</a></li>
         <li><a href="#github" data-i18n="nav.github">GitHub</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -126,6 +122,8 @@
             <div><dt data-i18n="about.locationLabel">Location</dt><dd data-i18n="about.location">Japan / Taiwan · Remote</dd></div>
             <div><dt data-i18n="about.languagesLabel">Languages</dt><dd data-i18n="about.languages">Japanese, English, Mandarin, Thai</dd></div>
           </dl>
+          <p class="about-creative" data-i18n="about.creative">写真、映像、コピーライティングなどの制作経験を、Webの情報設計とビジュアル表現に活かしています。</p>
+          <a class="text-link" href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer" data-i18n="about.personalWork">Personal work → koshijpn.com</a>
         </div>
       </div>
     </section>
@@ -141,49 +139,17 @@
         <p>04</p>
         <h2 id="career-title" data-i18n="section.career">Education &amp; Experience</h2>
       </div>
-      <div class="career-groups content-width">
-        <section><h3 data-i18n="career.education">Education</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013b">飛鳥未来高等学校 卒業</p></div></li><li class="career-item"><time class="career-year">2024</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2024">大手前大学 卒業・学士（学術）／心理学メジャー</p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026a">北海道情報大学 在学中・卒業に向けて履修中</p><p data-i18n="career.2026c">文藻外語大学 国際企業管理系修士課程 入学予定</p></div></li></ol></section>
-        <section><h3 data-i18n="career.professional">Professional &amp; Projects</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2021</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2021">Sleep Late Lab設立</p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022a">革製品販売を開始</p></div></li><li class="career-item"><time class="career-year">実務</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.clientWeb">企業Webサイトの企画・WordPress制作・レスポンシブ対応・SEO整備を担当（守秘義務により社名非公開）</p></div></li></ol></section>
-        <details class="career-more"><summary data-i18n="career.international">International Learning</summary><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013a"></p></div></li><li class="career-item"><time class="career-year">2018</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2018"></p></div></li><li class="career-item"><time class="career-year">2020</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2020b"></p><p data-i18n="career.2020c"></p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022b"></p></div></li><li class="career-item"><time class="career-year">2023</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2023a"></p><p data-i18n="career.2023b"></p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026b"></p></div></li></ol></details>
+      <div class="experience-summary content-width">
+        <ol class="career-timeline"><li class="career-item"><time class="career-year">2021</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2021">SLEEP LATE LAB設立</p></div></li><li class="career-item"><time class="career-year">2023</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2023a">NEXT ACADEMY Full-Stack Web Development修了</p></div></li><li class="career-item"><time class="career-year">2024</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2024">大手前大学 卒業・学士（学術）／心理学メジャー</p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026a">北海道情報大学 在学中・卒業に向けて履修中</p><p data-i18n="career.2026c">文藻外語大学 国際企業管理系修士課程 入学予定</p></div></li><li class="career-item"><time class="career-year" data-i18n="career.clientLabel">実務</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.clientWebPrice">企業Webサイトの企画・WordPress制作・SEO整備（案件規模：¥300,000＋税）</p></div></li></ol>
+        <div class="selected-credentials"><h3 data-i18n="certifications.selected">Selected Credentials</h3><ul><li><strong>NEXT ACADEMY</strong><span>Full-Stack Web Development</span></li><li><strong>TOCFL</strong><span>Level 3</span></li><li><strong>Web Courses Bangkok</strong><span>Professional Web Design and Management</span></li></ul></div>
+        <div class="detail-links"><a class="text-link" href="./profile.html" data-i18n="career.viewAll">学歴・国際学習歴・全資格を見る →</a></div>
       </div>
-    </section>
-
-    <section class="section" id="other-projects" aria-labelledby="other-projects-title">
-      <div class="section-heading">
-        <span class="heading-line"></span>
-        <p>05</p>
-        <h2 id="other-projects-title" data-i18n="section.otherProjects">Other Projects</h2>
-      </div>
-      <div class="project-grid content-width" id="other-project-grid"></div>
-    </section>
-
-    <section class="section section-muted" id="certifications" aria-labelledby="certifications-title">
-      <div class="section-heading">
-        <span class="heading-line"></span>
-        <p>06</p>
-        <h2 id="certifications-title" data-i18n="section.certifications">Featured Credentials</h2>
-      </div>
-      <p class="section-intro content-width" data-i18n="certifications.intro">Selected qualifications, certifications, awards, and completed courses. Evidence links are not published.</p>
-      <div class="content-width"><div class="featured-credentials" id="featured-credentials"></div><details class="all-credentials"><summary data-i18n="certifications.viewAll">View all credentials</summary><div class="certification-groups" id="certification-groups"></div></details></div>
-    </section>
-
-    <section class="section" id="insights" aria-labelledby="insights-title">
-      <div class="section-heading"><span class="heading-line"></span><p>07</p><h2 id="insights-title" data-i18n="section.insights">Technical Articles &amp; Case Studies</h2></div>
-      <p class="section-intro content-width" data-i18n="insights.intro">Technical notes and case studies will connect implementation decisions with project outcomes.</p>
-      <div class="content-grid content-width" id="content-grid"></div>
-      <nav class="commercial-path content-width" aria-label="Commercial project path" data-i18n-aria-label="insights.pathLabel">
-        <a href="#featured-projects" data-i18n="insights.project">Project</a><span aria-hidden="true">→</span>
-        <a href="#insights" data-i18n="insights.caseStudy">Case Study</a><span aria-hidden="true">→</span>
-        <a href="https://sleeplatelab.com/services/" target="_blank" rel="noopener noreferrer">Services ↗</a><span aria-hidden="true">→</span>
-        <a href="https://sleeplatelab.com/pricing/" target="_blank" rel="noopener noreferrer">Pricing ↗</a><span aria-hidden="true">→</span>
-        <a href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer">Contact ↗</a>
-      </nav>
     </section>
 
     <section class="section github-section" id="github" aria-labelledby="github-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>08</p>
+        <p>05</p>
         <h2 id="github-title">GitHub</h2>
       </div>
       <div class="github-panel content-width">
@@ -195,36 +161,28 @@
       </div>
     </section>
 
-    <section class="section" id="beyond-code" aria-labelledby="beyond-code-title"><div class="section-heading"><span class="heading-line"></span><p>09</p><h2 id="beyond-code-title" data-i18n="section.beyond">Beyond Code</h2></div><div class="beyond-panel content-width"><p data-i18n="beyond.body">Photography, video, writing, and independent brand work inform how I design web experiences.</p><div class="contact-links"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a></div></div></section>
-
     <section class="section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>10</p>
+        <p>06</p>
         <h2 id="contact-title" data-i18n="section.contact">Contact</h2>
       </div>
       <div class="contact-panel content-width">
-        <p class="lead" data-i18n="contact.lead">Have a project or collaboration in mind?</p>
+        <p class="lead" data-i18n="contact.lead">一緒に、役立つものをつくりませんか。</p>
         <p data-i18n="contact.body">Technical discussion is welcome on GitHub. Commercial projects are handled through SLEEP LATE LAB.</p>
-        <div class="availability"><h3 data-i18n="contact.available">Available for</h3><ul><li data-i18n="contact.web">Web development</li><li data-i18n="contact.static">Static site projects</li><li data-i18n="contact.wordpress">WordPress migration</li><li data-i18n="contact.multilingual">Multilingual content</li><li data-i18n="contact.collaboration">Technical collaboration</li></ul></div>
-        <div class="contact-links">
-          <a href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://bit.ly/koshi-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a>
-          <a href="https://sleeplatelab.com/services/" target="_blank" rel="noopener noreferrer">Services</a>
-          <a href="https://sleeplatelab.com/pricing/" target="_blank" rel="noopener noreferrer">Pricing</a>
-          <a href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer" data-i18n="contact.emailInquiry">メール相談（SLEEP LATE LAB）</a>
+        <div class="contact-primary-actions">
+          <a class="button button-dark" href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer" data-i18n="contact.githubCta">GitHubを見る</a>
+          <a class="button button-outline-dark" href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer" data-i18n="contact.commercialCta">商用プロジェクトを相談する</a>
         </div>
+        <div class="contact-secondary"><a href="https://bit.ly/koshi-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a><span aria-hidden="true">·</span><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">Personal Portfolio</a></div>
       </div>
     </section>
   </main>
 
   <a class="back-to-top" href="#home" aria-label="Back to top" data-i18n-aria-label="a11y.backTop">↑</a>
-  <footer><p id="footer"></p></footer>
+  <footer><nav aria-label="Footer"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a><a href="https://bit.ly/koshi-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer">GitHub</a></nav><p id="footer"></p></footer>
 
   <script src="./js/projects.js"></script>
-  <script src="./js/certifications.js"></script>
-  <script src="./js/content.js"></script>
   <script src="./js/i18n.js"></script>
   <script src="./js/main.js"></script>
 </body>

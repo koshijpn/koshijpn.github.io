@@ -101,6 +101,9 @@ button, select { font: inherit; }
 .button-outline-light { border-color: #777; color: var(--white); }
 .button-outline-light:hover { border-color: var(--white); background: var(--white); color: var(--black); }
 .button-dark { background: var(--black); color: var(--white); }
+.button-outline-dark { background: var(--white); color: var(--black); }
+.button-outline-dark:hover { background: var(--black); color: var(--white); }
+.text-link { display: inline-flex; min-height: 44px; align-items: center; border-bottom: 1px solid var(--black); font-size: 13px; font-weight: 600; }
 
 .scroll-cue { position: absolute; bottom: 24px; left: 50%; width: 30px; height: 52px; transform: translateX(-50%); }
 .scroll-cue span::after { content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: 32px; background: var(--white); animation: scroll-cue 1.6s ease-in-out infinite; }
@@ -123,6 +126,7 @@ button, select { font: inherit; }
 .about-facts div { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .about-facts dt { font-size: 13px; font-weight: 600; }
 .about-facts dd { margin: 0; color: var(--muted); font-size: 14px; }
+.about-creative { margin: 28px 0 8px; }
 .career-timeline { position: relative; display: grid; gap: 0; margin-block: 0; padding: 0; list-style: none; }
 .career-timeline::before { content: ""; position: absolute; top: 12px; bottom: 12px; left: 91px; width: 2px; background: var(--line); }
 .career-item { position: relative; display: grid; grid-template-columns: 72px 38px minmax(0, 1fr); align-items: start; padding: 0 0 34px; }
@@ -144,6 +148,10 @@ button, select { font: inherit; }
 .skill-card { min-width: 0; min-height: 170px; padding: 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
 .skill-card h4 { margin: 0 0 10px; overflow-wrap: anywhere; font-size: 18px; font-weight: 600; }
 .skill-card p { margin: 0; color: var(--muted); font-size: 13px; }
+.skill-card-compact { min-height: 150px; }
+.skill-card-compact h3 { margin: 0 0 10px; overflow-wrap: anywhere; font-size: 18px; }
+.skill-line { margin: -28px 0 0; padding-bottom: 18px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.skill-line strong { margin-right: 8px; color: var(--ink); }
 .skill-card small { display: block; margin-top: 18px; color: var(--muted); font-size: 11px; line-height: 1.5; }
 .skill-evidence { margin: 18px 0 0; border-top: 1px solid var(--line); }
 .skill-evidence div { padding: 9px 0; border-bottom: 1px solid var(--line); }
@@ -186,6 +194,7 @@ button, select { font: inherit; }
 .project-facts dt { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 .project-facts dd { margin: 0; color: var(--muted); font-size: 13px; }
 .project-facts .tech-list { margin: 0; }
+.project-facts-compact { margin-bottom: 14px; }
 .project-repo-slot { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .project-repo-slot a { color: var(--black); font-weight: 600; text-underline-offset: 4px; }
 .project-api-notice { grid-column: 1 / -1; margin: 0; padding: 16px 18px; border: 1px solid var(--line); color: var(--muted); font-size: 13px; }
@@ -199,6 +208,20 @@ button, select { font: inherit; }
 .github-panel p:not(.lead), .contact-panel p:not(.lead) { margin-bottom: 0; color: var(--muted); }
 .contact-section { padding-bottom: 80px; }
 .contact-panel { display: block; text-align: center; }
+.contact-primary-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.contact-secondary { display: flex; justify-content: center; gap: 10px; margin-top: 22px; color: var(--muted); font-size: 12px; }
+.contact-secondary a { text-decoration: underline; text-underline-offset: 4px; }
+.experience-summary { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr); gap: clamp(32px, 6vw, 80px); }
+.selected-credentials { padding: 26px; border: 1px solid var(--line); align-self: start; }
+.selected-credentials h3 { margin: 0 0 18px; font-size: 15px; }
+.selected-credentials ul { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.selected-credentials li { display: grid; gap: 2px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; }
+.selected-credentials span { color: var(--muted); }
+.detail-links { grid-column: 1 / -1; }
+.detail-main { padding-top: 64px; }
+.page-hero { padding-top: clamp(80px, 12vw, 150px); padding-bottom: clamp(56px, 8vw, 100px); }
+.page-hero h1 { max-width: 800px; margin: 12px 0 18px; font-size: clamp(2.3rem, 7vw, 5rem); line-height: 1.05; letter-spacing: -.05em; }
+.page-hero > p:last-child { max-width: 720px; color: var(--muted); }
 .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-top: 34px; }
 .contact-links a { padding-bottom: 3px; border-bottom: 1px solid var(--black); font-weight: 600; }
 .availability { max-width: 640px; margin: 28px auto 0; padding: 22px; background: var(--surface); text-align: left; }
@@ -220,7 +243,9 @@ button, select { font: inherit; }
 
 .back-to-top { position: fixed; right: 20px; bottom: 20px; z-index: 800; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); background: rgba(255,255,255,.95); opacity: 0; pointer-events: none; transition: opacity .2s; }
 .back-to-top.visible { opacity: 1; pointer-events: auto; }
-footer { display: grid; min-height: 100px; place-items: center; border-top: 1px solid var(--line); }
+footer { display: grid; min-height: 130px; padding: 24px; place-items: center; align-content: center; gap: 14px; border-top: 1px solid var(--line); }
+footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; font-size: 12px; }
+footer nav a { text-decoration: underline; text-underline-offset: 4px; }
 footer p { margin: 0; color: var(--muted); font-size: 12px; }
 
 @media (max-width: 1100px) {
@@ -254,6 +279,7 @@ footer p { margin: 0; color: var(--muted); font-size: 12px; }
   .career-item { grid-template-columns: 50px 34px minmax(0, 1fr); }
   .career-copy { padding-left: 8px; font-size: 14px; }
   .career-groups, .featured-credentials { grid-template-columns: 1fr; }
+  .experience-summary { grid-template-columns: 1fr; }
   .project-facts > div { grid-template-columns: 1fr; gap: 4px; }
   .github-panel { align-items: flex-start; flex-direction: column; gap: 28px; }
   .github-panel .button { width: 100%; }

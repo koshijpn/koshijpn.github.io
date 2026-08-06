@@ -43,13 +43,9 @@ const certificationGroups = [
 ];
 
 const featuredCredentials = [
-  ["大手前大学 学士（学術）・心理学メジャー", "2024-09-30"],
   ["NEXT ACADEMY Full-Stack Web Development Bootcamp", "2023-07"],
   ["華語文能力測驗（TOCFL）進階級 Level 3", "2025-09-27"],
-  ["Duolingo English Test 105", "2022-09-30"],
-  ["TOEFL iBT 64", "2017-04-01"],
-  ["Web Courses Bangkok Professional Web Design and Management", "2020-12-22"],
-  ["Web Courses Bangkok Photography Essentials", "2020-11"]
+  ["Web Courses Bangkok Professional Web Design and Management", "2020-12-22"]
 ];
 
 function renderCertifications() {
