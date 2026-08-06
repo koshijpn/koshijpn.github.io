@@ -6,7 +6,7 @@ The version currently published from the default branch is supported. This is a 
 
 ## Reporting a vulnerability
 
-Please do not disclose a suspected vulnerability in a public issue. Use the repository's [private vulnerability reporting form](https://github.com/koshijpn/koshijpn.github.io/security/advisories/new) and include the affected URL, reproduction steps, and likely impact.
+Please do not disclose a suspected vulnerability in a public issue. If GitHub's private vulnerability reporting form is available for this repository, use it and include the affected URL, reproduction steps, and likely impact. If the form is unavailable, contact the maintainer through the GitHub profile without publishing exploit details.
 
 Please do not include real API keys, passwords, access tokens, or unrelated personal information in a report. Reports will be reviewed as availability permits; verified issues will be addressed in the published site and noted in the advisory when appropriate.
 
@@ -18,4 +18,4 @@ Third-party services linked from the site, GitHub itself, and SLEEP LATE LAB are
 
 ## Hosting limitations
 
-GitHub Pages controls HTTP response headers. The repository cannot independently configure HSTS or `X-Frame-Options`; those protections depend on GitHub Pages. The site uses a restrictive meta Content Security Policy where supported, a strict referrer policy, no authentication, and no client-side storage of secrets. A standards-based disclosure file is published at `/.well-known/security.txt`.
+GitHub Pages controls HTTP response headers. The repository cannot independently configure HSTS or `X-Frame-Options`; those protections depend on GitHub Pages. A restrictive meta Content Security Policy is used as an additional browser-side safeguard where supported; it is not a complete substitute for HTTP response headers. The site also uses a strict referrer policy, no authentication, and no client-side storage of secrets. A standards-based disclosure file is published at `/.well-known/security.txt`.

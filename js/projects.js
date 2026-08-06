@@ -20,7 +20,7 @@ const featuredProjects = [
     }
   },
   {
-    id: "photographer-koshi", title: "Photographer Koshi", image: null,
+    id: "photographer-koshi", title: "Photographer Koshi", image: ["./img/projects/photographer-koshi.png", 860, 444],
     summary: "A legacy photography portfolio built with WordPress and Divi.",
     purpose: "Present large-format photography and make individual series easy to explore.",
     role: "Planning / Information architecture / Design / WordPress development",
@@ -34,21 +34,21 @@ const featuredProjects = [
     }
   },
   {
-    id: "vouvray-huguet", title: "Vouvray Huguet", image: null,
+    id: "vouvray-huguet", title: "Vouvray Huguet", image: ["./img/projects/vouvray-huguet.png", 1118, 479],
     summary: "A bilingual e-commerce website developed for a French winery.",
     purpose: "Present winery information in English and French and organize products into a usable online shop.",
     role: "Web development / WordPress implementation / Divi customization / Shop pages",
     result: "Implemented the Home, About, and Shop areas with categorized wine products and multilingual content.",
-    currentState: "Legacy client website",
+    currentState: "Client work · Original website currently offline",
     technologies: ["WordPress", "Divi", "WooCommerce", "Multilingual Content"], status: "client",
     sourceStatus: "Private / Not publicly available", year: "2021", links: [],
     translations: {
-      ja: { summary: "フランスのワイナリー向けに開発した英語・フランス語対応のECサイト。", purpose: "ワイナリー情報を英語・フランス語で伝え、商品を分類して購入できる構成をつくること。", role: "Web開発 / WordPress実装 / Diviカスタマイズ / 商品ページ構築", result: "Home、About、Shopを実装し、ワインの商品分類と多言語コンテンツを整備。", currentState: "クライアント案件・旧サイト", sourceStatus: "Private / 一般公開なし" },
-      "zh-TW": { summary: "為法國酒莊開發的英法雙語電商網站。", purpose: "以英語與法語呈現酒莊資訊，並建立可分類瀏覽及購買商品的商店。", role: "網站開發 / WordPress 實作 / Divi 客製 / 商店頁面", result: "完成 Home、About、Shop，並整理葡萄酒商品分類與多語言內容。", currentState: "客戶專案・舊網站", sourceStatus: "Private / 不公開" }
+      ja: { summary: "フランスのワイナリー向けに開発した英語・フランス語対応のECサイト。", purpose: "ワイナリー情報を英語・フランス語で伝え、商品を分類して購入できる構成をつくること。", role: "Web開発 / WordPress実装 / Diviカスタマイズ / 商品ページ構築", result: "Home、About、Shopを実装し、ワインの商品分類と多言語コンテンツを整備。", currentState: "クライアント案件・旧サイト（当時のサイトは現在オフライン）", sourceStatus: "Private / 一般公開なし" },
+      "zh-TW": { summary: "為法國酒莊開發的英法雙語電商網站。", purpose: "以英語與法語呈現酒莊資訊，並建立可分類瀏覽及購買商品的商店。", role: "網站開發 / WordPress 實作 / Divi 客製 / 商店頁面", result: "完成 Home、About、Shop，並整理葡萄酒商品分類與多語言內容。", currentState: "客戶專案・舊網站（原網站目前已離線）", sourceStatus: "Private / 不公開" }
     }
   },
   {
-    id: "sleep-late-lab-legacy", title: "SLEEP LATE LAB — First Website", image: null,
+    id: "sleep-late-lab-legacy", title: "SLEEP LATE LAB — First Website", image: ["./img/projects/sleep-late-lab-legacy.png", 1536, 1057],
     summary: "The first SLEEP LATE LAB website, built to communicate its early business activities.",
     purpose: "Create a compact business website connected to the studio's printed identity and QR-based contact path.",
     role: "Planning / Information architecture / Design / WordPress development",
@@ -120,9 +120,24 @@ const featuredProjects = [
 ];
 
 const featuredRepoNames = new Set(["next-jobs-frontend", "next-jobs-backend", "next-ecomm-frontend", "next-ecomm-backend", "Project_Luno_Premium", "koshijpn.github.io"]);
+const featuredProjectIds = ["corporate-wordpress", "developer-portfolio", "vouvray-huguet", "next-jobs"];
+const archiveProjectIds = ["photographer-koshi", "sleep-late-lab-legacy"];
+const curatedPublicProjectIds = ["next-ecomm", "luno-premium"];
 const projectImages = { "email-automator": ["./img/projects/email-automator.png", 1080, 675] };
-const caseStudyPaths = { "developer-portfolio":"./projects/portfolio/", "next-jobs":"./projects/next-jobs/", "next-ecomm":"./projects/next-ecomm/" };
-const fallbackPublicProjects = [{ title: "email-automator", summary: "Node.js automation for monitoring an inbox and preparing rule-based replies.", technologies: ["Node.js", "Nodemailer", "IMAP"], githubUrl: "https://github.com/koshijpn/email-automator", demoUrl: null, image: projectImages["email-automator"] }];
+const caseStudyPaths = { "corporate-wordpress":"./projects/corporate-website/", "vouvray-huguet":"./projects/vouvray-huguet/", "developer-portfolio":"./projects/portfolio/", "next-jobs":"./projects/next-jobs/", "next-ecomm":"./projects/next-ecomm/" };
+const manualRepoDescriptions = {
+  "email-automator": {
+    en: "Node.js automation that monitors an inbox and prepares rule-based replies.",
+    ja: "受信箱を監視し、ルールに基づく返信を準備するNode.js自動化ツール。",
+    "zh-TW": "監控收件匣並依規則準備回覆的 Node.js 自動化工具。",
+    "zh-CN": "监控收件箱并按规则准备回复的 Node.js 自动化工具。",
+    ko: "받은편지함을 모니터링하고 규칙에 따라 답장을 준비하는 Node.js 자동화 도구입니다.",
+    th: "เครื่องมืออัตโนมัติด้วย Node.js ที่ตรวจสอบกล่องจดหมายและเตรียมคำตอบตามกฎ",
+    vi: "Công cụ tự động hóa Node.js theo dõi hộp thư và chuẩn bị phản hồi theo quy tắc.",
+    es: "Automatización con Node.js que supervisa una bandeja de entrada y prepara respuestas según reglas."
+  }
+};
+const fallbackPublicProjects = [{ title: "email-automator", summary: manualRepoDescriptions["email-automator"].en, technologies: ["Node.js", "Nodemailer", "IMAP"], githubUrl: "https://github.com/koshijpn/email-automator", demoUrl: null, image: projectImages["email-automator"] }];
 
 const coreSkills = [
   ["HTML / CSS", "Semantic, accessible, and responsive interface design."],
@@ -147,26 +162,89 @@ const projectUiLabels = {
 };
 const tr = (key, fallback = key) => window.getTranslation?.(key) || projectUiLabels[language()]?.[key] || fallback;
 const language = () => window.getCurrentLanguage?.() || "ja";
-const projectSummaryKeys = {"corporate-wordpress":"project.corporate","photographer-koshi":"project.photographer","next-jobs":"project.jobs","next-ecomm":"project.ecommerce","luno-premium":"project.luno","developer-portfolio":"project.portfolio"};
+const projectSummaryKeys = {"corporate-wordpress":"project.corporate","photographer-koshi":"project.photographer","vouvray-huguet":"project.vouvray","sleep-late-lab-legacy":"project.sleepLegacy","next-jobs":"project.jobs","next-ecomm":"project.ecommerce","luno-premium":"project.luno","developer-portfolio":"project.portfolio"};
+const projectDetailTranslations = {
+  "zh-CN":{
+    "corporate-wordpress":["企划 / 信息架构 / WordPress实施 / 移动端适配 / 基础SEO / 上线","已上线客户项目・公司名称与网址不公开"],"photographer-koshi":["企划 / 信息架构 / 设计 / WordPress实施","旧网站・存档"],"vouvray-huguet":["网站开发 / WordPress实施 / Divi定制 / 商品页面","客户项目・旧网站（原网站目前已离线）"],"sleep-late-lab-legacy":["企划 / 信息架构 / 设计 / WordPress实施","旧网站・存档"],"next-jobs":["UI设计 / SvelteKit前端 / PocketBase API集成","公开作品集原型"],"next-ecomm":["企划 / UI设计 / 全栈实施","公开作品集原型"],"luno-premium":["数据流程 / API集成 / 计算逻辑","公开学习项目"],"developer-portfolio":["信息架构 / 设计 / 开发 / SEO / 发布","正在GitHub Pages公开运行"]},
+  ko:{
+    "corporate-wordpress":["기획 / 정보 구조 / WordPress 구현 / 모바일 대응 / 기본 SEO / 공개","공개된 고객 프로젝트 · 회사명과 URL 비공개"],"photographer-koshi":["기획 / 정보 구조 / 디자인 / WordPress 구현","이전 사이트 · 아카이브"],"vouvray-huguet":["웹 개발 / WordPress 구현 / Divi 맞춤화 / 상품 페이지","고객 프로젝트 · 이전 사이트(원래 사이트는 현재 오프라인)"],"sleep-late-lab-legacy":["기획 / 정보 구조 / 디자인 / WordPress 구현","이전 사이트 · 아카이브"],"next-jobs":["UI 디자인 / SvelteKit 프런트엔드 / PocketBase API 연동","공개 포트폴리오 프로토타입"],"next-ecomm":["기획 / UI 디자인 / 풀스택 구현","공개 포트폴리오 프로토타입"],"luno-premium":["데이터 흐름 / API 연동 / 계산 로직","공개 학습 프로젝트"],"developer-portfolio":["정보 구조 / 디자인 / 개발 / SEO / 배포","GitHub Pages에서 운영 중"]},
+  th:{
+    "corporate-wordpress":["วางแผน / สถาปัตยกรรมข้อมูล / พัฒนา WordPress / รองรับมือถือ / SEO พื้นฐาน / เผยแพร่","โปรเจกต์ลูกค้าที่เผยแพร่แล้ว・ไม่เปิดเผยชื่อบริษัทและ URL"],"photographer-koshi":["วางแผน / สถาปัตยกรรมข้อมูล / ออกแบบ / พัฒนา WordPress","เว็บไซต์เดิม・คลังเก็บ"],"vouvray-huguet":["พัฒนาเว็บ / WordPress / ปรับแต่ง Divi / หน้าสินค้า","งานลูกค้า・เว็บไซต์เดิม (เว็บไซต์ต้นฉบับออฟไลน์แล้ว)"],"sleep-late-lab-legacy":["วางแผน / สถาปัตยกรรมข้อมูล / ออกแบบ / พัฒนา WordPress","เว็บไซต์เดิม・คลังเก็บ"],"next-jobs":["ออกแบบ UI / ฟรอนต์เอนด์ SvelteKit / เชื่อมต่อ PocketBase API","ต้นแบบพอร์ตโฟลิโอสาธารณะ"],"next-ecomm":["วางแผน / ออกแบบ UI / พัฒนาแบบฟูลสแตก","ต้นแบบพอร์ตโฟลิโอสาธารณะ"],"luno-premium":["โฟลว์ข้อมูล / เชื่อมต่อ API / ตรรกะการคำนวณ","โปรเจกต์เรียนรู้สาธารณะ"],"developer-portfolio":["สถาปัตยกรรมข้อมูล / ออกแบบ / พัฒนา / SEO / เผยแพร่","เผยแพร่และดูแลบน GitHub Pages"]},
+  vi:{
+    "corporate-wordpress":["Lập kế hoạch / Kiến trúc thông tin / WordPress / Giao diện di động / SEO cơ bản / Xuất bản","Dự án khách hàng đã xuất bản・không công khai tên công ty và URL"],"photographer-koshi":["Lập kế hoạch / Kiến trúc thông tin / Thiết kế / WordPress","Website cũ・Lưu trữ"],"vouvray-huguet":["Phát triển web / WordPress / Tùy chỉnh Divi / Trang sản phẩm","Dự án khách hàng・website cũ (website ban đầu hiện ngoại tuyến)"],"sleep-late-lab-legacy":["Lập kế hoạch / Kiến trúc thông tin / Thiết kế / WordPress","Website cũ・Lưu trữ"],"next-jobs":["Thiết kế UI / Front-end SvelteKit / Tích hợp PocketBase API","Nguyên mẫu portfolio công khai"],"next-ecomm":["Lập kế hoạch / Thiết kế UI / Triển khai full-stack","Nguyên mẫu portfolio công khai"],"luno-premium":["Luồng dữ liệu / Tích hợp API / Logic tính toán","Dự án học tập công khai"],"developer-portfolio":["Kiến trúc thông tin / Thiết kế / Phát triển / SEO / Phát hành","Đang hoạt động trên GitHub Pages"]},
+  es:{
+    "corporate-wordpress":["Planificación / Arquitectura de información / WordPress / Adaptación móvil / SEO básico / Publicación","Proyecto de cliente publicado・nombre y URL confidenciales"],"photographer-koshi":["Planificación / Arquitectura de información / Diseño / WordPress","Sitio anterior・Archivo"],"vouvray-huguet":["Desarrollo web / WordPress / Personalización de Divi / Páginas de producto","Trabajo para cliente・sitio anterior (el sitio original está fuera de línea)"],"sleep-late-lab-legacy":["Planificación / Arquitectura de información / Diseño / WordPress","Sitio anterior・Archivo"],"next-jobs":["Diseño UI / Front-end SvelteKit / Integración de PocketBase API","Prototipo público de portfolio"],"next-ecomm":["Planificación / Diseño UI / Implementación full-stack","Prototipo público de portfolio"],"luno-premium":["Flujo de datos / Integración de API / Lógica de cálculo","Proyecto público de aprendizaje"],"developer-portfolio":["Arquitectura de información / Diseño / Desarrollo / SEO / Publicación","Publicado y mantenido en GitHub Pages"]}
+};
 const localized = (project) => {
   const direct = project.translations?.[language()];
   if (direct) return { ...project, ...direct };
   const summaryKey = projectSummaryKeys[project.id];
-  return { ...project, summary: summaryKey ? tr(summaryKey, project.summary) : project.summary };
+  const details = projectDetailTranslations[language()]?.[project.id];
+  return { ...project, summary: summaryKey ? tr(summaryKey, project.summary) : project.summary, ...(details ? { role: details[0], currentState: details[1] } : {}) };
 };
 
 function createLink(label, url) { const a=document.createElement("a"); a.href=url; a.target="_blank"; a.rel="noopener noreferrer"; a.textContent=`${label} ↗`; return a; }
 function createVisual(project) { const v=document.createElement("div"); v.className="project-visual project-visual-placeholder"; if(project.image){const [src,w,h]=project.image;const img=document.createElement("img");img.src=src;img.width=w;img.height=h;img.loading="lazy";img.decoding="async";img.alt=`${project.title} ${language()==="ja"?"プロジェクト画面":language()==="zh-TW"?"專案畫面":"project preview"}`;v.classList.remove("project-visual-placeholder");v.append(img);}else{v.setAttribute("aria-hidden","true");v.textContent=project.title.slice(0,2).toUpperCase();}return v; }
 function techList(items){const ul=document.createElement("ul");ul.className="tech-list";items.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.append(li);});return ul;}
 
-function createFeaturedCard(source,index,detailed=false){const p=localized(source),article=document.createElement("article");article.id=p.id;article.className="project-card project-card-featured";article.append(createVisual(p));const body=document.createElement("div");body.className="project-card-body";const sourceBadge=p.sourceStatus?.startsWith("Private")?"Private":p.links.some(([,url])=>url.includes("github.com/"))?"GitHub Public":"";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr(`status.${p.status}`,p.status)}</span>${sourceBadge?`<span>${sourceBadge}</span>`:""}</span></div><h3>${p.title}</h3><p class="project-summary">${p.summary}</p>`;if(detailed){body.insertAdjacentHTML("beforeend",`<dl class="project-facts"><div><dt>${tr("project.purpose","Purpose")}</dt><dd>${p.purpose}</dd></div><div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.result","Result")}</dt><dd>${p.result}</dd></div><div><dt>${tr("project.currentState","Current state")}</dt><dd>${p.currentState}</dd></div><div><dt>${tr("project.tech","Technologies")}</dt><dd class="project-tech-slot"></dd></div><div><dt>Source code</dt><dd>${p.sourceStatus||"Public repository"}</dd></div>${p.projectValue?`<div><dt>Project value</dt><dd>${p.projectValue}</dd></div>`:""}${p.year?`<div><dt>${tr("project.year","Year")}</dt><dd>${p.year}</dd></div>`:""}<div><dt>${tr("project.repositories","Links")}</dt><dd class="project-repo-slot"></dd></div></dl>`);body.querySelector(".project-tech-slot").append(techList(p.technologies));const repositories=body.querySelector(".project-repo-slot");if(p.links.length)p.links.forEach(([label,url])=>repositories.append(createLink(label,url)));else repositories.textContent=p.sourceStatus||"Not publicly available";}else{body.append(techList(p.technologies.slice(0,3)));const facts=document.createElement("dl");facts.className="project-facts project-facts-compact";facts.innerHTML=`<div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.currentState","Status")}</dt><dd>${p.currentState}</dd></div>`;body.append(facts);const links=document.createElement("div");links.className="project-links";const caseLink=document.createElement("a");caseLink.href=caseStudyPaths[p.id]||`./projects.html#${p.id}`;caseLink.textContent=`${tr("content.caseStudy","Case Study")} →`;links.append(caseLink);if(p.links[0])links.append(createLink(p.links[0][0],p.links[0][1]));body.append(links);}article.append(body);return article;}
+function createFeaturedCard(source, index, detailed = false) {
+  const project = localized(source);
+  const article = document.createElement("article");
+  article.id = project.id;
+  article.className = "project-card project-card-featured";
+  article.append(createVisual(project));
+
+  const body = document.createElement("div");
+  body.className = "project-card-body";
+  const isPrivate = project.sourceStatus?.startsWith("Private");
+  const isPublic = project.links.some(([, url]) => url.includes("github.com/"));
+  body.insertAdjacentHTML("beforeend", `<div class="project-meta"><span>${String(index + 1).padStart(2, "0")}</span><span class="project-badges"><span>${tr(`status.${project.status}`, project.status)}</span>${isPrivate ? "<span>Private</span>" : isPublic ? "<span>GitHub Public</span>" : ""}</span></div><h3>${project.title}</h3><p class="project-summary">${project.summary}</p>`);
+
+  if (detailed) {
+    body.insertAdjacentHTML("beforeend", `<dl class="project-facts"><div><dt>${tr("project.role", "Role")}</dt><dd>${project.role}</dd></div><div><dt>${tr("project.tech", "Technologies")}</dt><dd class="project-tech-slot"></dd></div><div><dt>${tr("project.currentState", "Status")}</dt><dd>${project.currentState}</dd></div>${project.projectValue ? `<div><dt>${tr("project.value", "Project value")}</dt><dd>${project.projectValue}</dd></div>` : ""}<div><dt>${tr("project.codeAvailability", "Code availability")}</dt><dd class="project-code-slot"></dd></div></dl>`);
+    body.querySelector(".project-tech-slot").append(techList(project.technologies));
+    const code = body.querySelector(".project-code-slot");
+    if (isPrivate) {
+      code.textContent = tr("project.codePrivate", "Private / Not publicly available");
+    } else {
+      const githubLinks = project.links.filter(([, url]) => url.includes("github.com/"));
+      code.append(document.createTextNode(`${tr("project.codePublic", "Public GitHub repository")} `));
+      githubLinks.forEach(([label, url]) => code.append(createLink(label, url)));
+    }
+    if (caseStudyPaths[project.id]) {
+      const links = document.createElement("div");
+      links.className = "project-links";
+      const caseLink = document.createElement("a");
+      caseLink.href = caseStudyPaths[project.id];
+      caseLink.textContent = `${tr("content.caseStudy", "Case Study")} →`;
+      links.append(caseLink);
+      body.append(links);
+    }
+  } else {
+    body.append(techList(project.technologies.slice(0, 3)));
+    const facts = document.createElement("dl");
+    facts.className = "project-facts project-facts-compact";
+    facts.innerHTML = `<div><dt>${tr("project.role", "Role")}</dt><dd>${project.role}</dd></div><div><dt>${tr("project.currentState", "Status")}</dt><dd>${project.currentState}</dd></div>`;
+    body.append(facts);
+    const links = document.createElement("div");
+    links.className = "project-links";
+    const caseLink = document.createElement("a");
+    caseLink.href = caseStudyPaths[project.id] || `./projects.html#${project.id}`;
+    caseLink.textContent = caseStudyPaths[project.id] ? `${tr("content.caseStudy", "Case Study")} →` : `${tr("project.details", "View details")} →`;
+    links.append(caseLink);
+    if (project.links[0]) links.append(createLink(project.links[0][0], project.links[0][1]));
+    body.append(links);
+  }
+  article.append(body);
+  return article;
+}
 
 function createOtherCard(project,index){const article=document.createElement("article");article.className="project-card";article.append(createVisual(project));const body=document.createElement("div");body.className="project-card-body";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr("status.public","Public")}</span></span></div><h3>${project.title}</h3><p class="project-summary">${project.summary}</p>`;body.append(techList(project.technologies));const links=document.createElement("div");links.className="project-links";links.append(createLink("GitHub",project.githubUrl));if(project.demoUrl)links.append(createLink("Demo",project.demoUrl));body.append(links);article.append(body);return article;}
 
-function renderProjects(){const featured=document.getElementById("featured-project-grid"),other=document.getElementById("other-project-grid"),isDetails=document.body.dataset.page==="projects";if(featured){featured.textContent="";const selected=isDetails?featuredProjects:[featuredProjects.find(p=>p.id==="developer-portfolio"),featuredProjects.find(p=>p.id==="corporate-wordpress"),featuredProjects.find(p=>p.id==="next-jobs")].filter(Boolean);selected.forEach((p,i)=>featured.append(createFeaturedCard(p,i,isDetails)));}if(other){other.textContent="";if(apiFallbackUsed){const notice=document.createElement("p");notice.className="project-api-notice";notice.setAttribute("role","status");notice.textContent=tr("projects.apiFallback","GitHub could not be reached. Showing a locally stored list of public projects.");other.append(notice);}otherProjects.forEach((p,i)=>other.append(createOtherCard(p,i)));}}
+function renderProjects(){const featured=document.getElementById("featured-project-grid"),archive=document.getElementById("archive-project-grid"),curated=document.getElementById("curated-public-grid"),other=document.getElementById("other-project-grid"),isDetails=document.body.dataset.page==="projects";if(featured){featured.textContent="";const ids=isDetails?featuredProjectIds:["developer-portfolio","corporate-wordpress","next-jobs","next-ecomm"];ids.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>featured.append(createFeaturedCard(p,i,isDetails)));}if(archive){archive.textContent="";archiveProjectIds.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>archive.append(createFeaturedCard(p,i,true)));}if(curated){curated.textContent="";curatedPublicProjectIds.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>curated.append(createFeaturedCard(p,i,true)));}if(other){other.textContent="";if(apiFallbackUsed){const notice=document.createElement("p");notice.className="project-api-notice";notice.setAttribute("role","status");notice.textContent=tr("projects.apiFallback","GitHub could not be reached. Showing a locally stored list of public projects.");other.append(notice);}otherProjects.forEach((p,i)=>other.append(createOtherCard(p,i)));}}
 function renderSkills(){const container=document.getElementById("skills-grid");if(!container)return;container.textContent="";const translations={ja:{"HTML / CSS":"HTML / CSS","Semantic, accessible, and responsive interface design.":"セマンティックでアクセシブルなレスポンシブUI設計。","Data processing, API integration, and interactive interfaces.":"データ処理、API連携、インタラクティブUI。","Divi, WooCommerce, and paid client websites.":"Divi・WooCommerce・有償クライアント案件。","Version control, GitHub Pages, and public releases.":"バージョン管理、GitHub Pages、公開運用。","Metadata, structure, performance, and internal architecture.":"メタ情報、構造、表示速度、内部設計。","Requirements, implementation support, review, and documentation with human oversight.":"要件整理、実装補助、レビュー、文書化を人が確認する形で活用。"},"zh-TW":{"Semantic, accessible, and responsive interface design.":"語意化、無障礙與響應式介面設計。","Data processing, API integration, and interactive interfaces.":"資料處理、API整合與互動介面。","Divi, WooCommerce, and paid client websites.":"Divi、WooCommerce與付費客戶網站。","Version control, GitHub Pages, and public releases.":"版本控制、GitHub Pages與公開發布。","Metadata, structure, performance, and internal architecture.":"中繼資料、結構、效能與站內架構。","Requirements, implementation support, review, and documentation with human oversight.":"在人工審核下運用於需求整理、實作支援、審查與文件。"}};const grid=document.createElement("div");grid.className="skill-group-grid core-skill-grid";coreSkills.forEach(([name,detail])=>{const card=document.createElement("article");card.className="skill-card skill-card-compact";card.innerHTML=`<h3>${name}</h3><p>${translations[language()]?.[detail]||detail}</p>`;grid.append(card);});const working=document.createElement("p");working.className="skill-line";working.innerHTML=`<strong>${tr("skills.alsoWorking","Also working with:")}</strong> Python / Node.js / SQL / REST APIs / Svelte / Docker`;const creative=document.createElement("p");creative.className="skill-line";creative.innerHTML=`<strong>${tr("skills.creativeBackground","Creative background:")}</strong> Photography / Video / Copywriting / Figma`;container.append(grid,working,creative);}
 
-async function loadOtherProjects(){if(!document.getElementById("other-project-grid"))return;try{const response=await fetch(GITHUB_REPOS_ENDPOINT,{headers:{Accept:"application/vnd.github+json"}});if(!response.ok)throw new Error(response.status);const repos=await response.json();apiFallbackUsed=false;otherProjects=repos.filter(r=>!r.private&&!r.fork&&!featuredRepoNames.has(r.name)).map(r=>({title:r.name,summary:r.description||tr("project.noDescription"),technologies:[r.language,...(r.topics||[])].filter(Boolean),githubUrl:r.html_url,demoUrl:r.homepage||null,image:projectImages[r.name]||null}));renderProjects();}catch(error){console.warn("Public repositories could not be loaded",error);apiFallbackUsed=true;otherProjects=fallbackPublicProjects;renderProjects();}}
+async function loadOtherProjects(){if(!document.getElementById("other-project-grid"))return;try{const response=await fetch(GITHUB_REPOS_ENDPOINT,{headers:{Accept:"application/vnd.github+json"}});if(!response.ok)throw new Error(response.status);const repos=await response.json();apiFallbackUsed=false;otherProjects=repos.filter(r=>!r.private&&!r.fork&&!featuredRepoNames.has(r.name)).map(r=>({title:r.name,summary:manualRepoDescriptions[r.name]?.[language()]||manualRepoDescriptions[r.name]?.en||r.description||tr("project.noDescription"),technologies:[r.language,...(r.topics||[])].filter(Boolean),githubUrl:r.html_url,demoUrl:r.homepage||null,image:projectImages[r.name]||null}));renderProjects();}catch(error){console.warn("Public repositories could not be loaded",error);apiFallbackUsed=true;otherProjects=fallbackPublicProjects.map(project=>({...project,summary:manualRepoDescriptions[project.title]?.[language()]||project.summary}));renderProjects();}}
 function renderAll(){renderSkills();renderProjects();}
 document.addEventListener("DOMContentLoaded",()=>{renderAll();loadOtherProjects();});
 document.addEventListener("languagechange",renderAll);

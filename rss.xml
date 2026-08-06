@@ -6,6 +6,8 @@
     <description>Technical case studies and updates from Koshi.</description>
     <language>ja</language>
     <lastBuildDate>Thu, 06 Aug 2026 00:00:00 +0800</lastBuildDate>
+    <item><title>Corporate Website Case Study</title><link>https://koshijpn.github.io/projects/corporate-website/</link><guid>https://koshijpn.github.io/projects/corporate-website/</guid><pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate><description>企画から公開まで担当した企業Webサイト制作のケーススタディ。</description></item>
+    <item><title>Vouvray Huguet Case Study</title><link>https://koshijpn.github.io/projects/vouvray-huguet/</link><guid>https://koshijpn.github.io/projects/vouvray-huguet/</guid><pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate><description>WordPressとWooCommerceで制作した英仏対応ECサイトのケーススタディ。</description></item>
     <item><title>多言語静的ポートフォリオの設計</title><link>https://koshijpn.github.io/articles/multilingual-static-portfolio/</link><guid>https://koshijpn.github.io/articles/multilingual-static-portfolio/</guid><pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate><description>ビルド不要の構成で、多言語、GitHub API、SEO、障害時表示をどう整理したか。</description></item>
     <item><title>Developer Portfolio Case Study</title><link>https://koshijpn.github.io/projects/portfolio/</link><guid>https://koshijpn.github.io/projects/portfolio/</guid><pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate><description>多言語、GitHub API、SEO、障害時表示を備えた静的ポートフォリオの設計。</description></item>
     <item><title>Next Jobs Case Study</title><link>https://koshijpn.github.io/projects/next-jobs/</link><guid>https://koshijpn.github.io/projects/next-jobs/</guid><pubDate>Thu, 06 Aug 2026 00:00:00 +0800</pubDate><description>SvelteとREST APIで構築した求人検索UI。</description></item>

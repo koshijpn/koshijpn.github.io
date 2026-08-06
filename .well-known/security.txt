@@ -1,5 +1,5 @@
-Contact: https://github.com/koshijpn/koshijpn.github.io/security/advisories/new
-Preferred-Languages: ja, en, zh-TW
+Contact: https://github.com/koshijpn
+Expires: 2027-08-06T00:00:00.000Z
 Canonical: https://koshijpn.github.io/.well-known/security.txt
 Policy: https://github.com/koshijpn/koshijpn.github.io/security/policy
-Expires: 2027-08-06T00:00:00.000Z
+Preferred-Languages: ja, en, zh

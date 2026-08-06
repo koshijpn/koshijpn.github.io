@@ -6,6 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.querySelector(".back-to-top");
   const footer = document.getElementById("footer");
 
+  const ecosystemLinks = [["Koshi", "https://koshijpn.com/"], ["SLEEP LATE LAB", "https://sleeplatelab.com/"]];
+  if (navigation && !navigation.querySelector(".ecosystem-nav")) {
+    const ecosystemNav = document.createElement("div");
+    ecosystemNav.className = "ecosystem-nav";
+    ecosystemNav.setAttribute("aria-label", "Other Koshi websites");
+    ecosystemLinks.forEach(([label, url]) => {
+      const link = document.createElement("a");
+      Object.assign(link, { href: url, textContent: label, target: "_blank", rel: "noopener noreferrer" });
+      ecosystemNav.appendChild(link);
+    });
+    navigation.appendChild(ecosystemNav);
+  }
+
   const closeMenu = (restoreFocus = false) => {
     navigation?.classList.remove("open");
     menuButton?.setAttribute("aria-expanded", "false");
