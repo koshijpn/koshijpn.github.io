@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Koshi | Developer & Engineer Portfolio</title>
-  <meta name="description" content="Developer portfolio of Koshi Sugawara. Explore web development projects, technical skills, GitHub repositories, and contact information.">
+  <title>Koshi | 多言語Web開発・エンジニア ポートフォリオ</title>
+  <meta name="description" content="日本と台湾を中心に、多言語Webサイト、WordPress、JavaScript、Python、API連携に取り組む菅原鴻志の技術ポートフォリオ。">
   <meta name="author" content="Koshi Sugawara">
   <meta name="theme-color" content="#111111">
   <link rel="canonical" href="https://koshijpn.github.io/">
@@ -12,30 +12,32 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://koshijpn.github.io/">
-  <meta property="og:title" content="Koshi | Developer & Engineer Portfolio">
-  <meta property="og:description" content="Web development projects, technical skills, and GitHub repositories by Koshi Sugawara.">
+  <meta property="og:title" content="Koshi | 多言語Web開発・エンジニア ポートフォリオ">
+  <meta property="og:description" content="日本と台湾を中心に取り組む、多言語Web開発と公開プロジェクトの技術ポートフォリオ。">
+  <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="https://koshijpn.github.io/img/og/portfolio-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Koshi Developer Portfolio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Koshi | Developer & Engineer Portfolio">
-  <meta name="twitter:description" content="Web development projects, technical skills, and GitHub repositories by Koshi Sugawara.">
+  <meta name="twitter:title" content="Koshi | 多言語Web開発・エンジニア ポートフォリオ">
+  <meta name="twitter:description" content="日本と台湾を中心に取り組む、多言語Web開発と公開プロジェクトの技術ポートフォリオ。">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="twitter:image" content="https://koshijpn.github.io/img/og/portfolio-og.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "url": "https://koshijpn.github.io/",
-    "name": "Koshi Developer Portfolio",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Koshi Sugawara",
-      "url": "https://koshijpn.github.io/",
-      "sameAs": ["https://github.com/koshijpn"],
-      "knowsAbout": ["Web Development", "WordPress", "JavaScript", "Python", "Responsive Design", "SEO", "APIs"]
-    }
+    "@graph": [
+      {"@type":"Person","@id":"https://koshijpn.github.io/#person","name":"Koshi Sugawara","url":"https://koshijpn.github.io/","sameAs":["https://github.com/koshijpn"],"knowsAbout":["Web Development","WordPress","JavaScript","Python","Responsive Design","SEO","APIs"]},
+      {"@type":"WebSite","@id":"https://koshijpn.github.io/#website","url":"https://koshijpn.github.io/","name":"Koshi Developer Portfolio","inLanguage":["ja","en","zh-Hant"],"publisher":{"@id":"https://koshijpn.github.io/#person"}},
+      {"@type":"ProfilePage","@id":"https://koshijpn.github.io/#webpage","url":"https://koshijpn.github.io/","name":"Koshi | 多言語Web開発・エンジニア ポートフォリオ","isPartOf":{"@id":"https://koshijpn.github.io/#website"},"mainEntity":{"@id":"https://koshijpn.github.io/#person"},"breadcrumb":{"@id":"https://koshijpn.github.io/#breadcrumb"}},
+      {"@type":"BreadcrumbList","@id":"https://koshijpn.github.io/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://koshijpn.github.io/"}]},
+      {"@type":"SoftwareSourceCode","name":"Next Jobs","codeRepository":["https://github.com/koshijpn/next-jobs-frontend","https://github.com/koshijpn/next-jobs-backend"],"programmingLanguage":["Svelte","JavaScript"],"author":{"@id":"https://koshijpn.github.io/#person"}},
+      {"@type":"SoftwareSourceCode","name":"Next Ecomm","codeRepository":["https://github.com/koshijpn/next-ecomm-frontend","https://github.com/koshijpn/next-ecomm-backend"],"programmingLanguage":["Svelte","JavaScript"],"author":{"@id":"https://koshijpn.github.io/#person"}},
+      {"@type":"SoftwareSourceCode","name":"Luno Premium Calculator","codeRepository":"https://github.com/koshijpn/Project_Luno_Premium","programmingLanguage":"JavaScript","author":{"@id":"https://koshijpn.github.io/#person"}},
+      {"@type":"SoftwareSourceCode","name":"Developer Portfolio","codeRepository":"https://github.com/koshijpn/koshijpn.github.io","runtimePlatform":"GitHub Pages","programmingLanguage":["HTML","CSS","JavaScript"],"author":{"@id":"https://koshijpn.github.io/#person"}}
+    ]
   }
   </script>
 
@@ -61,6 +63,7 @@
         <li><a href="#career" data-i18n="nav.career">Experience</a></li>
         <li><a href="#other-projects" data-i18n="nav.otherProjects">Other Projects</a></li>
         <li><a href="#certifications" data-i18n="nav.certifications">Credentials</a></li>
+        <li><a href="#insights" data-i18n="nav.insights">Articles / Case Studies</a></li>
         <li><a href="#github" data-i18n="nav.github">GitHub</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -140,7 +143,7 @@
       </div>
       <div class="career-groups content-width">
         <section><h3 data-i18n="career.education">Education</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013b">飛鳥未来高等学校 卒業</p></div></li><li class="career-item"><time class="career-year">2024</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2024">大手前大学 卒業・学士（学術）／心理学メジャー</p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026a">北海道情報大学 在学中・卒業に向けて履修中</p><p data-i18n="career.2026c">文藻外語大学 国際企業管理系修士課程 入学予定</p></div></li></ol></section>
-        <section><h3 data-i18n="career.professional">Professional &amp; Projects</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2021</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2021">Sleep Late Lab設立</p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022a">革製品販売を開始</p></div></li></ol></section>
+        <section><h3 data-i18n="career.professional">Professional &amp; Projects</h3><ol class="career-timeline"><li class="career-item"><time class="career-year">2021</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2021">Sleep Late Lab設立</p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022a">革製品販売を開始</p></div></li><li class="career-item"><time class="career-year">実務</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.clientWeb">企業Webサイトの企画・WordPress制作・レスポンシブ対応・SEO整備を担当（守秘義務により社名非公開）</p></div></li></ol></section>
         <details class="career-more"><summary data-i18n="career.international">International Learning</summary><ol class="career-timeline"><li class="career-item"><time class="career-year">2013</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2013a"></p></div></li><li class="career-item"><time class="career-year">2018</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2018"></p></div></li><li class="career-item"><time class="career-year">2020</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2020b"></p><p data-i18n="career.2020c"></p></div></li><li class="career-item"><time class="career-year">2022</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2022b"></p></div></li><li class="career-item"><time class="career-year">2023</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2023a"></p><p data-i18n="career.2023b"></p></div></li><li class="career-item"><time class="career-year">2026</time><span class="career-dot"></span><div class="career-copy"><p data-i18n="career.2026b"></p></div></li></ol></details>
       </div>
     </section>
@@ -164,10 +167,23 @@
       <div class="content-width"><div class="featured-credentials" id="featured-credentials"></div><details class="all-credentials"><summary data-i18n="certifications.viewAll">View all credentials</summary><div class="certification-groups" id="certification-groups"></div></details></div>
     </section>
 
+    <section class="section" id="insights" aria-labelledby="insights-title">
+      <div class="section-heading"><span class="heading-line"></span><p>07</p><h2 id="insights-title" data-i18n="section.insights">Technical Articles &amp; Case Studies</h2></div>
+      <p class="section-intro content-width" data-i18n="insights.intro">Technical notes and case studies will connect implementation decisions with project outcomes.</p>
+      <div class="content-grid content-width" id="content-grid"></div>
+      <nav class="commercial-path content-width" aria-label="Commercial project path" data-i18n-aria-label="insights.pathLabel">
+        <a href="#featured-projects" data-i18n="insights.project">Project</a><span aria-hidden="true">→</span>
+        <a href="#insights" data-i18n="insights.caseStudy">Case Study</a><span aria-hidden="true">→</span>
+        <a href="https://sleeplatelab.com/services/" target="_blank" rel="noopener noreferrer">Services ↗</a><span aria-hidden="true">→</span>
+        <a href="https://sleeplatelab.com/pricing/" target="_blank" rel="noopener noreferrer">Pricing ↗</a><span aria-hidden="true">→</span>
+        <a href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer">Contact ↗</a>
+      </nav>
+    </section>
+
     <section class="section github-section" id="github" aria-labelledby="github-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>07</p>
+        <p>08</p>
         <h2 id="github-title">GitHub</h2>
       </div>
       <div class="github-panel content-width">
@@ -179,22 +195,25 @@
       </div>
     </section>
 
-    <section class="section" id="beyond-code" aria-labelledby="beyond-code-title"><div class="section-heading"><span class="heading-line"></span><p>08</p><h2 id="beyond-code-title" data-i18n="section.beyond">Beyond Code</h2></div><div class="beyond-panel content-width"><p data-i18n="beyond.body">Photography, video, writing, and independent brand work inform how I design web experiences.</p><div class="contact-links"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a></div></div></section>
+    <section class="section" id="beyond-code" aria-labelledby="beyond-code-title"><div class="section-heading"><span class="heading-line"></span><p>09</p><h2 id="beyond-code-title" data-i18n="section.beyond">Beyond Code</h2></div><div class="beyond-panel content-width"><p data-i18n="beyond.body">Photography, video, writing, and independent brand work inform how I design web experiences.</p><div class="contact-links"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a></div></div></section>
 
     <section class="section contact-section" id="contact" aria-labelledby="contact-title">
       <div class="section-heading">
         <span class="heading-line"></span>
-        <p>09</p>
+        <p>10</p>
         <h2 id="contact-title" data-i18n="section.contact">Contact</h2>
       </div>
       <div class="contact-panel content-width">
         <p class="lead" data-i18n="contact.lead">Have a project or collaboration in mind?</p>
-        <p data-i18n="contact.body">Connect with me through GitHub or LinkedIn.</p>
+        <p data-i18n="contact.body">Technical discussion is welcome on GitHub. Commercial projects are handled through SLEEP LATE LAB.</p>
         <div class="availability"><h3 data-i18n="contact.available">Available for</h3><ul><li data-i18n="contact.web">Web development</li><li data-i18n="contact.static">Static site projects</li><li data-i18n="contact.wordpress">WordPress migration</li><li data-i18n="contact.multilingual">Multilingual content</li><li data-i18n="contact.collaboration">Technical collaboration</li></ul></div>
         <div class="contact-links">
           <a href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://bit.ly/koshi-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">koshijpn.com</a>
+          <a href="https://sleeplatelab.com/services/" target="_blank" rel="noopener noreferrer">Services</a>
+          <a href="https://sleeplatelab.com/pricing/" target="_blank" rel="noopener noreferrer">Pricing</a>
+          <a href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer" data-i18n="contact.emailInquiry">メール相談（SLEEP LATE LAB）</a>
         </div>
       </div>
     </section>
@@ -205,6 +224,7 @@
 
   <script src="./js/projects.js"></script>
   <script src="./js/certifications.js"></script>
+  <script src="./js/content.js"></script>
   <script src="./js/i18n.js"></script>
   <script src="./js/main.js"></script>
 </body>
