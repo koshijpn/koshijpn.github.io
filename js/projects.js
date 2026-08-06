@@ -1,21 +1,78 @@
-// Featured case studies are curated manually. Other cards come from GitHub's
-// public API; private repositories are never requested or rendered.
+// Curated work may include public repositories, confidential client work, and
+// legacy sites. Only the automatic GitHub feed is restricted to public repos.
 const GITHUB_USER = "koshijpn";
 const GITHUB_REPOS_ENDPOINT = `https://api.github.com/users/${GITHUB_USER}/repos?type=public&sort=pushed&per_page=100`;
 
 const featuredProjects = [
   {
+    id: "corporate-wordpress", title: "Corporate Website", image: null,
+    summary: "A paid corporate website delivered from planning through launch.",
+    purpose: "Organize existing business information and deliver a responsive corporate website.",
+    role: "Planning / Information architecture / WordPress development / Responsive implementation / Basic SEO / Launch",
+    result: "Delivered the agreed corporate website scope from planning through production release.",
+    currentState: "Published client project · Client and URL confidential",
+    technologies: ["WordPress", "Responsive Web Design", "SEO"], status: "client",
+    sourceStatus: "Private / Not publicly available", projectValue: "¥300,000 + tax", year: "Confidential",
+    links: [],
+    translations: {
+      ja: { summary: "企画から公開まで担当した、有償の企業Webサイト制作。", purpose: "既存情報を整理し、スマートフォンに対応した企業サイトを構築すること。", role: "企画 / 情報設計 / WordPress実装 / モバイル対応 / 基本SEO / 公開", result: "合意した制作範囲に沿って、企画から本番公開まで一貫して担当。", currentState: "公開済みクライアント案件・社名とURLは非公開", sourceStatus: "Private / 一般公開なし", year: "非公開" },
+      "zh-TW": { summary: "從企劃到上線全程負責的付費企業網站專案。", purpose: "整理既有企業資訊，建立支援行動裝置的企業網站。", role: "企劃 / 資訊架構 / WordPress 實作 / 行動版 / 基礎 SEO / 上線", result: "依約定範圍完成從企劃到正式上線的工作。", currentState: "已上線客戶專案・公司名稱與網址不公開", sourceStatus: "Private / 不公開", year: "不公開" }
+    }
+  },
+  {
+    id: "photographer-koshi", title: "Photographer Koshi", image: null,
+    summary: "A legacy photography portfolio built with WordPress and Divi.",
+    purpose: "Present large-format photography and make individual series easy to explore.",
+    role: "Planning / Information architecture / Design / WordPress development",
+    result: "Built a restrained, image-led portfolio with clear navigation between photography series.",
+    currentState: "Legacy website · Archive",
+    technologies: ["WordPress", "Divi", "Responsive Web Design"], status: "legacy",
+    sourceStatus: "Private / Not publicly available", year: "2023", links: [],
+    translations: {
+      ja: { summary: "写真作品を大きく見せるために制作したWordPress・Diviベースの旧ポートフォリオ。", purpose: "写真を大きく見せ、各シリーズを探しやすくすること。", role: "企画 / 情報設計 / デザイン / WordPress実装", result: "落ち着いた配色と明確な導線を備えた写真中心のサイトを構築。", currentState: "旧サイト・アーカイブ", sourceStatus: "Private / 一般公開なし" },
+      "zh-TW": { summary: "以 WordPress 與 Divi 製作的舊版攝影作品集。", purpose: "以大型影像呈現作品，並讓訪客容易探索各系列。", role: "企劃 / 資訊架構 / 設計 / WordPress 實作", result: "完成具有沉穩配色與清楚系列導覽的攝影網站。", currentState: "舊網站・典藏", sourceStatus: "Private / 不公開" }
+    }
+  },
+  {
+    id: "vouvray-huguet", title: "Vouvray Huguet", image: null,
+    summary: "A bilingual e-commerce website developed for a French winery.",
+    purpose: "Present winery information in English and French and organize products into a usable online shop.",
+    role: "Web development / WordPress implementation / Divi customization / Shop pages",
+    result: "Implemented the Home, About, and Shop areas with categorized wine products and multilingual content.",
+    currentState: "Legacy client website",
+    technologies: ["WordPress", "Divi", "WooCommerce", "Multilingual Content"], status: "client",
+    sourceStatus: "Private / Not publicly available", year: "2021", links: [],
+    translations: {
+      ja: { summary: "フランスのワイナリー向けに開発した英語・フランス語対応のECサイト。", purpose: "ワイナリー情報を英語・フランス語で伝え、商品を分類して購入できる構成をつくること。", role: "Web開発 / WordPress実装 / Diviカスタマイズ / 商品ページ構築", result: "Home、About、Shopを実装し、ワインの商品分類と多言語コンテンツを整備。", currentState: "クライアント案件・旧サイト", sourceStatus: "Private / 一般公開なし" },
+      "zh-TW": { summary: "為法國酒莊開發的英法雙語電商網站。", purpose: "以英語與法語呈現酒莊資訊，並建立可分類瀏覽及購買商品的商店。", role: "網站開發 / WordPress 實作 / Divi 客製 / 商店頁面", result: "完成 Home、About、Shop，並整理葡萄酒商品分類與多語言內容。", currentState: "客戶專案・舊網站", sourceStatus: "Private / 不公開" }
+    }
+  },
+  {
+    id: "sleep-late-lab-legacy", title: "SLEEP LATE LAB — First Website", image: null,
+    summary: "The first SLEEP LATE LAB website, built to communicate its early business activities.",
+    purpose: "Create a compact business website connected to the studio's printed identity and QR-based contact path.",
+    role: "Planning / Information architecture / Design / WordPress development",
+    result: "Published a minimal site presenting the studio's early leather-goods and web-development activities.",
+    currentState: "Legacy website · Archive",
+    technologies: ["WordPress", "Divi", "Responsive Web Design"], status: "legacy",
+    sourceStatus: "Private / Not publicly available", year: "2021", links: [],
+    translations: {
+      ja: { summary: "初期の事業内容を伝えるために制作した、SLEEP LATE LABの最初のWebサイト。", purpose: "印刷物のブランド表現とQRコードの問い合わせ導線をつなぐ、簡潔な事業サイトをつくること。", role: "企画 / 情報設計 / デザイン / WordPress実装", result: "革製品とWeb開発を扱っていた初期の活動内容を、ミニマルな構成で公開。", currentState: "旧サイト・アーカイブ", sourceStatus: "Private / 一般公開なし" },
+      "zh-TW": { summary: "為呈現早期業務而製作的 SLEEP LATE LAB 初代網站。", purpose: "建立連結印刷品牌識別與 QR Code 聯絡流程的精簡商業網站。", role: "企劃 / 資訊架構 / 設計 / WordPress 實作", result: "以極簡架構公開早期皮革製品與網站開發業務。", currentState: "舊網站・典藏", sourceStatus: "Private / 不公開" }
+    }
+  },
+  {
     id: "next-jobs", title: "Next Jobs", image: ["./img/projects/next-jobs.png", 1080, 675],
-    summary: "A Svelte interface for searching and reviewing job opportunities.",
-    purpose: "Make API-delivered job information easier to browse through a focused, responsive interface.",
-    role: "UI design / API integration / Front-end implementation",
-    result: "Implemented a responsive job-list interface with separated front-end and back-end repositories.",
+    summary: "A SvelteKit job-listing interface connected to a PocketBase API.",
+    purpose: "Make PocketBase job data easier to browse through a focused, responsive interface.",
+    role: "UI design / SvelteKit front-end / PocketBase API integration",
+    result: "Implemented responsive job-listing flows with a SvelteKit front-end and PocketBase endpoints.",
     currentState: "Public portfolio prototype",
-    technologies: ["Svelte", "JavaScript", "REST API", "Docker"], status: "prototype",
+    technologies: ["SvelteKit", "Svelte", "PocketBase API"], status: "prototype",
     links: [["Frontend", "https://github.com/koshijpn/next-jobs-frontend"], ["Backend", "https://github.com/koshijpn/next-jobs-backend"]],
     translations: {
-      ja: { summary: "求人情報を検索・閲覧するためのSvelteフロントエンド。", purpose: "APIから取得した求人情報を、条件検索とレスポンシブUIで見やすく提示します。", role: "UI設計 / API連携 / フロントエンド実装", result: "フロントエンドとバックエンドを分離し、レスポンシブな求人一覧UIを実装。", currentState: "公開ポートフォリオ用プロトタイプ" },
-      "zh-TW": { summary: "用於搜尋與瀏覽職缺資訊的Svelte前端。", purpose: "以條件搜尋與響應式介面，清楚呈現API取得的職缺資料。", role: "UI設計 / API整合 / 前端實作", result: "完成前後端分離及響應式職缺列表介面。", currentState: "公開作品集原型" }
+      ja: { summary: "PocketBase APIと接続するSvelteKit製の求人一覧インターフェース。", purpose: "PocketBaseから取得した求人情報を、レスポンシブUIで見やすく提示します。", role: "UI設計 / SvelteKitフロントエンド / PocketBase API連携", result: "SvelteKitとPocketBase endpointsを用いて、レスポンシブな求人一覧導線を実装。", currentState: "公開ポートフォリオ用プロトタイプ" },
+      "zh-TW": { summary: "連接 PocketBase API 的 SvelteKit 職缺列表介面。", purpose: "以響應式介面清楚呈現 PocketBase 提供的職缺資料。", role: "UI設計 / SvelteKit 前端 / PocketBase API 整合", result: "以 SvelteKit 與 PocketBase endpoints 完成響應式職缺列表流程。", currentState: "公開作品集原型" }
     }
   },
   {
@@ -47,7 +104,7 @@ const featuredProjects = [
     }
   },
   {
-    id: "developer-portfolio", title: "Developer Portfolio", image: ["./img/projects/developer-portfolio.png", 1024, 423],
+    id: "developer-portfolio", title: "Developer Portfolio", image: ["./img/projects/developer-portfolio.jpg", 1265, 712],
     summary: "This multilingual, responsive portfolio for GitHub Pages.",
     purpose: "Present public development work clearly across languages without a build step.",
     role: "Information architecture / Design / Development / SEO / Release",
@@ -83,19 +140,30 @@ const detailTranslations = {
 
 let otherProjects = [];
 let apiFallbackUsed = false;
-const tr = (key, fallback = key) => window.getTranslation?.(key) || fallback;
+const projectUiLabels = {
+  en: { "status.client": "Client Work", "status.legacy": "Legacy" },
+  ja: { "status.client": "クライアント案件", "status.legacy": "旧サイト" },
+  "zh-TW": { "status.client": "客戶專案", "status.legacy": "舊網站" }
+};
+const tr = (key, fallback = key) => window.getTranslation?.(key) || projectUiLabels[language()]?.[key] || fallback;
 const language = () => window.getCurrentLanguage?.() || "ja";
-const localized = (project) => ({ ...project, ...(project.translations?.[language()] || {}) });
+const projectSummaryKeys = {"corporate-wordpress":"project.corporate","photographer-koshi":"project.photographer","next-jobs":"project.jobs","next-ecomm":"project.ecommerce","luno-premium":"project.luno","developer-portfolio":"project.portfolio"};
+const localized = (project) => {
+  const direct = project.translations?.[language()];
+  if (direct) return { ...project, ...direct };
+  const summaryKey = projectSummaryKeys[project.id];
+  return { ...project, summary: summaryKey ? tr(summaryKey, project.summary) : project.summary };
+};
 
 function createLink(label, url) { const a=document.createElement("a"); a.href=url; a.target="_blank"; a.rel="noopener noreferrer"; a.textContent=`${label} ↗`; return a; }
 function createVisual(project) { const v=document.createElement("div"); v.className="project-visual project-visual-placeholder"; if(project.image){const [src,w,h]=project.image;const img=document.createElement("img");img.src=src;img.width=w;img.height=h;img.loading="lazy";img.decoding="async";img.alt=`${project.title} ${language()==="ja"?"プロジェクト画面":language()==="zh-TW"?"專案畫面":"project preview"}`;v.classList.remove("project-visual-placeholder");v.append(img);}else{v.setAttribute("aria-hidden","true");v.textContent=project.title.slice(0,2).toUpperCase();}return v; }
 function techList(items){const ul=document.createElement("ul");ul.className="tech-list";items.forEach(x=>{const li=document.createElement("li");li.textContent=x;ul.append(li);});return ul;}
 
-function createFeaturedCard(source,index,detailed=false){const p=localized(source),article=document.createElement("article");article.id=p.id;article.className="project-card project-card-featured";article.append(createVisual(p));const body=document.createElement("div");body.className="project-card-body";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr(`status.${p.status}`,p.status)}</span></span></div><h3>${p.title}</h3><p class="project-summary">${p.summary}</p>`;if(detailed){body.insertAdjacentHTML("beforeend",`<dl class="project-facts"><div><dt>${tr("project.purpose","Purpose")}</dt><dd>${p.purpose}</dd></div><div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.result","Result")}</dt><dd>${p.result}</dd></div><div><dt>${tr("project.currentState","Current state")}</dt><dd>${p.currentState}</dd></div><div><dt>${tr("project.tech","Technologies")}</dt><dd class="project-tech-slot"></dd></div><div><dt>${tr("project.repositories","Repositories")}</dt><dd class="project-repo-slot"></dd></div></dl>`);body.querySelector(".project-tech-slot").append(techList(p.technologies));const repositories=body.querySelector(".project-repo-slot");p.links.forEach(([label,url])=>repositories.append(createLink(label,url)));}else{body.append(techList(p.technologies.slice(0,3)));const facts=document.createElement("dl");facts.className="project-facts project-facts-compact";facts.innerHTML=`<div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.currentState","Status")}</dt><dd>${p.currentState}</dd></div>`;body.append(facts);const links=document.createElement("div");links.className="project-links";const caseLink=document.createElement("a");caseLink.href=caseStudyPaths[p.id]||`./projects.html#${p.id}`;caseLink.textContent=`${tr("content.caseStudy","Case Study")} →`;links.append(caseLink,createLink("GitHub",p.links[0][1]));body.append(links);}article.append(body);return article;}
+function createFeaturedCard(source,index,detailed=false){const p=localized(source),article=document.createElement("article");article.id=p.id;article.className="project-card project-card-featured";article.append(createVisual(p));const body=document.createElement("div");body.className="project-card-body";const sourceBadge=p.sourceStatus?.startsWith("Private")?"Private":p.links.some(([,url])=>url.includes("github.com/"))?"GitHub Public":"";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr(`status.${p.status}`,p.status)}</span>${sourceBadge?`<span>${sourceBadge}</span>`:""}</span></div><h3>${p.title}</h3><p class="project-summary">${p.summary}</p>`;if(detailed){body.insertAdjacentHTML("beforeend",`<dl class="project-facts"><div><dt>${tr("project.purpose","Purpose")}</dt><dd>${p.purpose}</dd></div><div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.result","Result")}</dt><dd>${p.result}</dd></div><div><dt>${tr("project.currentState","Current state")}</dt><dd>${p.currentState}</dd></div><div><dt>${tr("project.tech","Technologies")}</dt><dd class="project-tech-slot"></dd></div><div><dt>Source code</dt><dd>${p.sourceStatus||"Public repository"}</dd></div>${p.projectValue?`<div><dt>Project value</dt><dd>${p.projectValue}</dd></div>`:""}${p.year?`<div><dt>${tr("project.year","Year")}</dt><dd>${p.year}</dd></div>`:""}<div><dt>${tr("project.repositories","Links")}</dt><dd class="project-repo-slot"></dd></div></dl>`);body.querySelector(".project-tech-slot").append(techList(p.technologies));const repositories=body.querySelector(".project-repo-slot");if(p.links.length)p.links.forEach(([label,url])=>repositories.append(createLink(label,url)));else repositories.textContent=p.sourceStatus||"Not publicly available";}else{body.append(techList(p.technologies.slice(0,3)));const facts=document.createElement("dl");facts.className="project-facts project-facts-compact";facts.innerHTML=`<div><dt>${tr("project.role","Role")}</dt><dd>${p.role}</dd></div><div><dt>${tr("project.currentState","Status")}</dt><dd>${p.currentState}</dd></div>`;body.append(facts);const links=document.createElement("div");links.className="project-links";const caseLink=document.createElement("a");caseLink.href=caseStudyPaths[p.id]||`./projects.html#${p.id}`;caseLink.textContent=`${tr("content.caseStudy","Case Study")} →`;links.append(caseLink);if(p.links[0])links.append(createLink(p.links[0][0],p.links[0][1]));body.append(links);}article.append(body);return article;}
 
 function createOtherCard(project,index){const article=document.createElement("article");article.className="project-card";article.append(createVisual(project));const body=document.createElement("div");body.className="project-card-body";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr("status.public","Public")}</span></span></div><h3>${project.title}</h3><p class="project-summary">${project.summary}</p>`;body.append(techList(project.technologies));const links=document.createElement("div");links.className="project-links";links.append(createLink("GitHub",project.githubUrl));if(project.demoUrl)links.append(createLink("Demo",project.demoUrl));body.append(links);article.append(body);return article;}
 
-function renderProjects(){const featured=document.getElementById("featured-project-grid"),other=document.getElementById("other-project-grid"),isDetails=document.body.dataset.page==="projects";if(featured){featured.textContent="";const selected=isDetails?featuredProjects:[featuredProjects[3],featuredProjects[0],featuredProjects[1]];selected.forEach((p,i)=>featured.append(createFeaturedCard(p,i,isDetails)));}if(other){other.textContent="";if(apiFallbackUsed){const notice=document.createElement("p");notice.className="project-api-notice";notice.setAttribute("role","status");notice.textContent=tr("projects.apiFallback","GitHub could not be reached. Showing a locally stored list of public projects.");other.append(notice);}otherProjects.forEach((p,i)=>other.append(createOtherCard(p,i)));}}
+function renderProjects(){const featured=document.getElementById("featured-project-grid"),other=document.getElementById("other-project-grid"),isDetails=document.body.dataset.page==="projects";if(featured){featured.textContent="";const selected=isDetails?featuredProjects:[featuredProjects.find(p=>p.id==="developer-portfolio"),featuredProjects.find(p=>p.id==="corporate-wordpress"),featuredProjects.find(p=>p.id==="next-jobs")].filter(Boolean);selected.forEach((p,i)=>featured.append(createFeaturedCard(p,i,isDetails)));}if(other){other.textContent="";if(apiFallbackUsed){const notice=document.createElement("p");notice.className="project-api-notice";notice.setAttribute("role","status");notice.textContent=tr("projects.apiFallback","GitHub could not be reached. Showing a locally stored list of public projects.");other.append(notice);}otherProjects.forEach((p,i)=>other.append(createOtherCard(p,i)));}}
 function renderSkills(){const container=document.getElementById("skills-grid");if(!container)return;container.textContent="";const translations={ja:{"HTML / CSS":"HTML / CSS","Semantic, accessible, and responsive interface design.":"セマンティックでアクセシブルなレスポンシブUI設計。","Data processing, API integration, and interactive interfaces.":"データ処理、API連携、インタラクティブUI。","Divi, WooCommerce, and paid client websites.":"Divi・WooCommerce・有償クライアント案件。","Version control, GitHub Pages, and public releases.":"バージョン管理、GitHub Pages、公開運用。","Metadata, structure, performance, and internal architecture.":"メタ情報、構造、表示速度、内部設計。","Requirements, implementation support, review, and documentation with human oversight.":"要件整理、実装補助、レビュー、文書化を人が確認する形で活用。"},"zh-TW":{"Semantic, accessible, and responsive interface design.":"語意化、無障礙與響應式介面設計。","Data processing, API integration, and interactive interfaces.":"資料處理、API整合與互動介面。","Divi, WooCommerce, and paid client websites.":"Divi、WooCommerce與付費客戶網站。","Version control, GitHub Pages, and public releases.":"版本控制、GitHub Pages與公開發布。","Metadata, structure, performance, and internal architecture.":"中繼資料、結構、效能與站內架構。","Requirements, implementation support, review, and documentation with human oversight.":"在人工審核下運用於需求整理、實作支援、審查與文件。"}};const grid=document.createElement("div");grid.className="skill-group-grid core-skill-grid";coreSkills.forEach(([name,detail])=>{const card=document.createElement("article");card.className="skill-card skill-card-compact";card.innerHTML=`<h3>${name}</h3><p>${translations[language()]?.[detail]||detail}</p>`;grid.append(card);});const working=document.createElement("p");working.className="skill-line";working.innerHTML=`<strong>${tr("skills.alsoWorking","Also working with:")}</strong> Python / Node.js / SQL / REST APIs / Svelte / Docker`;const creative=document.createElement("p");creative.className="skill-line";creative.innerHTML=`<strong>${tr("skills.creativeBackground","Creative background:")}</strong> Photography / Video / Copywriting / Figma`;container.append(grid,working,creative);}
 
 async function loadOtherProjects(){if(!document.getElementById("other-project-grid"))return;try{const response=await fetch(GITHUB_REPOS_ENDPOINT,{headers:{Accept:"application/vnd.github+json"}});if(!response.ok)throw new Error(response.status);const repos=await response.json();apiFallbackUsed=false;otherProjects=repos.filter(r=>!r.private&&!r.fork&&!featuredRepoNames.has(r.name)).map(r=>({title:r.name,summary:r.description||tr("project.noDescription"),technologies:[r.language,...(r.topics||[])].filter(Boolean),githubUrl:r.html_url,demoUrl:r.homepage||null,image:projectImages[r.name]||null}));renderProjects();}catch(error){console.warn("Public repositories could not be loaded",error);apiFallbackUsed=true;otherProjects=fallbackPublicProjects;renderProjects();}}
