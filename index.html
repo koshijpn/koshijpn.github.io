@@ -14,7 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="description" content="Koshi SugawaraのWeb Developer Portfolio。多言語Webサイト、WordPress、JavaScript、React、AI支援開発、SEOの実績と公開コードを紹介します。">
   <meta name="author" content="Koshi Sugawara">
   <meta name="theme-color" content="#111111">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms 'sha256-oa9GB1YkAXCXiHPQDvGs0Y/HKPZ9YWPOlVtgk8cOnJc='; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://koshijpn.com https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms 'sha256-oa9GB1YkAXCXiHPQDvGs0Y/HKPZ9YWPOlVtgk8cOnJc='; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self' https://koshijpn.com; upgrade-insecure-requests">
   <link rel="canonical" href="https://koshijpn.github.io/">
   <link rel="icon" type="image/png" href="./img/logo.png">
   <link rel="manifest" href="./manifest.webmanifest">
@@ -56,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- Analytics is managed only through Google Tag Manager. -->
+  <!-- Analytics is initialized once by the shared script; GTM remains available for events. -->
 </head>
 <body data-page="home">
   <!-- Google Tag Manager (noscript) -->
@@ -77,7 +77,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
         <li><a href="#career" data-i18n="nav.career">Experience</a></li>
         <li><a href="#github" data-i18n="nav.github">GitHub</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="./contact/" data-i18n="nav.contact">Contact</a></li>
         <li class="ecosystem-nav" aria-label="Other Koshi websites"><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">Koshi</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">SLEEP LATE LAB</a></li>
       </ul>
       <label class="language-control" for="language-select">
@@ -143,6 +143,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </dl>
           <p class="about-creative" data-i18n="about.creative">写真、映像、コピーライティングなどの制作経験を、Webの情報設計とビジュアル表現に活かしています。</p>
           <a class="text-link" href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer" data-i18n="about.personalWork">Personal work → koshijpn.com</a>
+          <a class="text-link" href="./contact/">Development / Collaboration inquiry →</a>
         </div>
       </div>
     </section>
@@ -194,6 +195,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p data-i18n="contact.body">Technical discussion is welcome on GitHub. Commercial projects are handled through SLEEP LATE LAB.</p>
         <dl class="contact-trust"><div><dt data-i18n="contact.replyLabel">返信目安</dt><dd data-i18n="contact.reply">通常2〜3営業日以内</dd></div><div><dt data-i18n="contact.modeLabel">対応形式</dt><dd data-i18n="contact.mode">リモート協業</dd></div><div><dt data-i18n="contact.regionLabel">対応地域</dt><dd data-i18n="contact.region">日本・台湾・Worldwide</dd></div></dl>
         <div class="contact-primary-actions">
+          <a class="button button-dark" href="./contact/" data-track="contact_click">お問い合わせフォーム</a>
           <a class="button button-dark" href="https://www.linkedin.com/in/koshi-sugawara" target="_blank" rel="noopener noreferrer" data-track="linkedin_click">LinkedIn</a>
           <a class="button button-outline-dark" href="https://github.com/koshijpn" target="_blank" rel="noopener noreferrer" data-i18n="contact.githubCta" data-track="github_click">GitHubを見る</a>
           <a class="button button-outline-dark" href="https://sleeplatelab.com/contact/?type=project" target="_blank" rel="noopener noreferrer" data-i18n="contact.commercialCta" data-track="contact_click">商用プロジェクトを相談する</a>
@@ -204,7 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </main>
 
   <a class="back-to-top" href="#home" aria-label="Back to top" data-i18n-aria-label="a11y.backTop">↑</a>
-  <footer class="site-footer-groups"><div><strong>Explore</strong><a href="./projects.html">Projects</a><a href="./case-study/">Case Studies</a><a href="./articles/">Articles</a></div><div><strong>Elsewhere</strong><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">Personal — koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">Business — SLEEP LATE LAB</a><a href="https://www.linkedin.com/in/koshi-sugawara" target="_blank" rel="noopener noreferrer">Professional — LinkedIn</a></div><div><strong>Site</strong><a href="./privacy.html">Privacy</a><a href="https://github.com/koshijpn/koshijpn.github.io/security/policy" target="_blank" rel="noopener noreferrer">Security Policy</a><a href="./sitemap.xml">Sitemap</a></div><p id="footer"></p></footer>
+  <footer class="site-footer-groups"><div><strong>Explore</strong><a href="./projects.html">Projects</a><a href="./case-study/">Case Studies</a><a href="./articles/">Articles</a><a href="./contact/">Contact</a></div><div><strong>Elsewhere</strong><a href="https://koshijpn.com/" target="_blank" rel="noopener noreferrer">Personal — koshijpn.com</a><a href="https://sleeplatelab.com/" target="_blank" rel="noopener noreferrer">Business — SLEEP LATE LAB</a><a href="https://www.linkedin.com/in/koshi-sugawara" target="_blank" rel="noopener noreferrer">Professional — LinkedIn</a></div><div><strong>Site</strong><a href="./privacy.html">Privacy</a><a href="https://github.com/koshijpn/koshijpn.github.io/security/policy" target="_blank" rel="noopener noreferrer">Security Policy</a><a href="./sitemap.xml">Sitemap</a></div><p id="footer"></p></footer>
 
   <script src="./js/projects.js?v=20260806d"></script>
   <script src="./js/github.js?v=20260806"></script>

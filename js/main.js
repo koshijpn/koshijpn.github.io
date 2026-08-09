@@ -4,7 +4,7 @@
   const containerId = "GTM-T6BQ47G3";
   const measurementId = "G-ZKZNCJZ6DF";
   const clarityId = "xy6zsg56uc";
-  const csp = "default-src 'self'; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
+  const csp = "default-src 'self'; connect-src 'self' https://koshijpn.com https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self' https://koshijpn.com; upgrade-insecure-requests";
   if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
     const policy = document.createElement("meta");
     policy.httpEquiv = "Content-Security-Policy";
@@ -51,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const navigation = document.querySelector(".site-nav");
   const backToTop = document.querySelector(".back-to-top");
   const footer = document.getElementById("footer");
+
+  document.querySelectorAll('a[href="#contact"], a[href$="index.html#contact"]').forEach((link) => {
+    link.href = new URL('/contact/', window.location.origin).href;
+  });
 
   const ecosystemLinks = [["Koshi", "https://koshijpn.com/"], ["SLEEP LATE LAB", "https://sleeplatelab.com/"]];
   if (navigation && !navigation.querySelector(".ecosystem-nav")) {
@@ -113,6 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (footer) footer.textContent = `© ${new Date().getFullYear()} KOSHI. All Rights Reserved.`;
 
   document.querySelectorAll("footer nav, .site-footer-groups > div:last-of-type").forEach((nav) => {
+    if (!nav.querySelector('a[href$="/contact/"]')) {
+      const contactLink = document.createElement("a");
+      contactLink.href = "/contact/";
+      contactLink.textContent = "Contact";
+      nav.append(contactLink);
+    }
     [["Terms", "/terms.html"], ["Affiliate Disclosure", "/affiliate-disclosure.html"]].forEach(([label, href]) => {
       if (nav.querySelector(`a[href$="${href.replace('/', '')}"]`)) return;
       const link = document.createElement("a");

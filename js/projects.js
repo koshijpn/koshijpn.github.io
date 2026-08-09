@@ -238,7 +238,36 @@ function createFeaturedCard(source, index, detailed = false) {
   return article;
 }
 
-function createOtherCard(project,index){const article=document.createElement("article");article.className="project-card";article.append(createVisual(project));const body=document.createElement("div");body.className="project-card-body";body.innerHTML=`<div class="project-meta"><span>${String(index+1).padStart(2,"0")}</span><span class="project-badges"><span>${tr("status.public","Public")}</span></span></div><h3>${project.title}</h3><p class="project-summary">${project.summary}</p>`;body.append(techList(project.technologies));const links=document.createElement("div");links.className="project-links";links.append(createLink("GitHub",project.githubUrl));if(project.demoUrl)links.append(createLink("Demo",project.demoUrl));body.append(links);article.append(body);return article;}
+function createOtherCard(project,index){
+  const article=document.createElement("article");
+  article.className="project-card";
+  article.append(createVisual(project));
+  const body=document.createElement("div");
+  body.className="project-card-body";
+  const meta=document.createElement("div");
+  meta.className="project-meta";
+  const number=document.createElement("span");
+  number.textContent=String(index+1).padStart(2,"0");
+  const badges=document.createElement("span");
+  badges.className="project-badges";
+  const status=document.createElement("span");
+  status.textContent=tr("status.public","Public");
+  badges.append(status);
+  meta.append(number,badges);
+  const heading=document.createElement("h3");
+  heading.textContent=project.title;
+  const summary=document.createElement("p");
+  summary.className="project-summary";
+  summary.textContent=project.summary;
+  body.append(meta,heading,summary,techList(project.technologies));
+  const links=document.createElement("div");
+  links.className="project-links";
+  links.append(createLink("GitHub",project.githubUrl));
+  if(project.demoUrl)links.append(createLink("Demo",project.demoUrl));
+  body.append(links);
+  article.append(body);
+  return article;
+}
 
 function renderProjects(){const featured=document.getElementById("featured-project-grid"),archive=document.getElementById("archive-project-grid"),curated=document.getElementById("curated-public-grid"),other=document.getElementById("other-project-grid"),isDetails=document.body.dataset.page==="projects";if(featured){featured.textContent="";const ids=isDetails?featuredProjectIds:["developer-portfolio","corporate-wordpress","next-jobs","next-ecomm"];ids.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>featured.append(createFeaturedCard(p,i,isDetails)));}if(archive){archive.textContent="";archiveProjectIds.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>archive.append(createFeaturedCard(p,i,true)));}if(curated){curated.textContent="";curatedPublicProjectIds.map(id=>featuredProjects.find(p=>p.id===id)).filter(Boolean).forEach((p,i)=>curated.append(createFeaturedCard(p,i,true)));}if(other){other.textContent="";if(apiFallbackUsed){const notice=document.createElement("p");notice.className="project-api-notice";notice.setAttribute("role","status");notice.textContent=tr("projects.apiFallback","GitHub could not be reached. Showing a locally stored list of public projects.");other.append(notice);}otherProjects.forEach((p,i)=>other.append(createOtherCard(p,i)));}}
 function renderSkills(){const container=document.getElementById("skills-grid");if(!container)return;container.textContent="";const titles={ja:{"Front-end":"フロントエンド","CMS / Web":"CMS・Web制作","Development":"開発基盤","AI-assisted Development":"AI支援開発","Growth":"SEO・計測"},"zh-TW":{"Front-end":"前端開發","CMS / Web":"CMS・網站製作","Development":"開發工具","AI-assisted Development":"AI 輔助開發","Growth":"SEO・分析"}};const grid=document.createElement("div");grid.className="skill-group-grid";skillGroups.forEach(group=>{const card=document.createElement("article");card.className="skill-card";const heading=document.createElement("h3");heading.textContent=titles[language()]?.[group.title]||group.title;const list=document.createElement("ul");list.className="tech-list";group.items.forEach(item=>{const li=document.createElement("li");li.textContent=item;list.append(li);});card.append(heading,list);grid.append(card);});const working=document.createElement("p");working.className="skill-line";working.innerHTML=`<strong>${tr("skills.alsoWorking","Also working with:")}</strong> Python / Node.js / SQL / Svelte / Docker`;const creative=document.createElement("p");creative.className="skill-line";creative.innerHTML=`<strong>${tr("skills.creativeBackground","Creative background:")}</strong> Photography / Video / Copywriting / Figma`;container.append(grid,working,creative);}

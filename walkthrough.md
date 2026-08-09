@@ -79,3 +79,14 @@ GitHub API、Google Fonts、GTM、GA4通信先のみを許可した。`default-s
 - 再利用APIは要件どおり`AffiliateLink`、`ProductCard`、`ExternalLink`、`DisclosureNotice`の名前でも利用できる。
 - HTML 17ページのローカルリンクとJavaScript構文を再検査し、欠落0件。
 - 本番Homeを390px・768pxで確認し、横スクロール、alt欠落、コンソールエラーはいずれも0件。実機確認は引き続き必要。
+
+## 15. お問い合わせフォーム（2026-08-09）
+
+- 採用方式：GitHub PagesにフォームUIを置き、`https://koshijpn.com/contact/send.php`へHTTPS送信する。GitHub Pages側に秘密情報やメールアドレスを置かない。
+- 追加・変更：`contact/index.html`、thanks / error、`js/contact-form.js`、フォーム用CSS、Home / Privacy / sitemap / CSP。
+- 用途：Development / Collaboration / Project Inquiry。Header、HomeのAbout・Contact、Footerから到達できる。
+- セキュリティ・スパム対策は送信先PHPでも再検証する。CORSはkoshijpn.comとkoshijpn.github.ioだけを許可し、CSPの`connect-src`と`form-action`へkoshijpn.comを追加した。
+- JavaScriptで必須・形式・10文字以上を案内し、送信中、成功、失敗、連続送信防止を表示する。JavaScript無効時も通常POSTできる。
+- 人間側の設定：先にkoshijpn-staticのSecret `KOSHI_CONTACT_RECIPIENT`を設定し、LolipopへPHPを公開する。このリポジトリ側にSecret設定は不要。
+- 実送信テスト：ローカルではPHPメール配送がないため未実施。両サイト公開後にGitHub Pagesから送り、Gmail受信、CORS、CSP、結果ページを確認する。
+- 届かない場合：ブラウザNetwork / Console、koshijpn.comのPHP応答、LolipopのPHP・メールログ、迷惑メール、SPFを確認する。
