@@ -1,0 +1,1 @@
+window.PORTFOLIO_AFFILIATE_CONFIG = Object.freeze({ enabled: false, reviewStatus: "pending", disclosureUrl: "/affiliate-disclosure.html", providers: Object.freeze({ amazon: Object.freeze({ enabled: false, associateId: "portfolio0e4-22" }), rakuten: Object.freeze({ enabled: false }), a8: Object.freeze({ enabled: false }), moshimo: Object.freeze({ enabled: false }) }) });

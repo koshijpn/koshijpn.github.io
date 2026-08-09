@@ -112,6 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (footer) footer.textContent = `© ${new Date().getFullYear()} KOSHI. All Rights Reserved.`;
 
+  document.querySelectorAll("footer nav, .site-footer-groups > div:last-of-type").forEach((nav) => {
+    [["Terms", "/terms.html"], ["Affiliate Disclosure", "/affiliate-disclosure.html"]].forEach(([label, href]) => {
+      if (nav.querySelector(`a[href$="${href.replace('/', '')}"]`)) return;
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      nav.append(link);
+    });
+  });
+
   // GTM event names are intentionally stable so analytics can be configured
   // without embedding GA4, Clarity, or other trackers a second time.
   document.addEventListener("click", (event) => {

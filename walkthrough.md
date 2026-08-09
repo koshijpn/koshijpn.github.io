@@ -68,3 +68,14 @@ GitHub API、Google Fonts、GTM、GA4通信先のみを許可した。`default-s
 2. 公開プロジェクトのスクリーンショットを継続的にWebP化する。
 3. ケーススタディに検証可能な成果指標を追加する。
 4. GTM PreviewとブラウザConsoleで本番CSP・イベント送信を確認する。
+
+## 14. アフィリエイト審査基盤（2026-08-09）
+
+- Terms / DisclaimerとAffiliate Disclosureを追加し、Privacy、sitemap、全ページ共通フッター導線を更新。
+- Amazon、楽天、A8.net、もしもの設定と、外部リンク・開示・商品カードの再利用部品を追加。
+- 審査中のため全プロバイダーは無効で、商品リンクや自動広告は生成しない。
+- 技術サイトの役割を守り、今後も実際に使用した開発環境・書籍・機材など、技術コンテンツと直接関係する場合に限定する。
+- `AUDIT.md`にページ数、SEO、コンテンツ数、旧公開版との差分と公開前確認を記録。
+- 再利用APIは要件どおり`AffiliateLink`、`ProductCard`、`ExternalLink`、`DisclosureNotice`の名前でも利用できる。
+- HTML 17ページのローカルリンクとJavaScript構文を再検査し、欠落0件。
+- 本番Homeを390px・768pxで確認し、横スクロール、alt欠落、コンソールエラーはいずれも0件。実機確認は引き続き必要。
