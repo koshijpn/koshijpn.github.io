@@ -130,13 +130,13 @@ const heroCommercialTranslations = {
 Object.entries(heroCommercialTranslations).forEach(([language, value]) => { translations[language]["hero.commercial"] = value; });
 
 const careerSummaryTranslations = {
-  en:"Currently completing degree requirements at Hokkaido Information University. Expected to enter Wenzao’s Master’s Program in International Business Administration.",
-  ja:"北海道情報大学で卒業に向けて履修中。文藻外語大学 国際企業管理系修士課程へ進学予定。",
-  "zh-TW":"目前於北海道情報大學完成學位所需課程。預計入學文藻外語大學國際企業管理系碩士班。",
-  "zh-CN":"目前正在北海道情报大学完成学位要求。计划进入文藻外语大学国际企业管理硕士课程。",
-  ko:"홋카이도정보대학교에서 학위 요건을 이수 중입니다. 원자오외국어대학교 국제기업관리 석사과정 입학 예정입니다.",
-  th:"กำลังเรียนรายวิชาที่จำเป็นสำหรับการสำเร็จการศึกษาที่มหาวิทยาลัยสารสนเทศฮอกไกโด และมีแผนเข้าศึกษาหลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศที่มหาวิทยาลัยภาษาเหวินจ่าว",
-  vi:"Đang hoàn thành yêu cầu bằng cấp tại Đại học Thông tin Hokkaido. Dự kiến nhập học chương trình Thạc sĩ Quản trị Kinh doanh Quốc tế tại Đại học Ngoại ngữ Wenzao.",
-  es:"Actualmente completo los requisitos del título en Hokkaido Information University. Próximo ingreso al máster en Administración de Empresas Internacionales de Wenzao."
+  en:"Awaiting final degree-completion results from Hokkaido Information University. Admitted to Wenzao’s Master’s Program in International Business Administration, with enrollment expected in September 2026.",
+  ja:"北海道情報大学の卒業要件に関する最終結果待ち。文藻外語大学 国際企業管理系修士課程に合格し、2026年9月入学予定。",
+  "zh-TW":"目前等待北海道情報大學學位完成的最終結果。已錄取文藻外語大學國際企業管理系碩士班，預計2026年9月入學。",
+  "zh-CN":"目前等待北海道情报大学学位完成的最终结果。已录取文藻外语大学国际企业管理硕士课程，预计2026年9月入学。",
+  ko:"홋카이도정보대학교 학위 완료 최종 결과를 기다리고 있습니다. 원자오외국어대학교 국제기업관리 석사과정에 합격했으며 2026년 9월 입학 예정입니다.",
+  th:"กำลังรอผลสุดท้ายเกี่ยวกับการสำเร็จการศึกษาจากมหาวิทยาลัยสารสนเทศฮอกไกโด และได้รับการตอบรับเข้าหลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศของมหาวิทยาลัยภาษาเหวินจ่าว โดยคาดว่าจะเข้าเรียนในเดือนกันยายน 2026",
+  vi:"Đang chờ kết quả cuối cùng về việc hoàn tất bằng cấp tại Đại học Thông tin Hokkaido. Đã trúng tuyển chương trình Thạc sĩ Quản trị Kinh doanh Quốc tế tại Wenzao, dự kiến nhập học tháng 9/2026.",
+  es:"A la espera del resultado final de finalización del grado en Hokkaido Information University. Admitido en el máster de Administración de Empresas Internacionales de Wenzao, con ingreso previsto en septiembre de 2026."
 };
 Object.entries(careerSummaryTranslations).forEach(([language, value]) => { translations[language]["career.2026summary"] = value; });

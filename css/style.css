@@ -156,12 +156,12 @@ body:not([data-page="home"]) .site-header {
 .career-copy { min-width: 0; padding-left: 12px; }
 .career-copy p { margin: 0 0 7px; line-height: 1.55; }
 .career-copy p:last-child { margin-bottom: 0; }
-.career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大学で卒業要件の履修を継続。\A 文藻外語大学 国際企業管理系修士課程へ進学予定。"; white-space: pre-line; }
-.career-copy[data-career-2026="international"]:empty::after { content: "文藻外語大学 華語中心で4期にわたり中国語を学び、校内最高レベルを修了。"; }
-html[lang="en"] .career-copy[data-career-2026="education"]:empty::after { content: "Currently completing degree requirements at Hokkaido Information University.\A Expected to enter Wenzao’s master’s program in International Business Administration."; }
-html[lang="en"] .career-copy[data-career-2026="international"]:empty::after { content: "Completed four terms at Wenzao’s Chinese Language Center, reaching its highest level."; }
-html[lang="zh-TW"] .career-copy[data-career-2026="education"]:empty::after { content: "目前於北海道情報大學完成學位所需課程。\A 預計入學文藻外語大學國際企業管理系碩士班。"; }
-html[lang="zh-TW"] .career-copy[data-career-2026="international"]:empty::after { content: "於文藻外語大學華語中心完成四期華語課程，並完成校內最高級別。"; }
+.career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大学：卒業要件に関する最終結果待ち。\A 文藻外語大学大学院：合格済み・2026年9月入学予定。"; white-space: pre-line; }
+.career-copy[data-career-2026="international"]:empty::after { content: "文藻外語大学 華語中心（2025年9月〜2026年8月）。"; }
+html[lang="en"] .career-copy[data-career-2026="education"]:empty::after { content: "Hokkaido Information University: awaiting final degree-completion results.\A Wenzao master’s program: admitted; expected enrollment September 2026."; }
+html[lang="en"] .career-copy[data-career-2026="international"]:empty::after { content: "Wenzao Chinese Language Center (September 2025–August 2026)."; }
+html[lang="zh-TW"] .career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大學：等待學位完成的最終結果。\A 文藻外語大學碩士班：已錄取，預計2026年9月入學。"; }
+html[lang="zh-TW"] .career-copy[data-career-2026="international"]:empty::after { content: "文藻外語大學華語中心（2025年9月至2026年8月）。"; }
 .career-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
 .career-groups h3 { margin: 0 0 28px; font-size: 16px; }
 .career-more { grid-column: 1 / -1; padding-top: 20px; border-top: 1px solid var(--line); }

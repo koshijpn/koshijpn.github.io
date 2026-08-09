@@ -44,28 +44,49 @@ const translations = {
 };
 
 Object.assign(translations.en, {
-  "hero.eyebrow":"Multilingual Web Developer","hero.line1":"Static Websites.","hero.line2":"AI-assisted Workflows.","hero.line3":"Multilingual Products.","hero.tagsLabel":"Core technologies","hero.statCommercial":"Commercial web project · before tax","hero.statFounded":"Founded SLEEP LATE LAB","hero.statRemote":"Remote collaboration",
-  "about.lead":"I work mainly between Japan and Taiwan on multilingual web development and independent products.","about.body":"Drawing on experience studying in several countries, I handle planning, information architecture, implementation, and release. My focus is static sites, WordPress, front-end development, API integration, and SEO, supported by experience in photography, video, and copywriting.",
+  "hero.eyebrow":"Koshi Sugawara / 菅原 鴻志","hero.line1":"Web Developer.","hero.line2":"Multilingual Products.","hero.line3":"AI-assisted Workflows.","hero.copy":"Building practical web products with modern web technologies and AI-assisted workflows for Japan, Taiwan, and multilingual audiences.","hero.tagsLabel":"Core technologies","hero.statCommercial":"Commercial web project · before tax","hero.statFounded":"Founded SLEEP LATE LAB","hero.statRemote":"Remote collaboration",
+  "about.lead":"I focus on web development, AI-assisted development and automation, and multilingual websites.","about.body":"I build websites and independent digital products using WordPress, JavaScript, and front-end technologies, while using modern AI coding tools for rapid prototyping and more efficient development workflows. Drawing on experience in Japan, Taiwan, and other countries, I create practical digital experiences for multilingual and multicultural audiences.",
+  "career.2021":"SLEEP LATE LAB — Founder / Web Developer","career.2026summary":"Awaiting final degree-completion results from Hokkaido Information University. Admitted to Wenzao’s Master’s Program in International Business Administration, with enrollment expected in September 2026.",
+  "meta.title":"Koshi Sugawara | Web Developer & AI-assisted Development","meta.description":"Web Developer portfolio of Koshi Sugawara, featuring multilingual websites, WordPress, JavaScript, React, AI-assisted development, SEO, and public source code.",
   "commercial.eyebrow":"Selected Commercial Work","commercial.title":"Corporate Website","commercial.visibility":"Client name withheld","commercial.value":"Project Value","commercial.delivery":"Delivery","commercial.scope":"Planning, production, and launch","commercial.tagPlanning":"Planning","commercial.tagResponsive":"Responsive Design",
   "github.loading":"Loading public GitHub data…","github.publicRepos":"Public repositories","github.languages":"Primary languages","github.latestActivity":"Latest public repository update","github.lastSynced":"Last synced","github.recent":"Recently updated","github.latestCommit":"Latest commit","github.fallback":"GitHub data is temporarily unavailable. View current public repositories on the GitHub profile.",
   "contact.replyLabel":"Typical reply","contact.reply":"Usually within 2–3 business days","contact.modeLabel":"Collaboration","contact.mode":"Remote","contact.regionLabel":"Regions","contact.region":"Japan · Taiwan · Worldwide",
   "status.client":"Client Work","status.legacy":"Legacy","project.year":"Year","details.projectsIntro":"Development work across client websites, WordPress, static sites, APIs, private projects and public repositories.","details.publicOnly":"Additional Public repositories are loaded from the GitHub API. Commercial inquiries are handled by SLEEP LATE LAB."
 });
 Object.assign(translations.ja, {
-  "hero.eyebrow":"多言語Web開発者","hero.line1":"静的Webサイト。","hero.line2":"AI支援ワークフロー。","hero.line3":"多言語プロダクト。","hero.copy":"日本・台湾・アジアをつなぐ、実用的なデジタルプロダクトを設計・開発しています。","hero.tagsLabel":"主な技術","hero.statCommercial":"商用Web案件・税別","hero.statFounded":"SLEEP LATE LAB設立","hero.statRemote":"リモート対応",
-  "about.lead":"日本と台湾を中心に、多言語Web開発と個人開発に取り組んでいます。","about.body":"複数の国で学んだ経験を活かし、企画、情報設計、実装、公開まで一貫して担当します。静的サイト、WordPress、フロントエンド、API連携、SEOを中心に、写真・映像・コピーライティングの経験をWebの表現とユーザー体験に活かしています。",
+  "hero.eyebrow":"Koshi Sugawara / 菅原 鴻志","hero.line1":"Web Developer。","hero.line2":"多言語プロダクト。","hero.line3":"AI支援ワークフロー。","hero.copy":"多言語Web開発、AIを活用した開発・自動化、Webサービスの企画・実装に取り組んでいます。","hero.tagsLabel":"主な技術","hero.statCommercial":"商用Web案件・税別","hero.statFounded":"SLEEP LATE LAB設立","hero.statRemote":"リモート対応",
+  "about.lead":"Web開発、AIを活用した開発・自動化、多言語Webサイト制作を中心に活動しています。","about.body":"WordPress、JavaScript、フロントエンド技術を利用したWeb制作・個人開発に加え、AIコーディングツールを活用したプロトタイピングや開発ワークフローの効率化にも取り組んでいます。日本・台湾を中心に複数の国で学んだ経験を活かし、多言語・多文化環境を意識したWebサービスや情報設計を得意としています。",
+  "career.2021":"SLEEP LATE LAB — Founder / Web Developer","career.2026summary":"北海道情報大学の卒業要件に関する最終結果待ち。文藻外語大学 国際企業管理系修士課程に合格し、2026年9月入学予定。","meta.title":"Koshi Sugawara | Web Developer Portfolio","meta.description":"Koshi SugawaraのWeb Developer Portfolio。多言語Webサイト、WordPress、JavaScript、React、AI支援開発、SEOの実績と公開コードを紹介します。",
   "commercial.eyebrow":"主な商用実績","commercial.title":"企業Webサイト","commercial.visibility":"クライアント名非公開","commercial.value":"案件規模","commercial.delivery":"対応範囲","commercial.scope":"企画・制作・公開対応","commercial.tagPlanning":"企画","commercial.tagResponsive":"レスポンシブ",
   "github.loading":"GitHubの公開データを読み込んでいます…","github.publicRepos":"Publicリポジトリ","github.languages":"主要言語","github.latestActivity":"最新のPublicリポジトリ更新","github.lastSynced":"最終同期","github.recent":"最近更新されたリポジトリ","github.latestCommit":"最新コミット","github.fallback":"GitHubの公開データを一時的に取得できません。最新情報はGitHubプロフィールで確認できます。",
   "contact.replyLabel":"返信目安","contact.reply":"通常2〜3営業日以内","contact.modeLabel":"対応形式","contact.mode":"リモート協業","contact.regionLabel":"対応地域","contact.region":"日本・台湾・Worldwide",
   "status.client":"クライアント案件","status.legacy":"旧サイト","project.year":"制作年","details.projectsIntro":"クライアントサイト、WordPress、静的サイト、API、Private案件、公開リポジトリを含む開発実績です。","details.publicOnly":"追加のPublicリポジトリはGitHub APIから取得します。商用案件のご相談はSLEEP LATE LABで受け付けています。"
 });
 Object.assign(translations["zh-TW"], {
-  "hero.eyebrow":"多語言網頁開發者","hero.line1":"靜態網站。","hero.line2":"AI輔助工作流程。","hero.line3":"多語言產品。","hero.copy":"設計並開發連結日本、台灣與亞洲的實用數位產品。","hero.tagsLabel":"核心技術","hero.statCommercial":"商業網站專案・未稅","hero.statFounded":"成立SLEEP LATE LAB","hero.statRemote":"遠端合作",
-  "about.lead":"以日本與台灣為主要活動據點，投入多語言網站開發與個人產品。","about.body":"運用在多個國家學習的經驗，從企劃、資訊架構、實作到發布皆可一貫負責。以靜態網站、WordPress、前端開發、API整合與SEO為核心，並將攝影、影片與文案經驗運用於網站表現和使用者體驗。",
+  "hero.eyebrow":"Koshi Sugawara / 菅原 鴻志","hero.line1":"Web Developer。","hero.line2":"多語言產品。","hero.line3":"AI 輔助工作流程。","hero.copy":"投入多語言網站、AI 輔助開發與自動化，以及實用 Web 服務的企劃與實作。","hero.tagsLabel":"核心技術","hero.statCommercial":"商業網站專案・未稅","hero.statFounded":"成立SLEEP LATE LAB","hero.statRemote":"遠端合作",
+  "about.lead":"專注於網站開發、AI 輔助開發與自動化，以及多語言網站製作。","about.body":"使用 WordPress、JavaScript 與前端技術製作網站和個人數位產品，也運用 AI 程式工具進行快速原型與改善開發流程。結合在日本、台灣及其他國家的學習經驗，打造適合多語言與多文化使用者的實用數位體驗。","career.2021":"SLEEP LATE LAB — 創辦人 / Web Developer","career.2026summary":"目前等待北海道情報大學學位完成的最終結果。已錄取文藻外語大學國際企業管理系碩士班，預計於2026年9月入學。",
   "commercial.eyebrow":"精選商業實績","commercial.title":"企業網站","commercial.visibility":"客戶名稱不公開","commercial.value":"專案規模","commercial.delivery":"交付範圍","commercial.scope":"企劃、製作與發布","commercial.tagPlanning":"企劃","commercial.tagResponsive":"響應式設計",
   "github.loading":"正在載入GitHub公開資料…","github.publicRepos":"Public儲存庫","github.languages":"主要語言","github.latestActivity":"最新Public儲存庫更新","github.lastSynced":"最後同步","github.recent":"最近更新","github.latestCommit":"最新提交","github.fallback":"目前暫時無法取得GitHub公開資料；最新資訊請前往GitHub個人頁面查看。",
   "contact.replyLabel":"通常回覆","contact.reply":"通常2至3個工作天內","contact.modeLabel":"合作形式","contact.mode":"遠端合作","contact.regionLabel":"服務地區","contact.region":"日本・台灣・全球",
   "status.client":"客戶專案","status.legacy":"舊網站","project.year":"製作年份","details.projectsIntro":"收錄客戶網站、WordPress、靜態網站、API、Private 專案與公開儲存庫等開發實績。","details.publicOnly":"其他 Public 儲存庫由 GitHub API 載入；商業專案請聯絡 SLEEP LATE LAB。"
+});
+
+// Keep historical keys current because profile.html and older detail pages may
+// still reference them while the primary 2026 summary is rendered separately.
+Object.assign(translations.en, {
+  "career.2026a":"Awaiting final degree-completion results from Hokkaido Information University",
+  "career.2026b":"Wenzao Chinese Language Center, September 2025–August 2026",
+  "career.2026c":"Admitted to Wenzao’s Master’s Program in International Business Administration; expected enrollment September 2026"
+});
+Object.assign(translations.ja, {
+  "career.2026a":"北海道情報大学 卒業要件に関する最終結果待ち",
+  "career.2026b":"文藻外語大学 華語中心（2025年9月〜2026年8月）",
+  "career.2026c":"文藻外語大学 国際企業管理系修士課程 合格・2026年9月入学予定"
+});
+Object.assign(translations["zh-TW"], {
+  "career.2026a":"北海道情報大學：等待學位完成的最終結果",
+  "career.2026b":"文藻外語大學華語中心（2025年9月至2026年8月）",
+  "career.2026c":"已錄取文藻外語大學國際企業管理系碩士班，預計2026年9月入學"
 });
 
 let currentLanguage = "ja";
