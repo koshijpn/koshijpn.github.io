@@ -52,7 +52,15 @@ GitHub Pages publishes the `main` branch from the repository root. Keep relative
 
 ## Analytics
 
-Google Tag Manager is the single analytics loader. GA4 or other approved tools should be configured in GTM instead of being embedded independently. Stable click events include:
+The shared `js/main.js` initializes the same analytics stack on every page:
+
+- Google Tag Manager: `GTM-T6BQ47G3` for the event/data-layer foundation
+- Google Analytics 4: `G-ZKZNCJZ6DF`, loaded once by `js/main.js`
+- Microsoft Clarity: `xy6zsg56uc`, loaded once by `js/main.js`
+
+Browser verification confirms that the published GTM container currently loads neither GA4 nor Clarity. Both services are therefore initialized once by `js/main.js` with duplicate guards. If either service is later added to GTM, remove its direct loader from `js/main.js` before publishing the GTM tag.
+
+Google Search Console ownership can be verified with the existing GTM or GA4 installation; Search Console does not require a visitor-tracking script on every page. Stable click events include:
 
 - `project_click`
 - `github_click`
@@ -66,4 +74,3 @@ Google Tag Manager is the single analytics loader. GA4 or other approved tools s
 - External links opened in a new tab use `noopener noreferrer`.
 - CSP uses an allowlist and does not permit `unsafe-eval`.
 - Report vulnerabilities according to [SECURITY.md](./SECURITY.md).
-

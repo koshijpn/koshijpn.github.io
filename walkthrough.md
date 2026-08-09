@@ -45,7 +45,7 @@ title、description、OG、Twitter Card、Person / ProfilePage / WebSite / Softw
 
 ## 9. Analytics変更
 
-Google Tag Managerを唯一のローダーとし、gtag直書き、Clarity直書き、AdSense、Cloudflare Analyticsをトップページから除外した。GA4等を使う場合はGTM側で管理する。主要CTAには安定したイベント名を付けた。
+全ページが読み込むmain.jsを共通計測エントリーポイントとした。GTMはイベント基盤、GA4とClarityは公開GTMコンテナに未登録であることを確認したため、それぞれガード付きで1回だけ初期化する。AdSenseとCloudflare Analyticsは除外し、主要CTAには安定したイベント名を付けた。
 
 ## 10. CSP / Security修正
 
@@ -58,7 +58,7 @@ GitHub API、Google Fonts、GTM、GA4通信先のみを許可した。`default-s
 ## 12. 未対応事項
 
 - 公開されていないプロジェクトの動作確認やREADME改善は各リポジトリ側の作業が必要。
-- GA4 / Clarityの実際のタグ設定と二重送信の有無はGTM管理画面で最終確認が必要。
+- GA4またはClarityを将来GTMへ移行する場合は、main.jsの直接ローダーを先に削除する必要がある。
 - CSPはHTML metaで配信しており、`frame-ancestors`やHSTSはGitHub Pages側のHTTPヘッダー制御範囲外。
 - 実機iPhone / iPadでの最終確認は公開後にも行う。
 
@@ -68,4 +68,3 @@ GitHub API、Google Fonts、GTM、GA4通信先のみを許可した。`default-s
 2. 公開プロジェクトのスクリーンショットを継続的にWebP化する。
 3. ケーススタディに検証可能な成果指標を追加する。
 4. GTM PreviewとブラウザConsoleで本番CSP・イベント送信を確認する。
-

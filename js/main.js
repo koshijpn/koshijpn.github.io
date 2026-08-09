@@ -1,3 +1,49 @@
+// Shared analytics bootstrap. GTM provides the event layer; GA4 and Clarity
+// are loaded directly once because neither is in the published container.
+(() => {
+  const containerId = "GTM-T6BQ47G3";
+  const measurementId = "G-ZKZNCJZ6DF";
+  const clarityId = "xy6zsg56uc";
+  const csp = "default-src 'self'; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
+  if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
+    const policy = document.createElement("meta");
+    policy.httpEquiv = "Content-Security-Policy";
+    policy.content = csp;
+    document.head.prepend(policy);
+  }
+  const existingLoader = document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${containerId}"]`);
+  window.dataLayer = window.dataLayer || [];
+  if (!window.__koshiGtmLoaded && !existingLoader) {
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(containerId)}`;
+    document.head.append(script);
+  }
+  window.__koshiGtmLoaded = true;
+
+  if (!window.__koshiGaConfigured) {
+    window.__koshiGaConfigured = true;
+    const ga = document.createElement("script");
+    ga.async = true;
+    ga.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+    document.head.append(ga);
+    window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { anonymize_ip: true });
+  }
+
+  // Clarity is absent from the current GTM container and is initialized once
+  // here for every page.
+  if (!document.querySelector(`script[src*="clarity.ms/tag/${clarityId}"]`)) {
+    window.clarity = window.clarity || function clarity(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
+    const clarityScript = document.createElement("script");
+    clarityScript.async = true;
+    clarityScript.src = `https://www.clarity.ms/tag/${encodeURIComponent(clarityId)}`;
+    document.head.append(clarityScript);
+  }
+})();
+
 // Shared navigation and scroll behavior. No framework is required for GitHub Pages.
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
@@ -75,7 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const eventName = link.dataset.track
       || (href.includes("github.com/") ? "github_click" : null)
       || (href.includes("linkedin.com/in/") ? "linkedin_click" : null)
+      || (href.includes("sleeplatelab.com/contact") ? "contact_click" : null)
       || (href.includes("sleeplatelab.com/") ? "commercial_services_click" : null)
+      || (href.includes("/projects/") && link.closest(".case-actions") ? "portfolio_demo_click" : null)
       || (link.closest(".project-card") ? "project_click" : null);
     if (!eventName) return;
     window.dataLayer = window.dataLayer || [];
