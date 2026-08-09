@@ -138,13 +138,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const link = event.target.closest("a");
     if (!link) return;
     const href = link.href || "";
+    const rel = link.rel || "";
+    const isExternal = href.startsWith("http://") || href.startsWith("https://");
+    const isOtherDomain = isExternal && !href.includes(location.hostname);
+    const isMailto = href.startsWith("mailto:");
+    const isSponsored = rel.includes("sponsored") || Boolean(link.dataset.affiliateProvider);
+
     const eventName = link.dataset.track
+      || (isMailto ? "email_click" : null)
+      || (isSponsored ? "affiliate_click" : null)
       || (href.includes("github.com/") ? "github_click" : null)
       || (href.includes("linkedin.com/in/") ? "linkedin_click" : null)
-      || (href.includes("sleeplatelab.com/contact") ? "contact_click" : null)
+      || (href.includes("sleeplatelab.com/contact") || href.includes("/contact/") ? "contact_click" : null)
+      || (href.includes("sleeplatelab.com/services") ? "service_click" : null)
       || (href.includes("sleeplatelab.com/") ? "commercial_services_click" : null)
       || (href.includes("/projects/") && link.closest(".case-actions") ? "portfolio_demo_click" : null)
-      || (link.closest(".project-card") ? "project_click" : null);
+      || (link.closest(".project-card") ? "project_click" : null)
+      || (isOtherDomain ? "outbound_click" : null);
+
     if (!eventName) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, link_url: href, link_text: link.textContent.trim() });
