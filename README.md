@@ -14,6 +14,8 @@ Developer portfolio for **Koshi Sugawara (菅原 鴻志)** — Web Developer spe
 - 👤 **Personal Profile & Works**: [https://koshijpn.com/](https://koshijpn.com/)
 - 👔 **LinkedIn**: [https://www.linkedin.com/in/koshi-sugawara](https://www.linkedin.com/in/koshi-sugawara)
 
+![Koshi Developer Portfolio Preview](./img/og/portfolio-og.png)
+
 ---
 
 ## 🚀 Quick Overview
