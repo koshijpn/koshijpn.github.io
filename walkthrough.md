@@ -90,3 +90,15 @@ GitHub API、Google Fonts、GTM、GA4通信先のみを許可した。`default-s
 - 人間側の設定：先にkoshijpn-staticのSecret `KOSHI_CONTACT_RECIPIENT`を設定し、LolipopへPHPを公開する。このリポジトリ側にSecret設定は不要。
 - 実送信テスト：ローカルではPHPメール配送がないため未実施。両サイト公開後にGitHub Pagesから送り、Gmail受信、CORS、CSP、結果ページを確認する。
 - 届かない場合：ブラウザNetwork / Console、koshijpn.comのPHP応答、LolipopのPHP・メールログ、迷惑メール、SPFを確認する。
+
+## 16. 営業導線・問い合わせ計測最適化（2026-08-12）
+
+- **問い合わせ流入計測の強化**:
+  - `js/main.js` にて初回来訪時の UTM パラメータ (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`) および外部リファラーを `sessionStorage` へ自動記録。
+  - `js/contact-form.js` の `setMetadata()` を拡張し、URL の `ref` パラメータ（経由ページ）および記録された初回来訪 UTM・リファラーをフォーム送信時の隠しフィールド（`sourcePage`, `referrer`, `utm_*`）へ自動補填。
+- **CTA（営業導線）の強化**:
+  - 全ケーススタディ詳細ページ (`projects/corporate-website/`, `projects/vouvray-huguet/`, `projects/portfolio/`, `projects/next-jobs/`, `projects/next-ecomm/`) にポートフォリオ内お問い合わせフォームへのダイレクト CTA ボタン（`ref` / `type` クエリ付き）を追加。
+- **Analytics イベント拡張**:
+  - 言語切り替え操作時に `language_change` イベントを `dataLayer` へ送信する処理を `js/main.js` に追加。
+- **検証テスト完了**:
+  - `python3 scripts/site_audit.py` を実行し、全20 HTMLファイル、15 indexable URL の構造・SEO・リンク整合性の合格を確認。

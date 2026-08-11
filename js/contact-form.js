@@ -4,7 +4,21 @@
   const status = form.querySelector('[data-form-status]'); const submit = form.querySelector('button[type="submit"]'); const params = new URLSearchParams(location.search);
   const setValue = (name,value) => { const field=form.elements.namedItem(name); if(field) field.value=value; };
   const issueToken = async () => { const response=await fetch('https://koshijpn.com/contact/token.php',{headers:{Accept:'application/json'},mode:'cors',credentials:'omit'}); const result=await response.json().catch(()=>({ok:false})); if(!response.ok||!result.ok||!/^[a-f0-9]{64}$/.test(result.token||''))throw new Error('csrf_unavailable'); setValue('csrfToken',result.token); };
-  const setMetadata = () => { setValue('startedAt',String(Date.now())); setValue('sourcePage',location.href); setValue('pageTitle',document.title); setValue('referrer',document.referrer); setValue('language',document.documentElement.lang||'en'); ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(name=>setValue(name,params.get(name)||'')); };
+  const setMetadata = () => {
+    setValue('startedAt', String(Date.now()));
+    let firstUtm = {};
+    try { firstUtm = JSON.parse(sessionStorage.getItem('koshi.first_utm') || '{}'); } catch (_) {}
+    const initialReferrer = sessionStorage.getItem('koshi.initial_referrer') || '';
+    const refParam = params.get('ref') || params.get('from') || '';
+    const srcPage = refParam ? `${location.href} (via ${refParam})` : location.href;
+    setValue('sourcePage', srcPage);
+    setValue('pageTitle', document.title);
+    setValue('referrer', document.referrer || initialReferrer);
+    setValue('language', document.documentElement.lang || 'en');
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(name => {
+      setValue(name, params.get(name) || firstUtm[name] || '');
+    });
+  };
   setMetadata(); const requestedType=params.get('type'); const typeField=form.elements.namedItem('inquiryType'); if(requestedType&&typeField?.querySelector(`option[value="${CSS.escape(requestedType)}"]`)) typeField.value=requestedType;
   const show=(message,state='')=>{status.hidden=false;status.textContent=message;status.dataset.state=state;status.focus();};
   const text=()=>window.KoshiContactCopy||{}; const validate=()=>{let first=null;form.querySelectorAll('[required]').forEach(field=>{const valid=field.checkValidity();field.setAttribute('aria-invalid',String(!valid));if(!valid&&!first)first=field;});const message=form.elements.namedItem('message');if(message.value.trim().length<10){message.setCustomValidity(text().length||'Message must be at least 10 characters.');first||=message;}else message.setCustomValidity('');if(!first)return true;show(text().validation||'Please check all required fields and formats. The message must be at least 10 characters.','error');first.focus();return false;};

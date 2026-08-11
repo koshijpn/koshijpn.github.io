@@ -60,8 +60,26 @@ document.addEventListener("DOMContentLoaded", () => {
         ? { otherSites: "Koshi的相关网站", contact: "联系", terms: "使用条款", affiliate: "广告与推荐链接" }
         : { otherSites: "Other Koshi websites", contact: "Contact", terms: "Terms", affiliate: "Affiliate Disclosure" };
 
+  // Capture initial campaign params (UTM) and external referrer for contact lead attribution
+  try {
+    const urlParams = new URLSearchParams(location.search);
+    const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+    const hasUtm = utmKeys.some((k) => urlParams.has(k));
+    if (hasUtm && !sessionStorage.getItem("koshi.first_utm")) {
+      const firstUtm = {};
+      utmKeys.forEach((k) => { if (urlParams.has(k)) firstUtm[k] = urlParams.get(k); });
+      sessionStorage.setItem("koshi.first_utm", JSON.stringify(firstUtm));
+    }
+    if (document.referrer && !document.referrer.includes(location.hostname) && !sessionStorage.getItem("koshi.initial_referrer")) {
+      sessionStorage.setItem("koshi.initial_referrer", document.referrer);
+    }
+  } catch (_) {}
+
   document.querySelectorAll('a[href="#contact"], a[href$="index.html#contact"]').forEach((link) => {
-    link.href = new URL('/contact/', window.location.origin).href;
+    const currentHref = link.getAttribute('href') || '';
+    const hasQuery = currentHref.includes('?');
+    const queryStr = hasQuery ? currentHref.substring(currentHref.indexOf('?')) : '';
+    link.href = new URL('/contact/' + queryStr, window.location.origin).href;
   });
 
   const ecosystemLinks = [["Koshi", "https://koshijpn.com/"], ["SLEEP LATE LAB", "https://sleeplatelab.com/"]];
@@ -138,6 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
       link.textContent = label;
       nav.append(link);
     });
+  });
+
+  const langSelect = document.getElementById("language-select");
+  langSelect?.addEventListener("change", (e) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "language_change", selected_language: e.target.value });
   });
 
   // GTM event names are intentionally stable so analytics can be configured
