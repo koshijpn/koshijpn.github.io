@@ -152,3 +152,11 @@ const developerCredentialTranslations = {
   es:{"credentials.developerTitle":"Credenciales de desarrollo y ámbito digital","credentials.developerIntro":"Solo se muestran credenciales y cursos de web, TI, diseño, marketing digital e IA. No se publican enlaces a documentos acreditativos.","credentials.fullProfile":"Ver formación, idiomas y otra experiencia en el perfil personal ↗"}
 };
 Object.entries(developerCredentialTranslations).forEach(([language, values]) => Object.assign(translations[language], values));
+
+const footerTranslations = {
+  en:{"contact.formCta":"Contact form","footer.explore":"Explore","footer.projects":"Projects","footer.caseStudies":"Case Studies","footer.articles":"Articles","footer.elsewhere":"Elsewhere","footer.site":"Site","footer.privacy":"Privacy","footer.security":"Security Policy","footer.sitemap":"Sitemap"},
+  ja:{"contact.formCta":"お問い合わせフォーム","footer.explore":"見る","footer.projects":"プロジェクト","footer.caseStudies":"事例・ケーススタディ","footer.articles":"技術記事","footer.elsewhere":"関連サイト","footer.site":"サイト情報","footer.privacy":"プライバシー","footer.security":"セキュリティポリシー","footer.sitemap":"サイトマップ"},
+  "zh-TW":{"contact.formCta":"聯絡表單","footer.explore":"瀏覽","footer.projects":"專案","footer.caseStudies":"案例研究","footer.articles":"技術文章","footer.elsewhere":"其他網站","footer.site":"網站資訊","footer.privacy":"隱私權政策","footer.security":"安全政策","footer.sitemap":"網站地圖"},
+  "zh-CN":{"contact.formCta":"联系表单","footer.explore":"浏览","footer.projects":"项目","footer.caseStudies":"案例研究","footer.articles":"技术文章","footer.elsewhere":"其他网站","footer.site":"网站信息","footer.privacy":"隐私政策","footer.security":"安全政策","footer.sitemap":"网站地图"}
+};
+Object.entries(translations).forEach(([language, values]) => Object.assign(values, footerTranslations[language] || footerTranslations.en));

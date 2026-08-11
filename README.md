@@ -110,4 +110,4 @@ Google Search Console ownership can be verified with the existing GTM or GA4 ins
 
 ## Locale resolution
 
-`js/locale-resolver.js` uses this order: manual choice → stored preference → URL locale → browser languages → country hint → site default. Only an explicit selector change is stored in `koshi.preferredLocale`. Country is an optional hint; the frontend performs no IP lookup and never forces a language from IP alone.
+`js/locale-resolver.js` uses this order: manual choice → stored preference → URL locale → country hint → browser languages → English. Only an explicit selector change is stored in `koshi.preferredLocale`. GitHub Pages does not expose a first-party country header, so this site uses only a coarse JP/TW timezone hint before falling back to browser languages; it performs no IP lookup and never stores IP or location data.

@@ -51,6 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const navigation = document.querySelector(".site-nav");
   const backToTop = document.querySelector(".back-to-top");
   const footer = document.getElementById("footer");
+  const uiLanguage = document.documentElement.lang;
+  const sharedCopy = uiLanguage === "ja"
+    ? { otherSites: "Koshiの関連サイト", contact: "お問い合わせ", terms: "利用条件", affiliate: "広告・紹介リンク" }
+    : uiLanguage === "zh-TW"
+      ? { otherSites: "Koshi的相關網站", contact: "聯絡", terms: "使用條款", affiliate: "廣告與推薦連結" }
+      : uiLanguage === "zh-CN"
+        ? { otherSites: "Koshi的相关网站", contact: "联系", terms: "使用条款", affiliate: "广告与推荐链接" }
+        : { otherSites: "Other Koshi websites", contact: "Contact", terms: "Terms", affiliate: "Affiliate Disclosure" };
 
   document.querySelectorAll('a[href="#contact"], a[href$="index.html#contact"]').forEach((link) => {
     link.href = new URL('/contact/', window.location.origin).href;
@@ -60,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navigation && !navigation.querySelector(".ecosystem-nav")) {
     const ecosystemNav = document.createElement("div");
     ecosystemNav.className = "ecosystem-nav";
-    ecosystemNav.setAttribute("aria-label", "Other Koshi websites");
+    ecosystemNav.setAttribute("aria-label", sharedCopy.otherSites);
     ecosystemLinks.forEach(([label, url]) => {
       const link = document.createElement("a");
       Object.assign(link, { href: url, textContent: label, target: "_blank", rel: "noopener noreferrer" });
@@ -120,10 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!nav.querySelector('a[href$="/contact/"]')) {
       const contactLink = document.createElement("a");
       contactLink.href = "/contact/";
-      contactLink.textContent = "Contact";
+      contactLink.textContent = sharedCopy.contact;
       nav.append(contactLink);
     }
-    [["Terms", "/terms.html"], ["Affiliate Disclosure", "/affiliate-disclosure.html"]].forEach(([label, href]) => {
+    [[sharedCopy.terms, "/terms.html"], [sharedCopy.affiliate, "/affiliate-disclosure.html"]].forEach(([label, href]) => {
       if (nav.querySelector(`a[href$="${href.replace('/', '')}"]`)) return;
       const link = document.createElement("a");
       link.href = href;
@@ -177,9 +185,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   if (!window.KoshiLocale || document.getElementById("language-select")) return;
   const supported = ["ja", "en", "zh-TW", "zh-CN", "ko", "th", "vi", "es"];
-  const decision = await window.KoshiLocale.resolveAsync({ supported, defaultLocale: "ja" });
+  const decision = await window.KoshiLocale.resolveAsync({ supported, defaultLocale: "en" });
   document.documentElement.lang = decision.locale;
   document.documentElement.dataset.localeSource = decision.source;
+  if (decision.locale === "en" || decision.locale === "zh-TW") {
+    await new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = new URL("/js/static-i18n.js?v=20260812-1", location.origin).href;
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.append(script);
+    });
+    window.KoshiStaticI18n?.apply(decision.locale);
+  }
   document.querySelectorAll("a[href]").forEach((link) => {
     if (!link.getAttribute("href")?.startsWith("#")) link.href = window.KoshiLocale.localizeUrl(link.href, decision.locale);
   });

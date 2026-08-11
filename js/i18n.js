@@ -96,7 +96,12 @@ function getCurrentLanguage() { return currentLanguage; }
 function changeLanguage(language, rememberChoice = false) {
   currentLanguage = translations[language] ? language : "en";
   document.documentElement.lang = currentLanguage;
-  if (rememberChoice) window.KoshiLocale.setPreference(currentLanguage, Object.keys(translations));
+  if (rememberChoice) {
+    window.KoshiLocale.setPreference(currentLanguage, Object.keys(translations));
+    const currentUrl = new URL(location.href);
+    currentUrl.searchParams.set("lang", currentLanguage);
+    history.replaceState({}, "", `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
+  }
   document.querySelectorAll("[data-i18n]").forEach((element) => { element.textContent = getTranslation(element.dataset.i18n); });
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => { element.setAttribute("aria-label", getTranslation(element.dataset.i18nAriaLabel)); });
   document.querySelectorAll("[data-i18n-alt]").forEach((element) => { element.alt = getTranslation(element.dataset.i18nAlt); });
@@ -124,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const decision = await window.KoshiLocale.resolveAsync({
     supported: Object.keys(translations),
     urlLocale: new URLSearchParams(location.search).get("lang"),
-    defaultLocale: "ja",
+    defaultLocale: "en",
     countryHint: document.documentElement.dataset.countryHint || window.__KOSHI_COUNTRY_HINT__
   });
   const initial = decision.locale;
