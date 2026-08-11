@@ -110,6 +110,9 @@ function changeLanguage(language, rememberChoice = false) {
   document.querySelectorAll('meta[property="og:description"], meta[name="twitter:description"]').forEach((element) => { element.content = getTranslation("meta.description"); });
   const selector = document.getElementById("language-select");
   if (selector) selector.value = currentLanguage;
+  document.querySelectorAll("a[href]").forEach((link) => {
+    if (!link.getAttribute("href")?.startsWith("#")) link.href = window.KoshiLocale.localizeUrl(link.href, currentLanguage);
+  });
   document.dispatchEvent(new CustomEvent("languagechange", { detail: currentLanguage }));
 }
 
@@ -117,8 +120,8 @@ window.getTranslation = getTranslation;
 window.getCurrentLanguage = getCurrentLanguage;
 window.changeLanguage = changeLanguage;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const decision = window.KoshiLocale.resolve({
+document.addEventListener("DOMContentLoaded", async () => {
+  const decision = await window.KoshiLocale.resolveAsync({
     supported: Object.keys(translations),
     urlLocale: new URLSearchParams(location.search).get("lang"),
     defaultLocale: "ja",

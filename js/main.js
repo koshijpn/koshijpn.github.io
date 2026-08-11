@@ -161,3 +161,27 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dataLayer.push({ event: eventName, link_url: href, link_text: link.textContent.trim() });
   });
 });
+
+// Pages without the full inline translation catalogue still use the same
+// locale preference and keep it in internal URLs. This prevents navigation
+// from silently returning to Japanese.
+document.addEventListener("DOMContentLoaded", async () => {
+  if (!window.KoshiLocale) {
+    await new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = new URL("/js/locale-resolver.js?v=20260811-2", location.origin).href;
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.append(script);
+    });
+  }
+  if (!window.KoshiLocale || document.getElementById("language-select")) return;
+  const supported = ["ja", "en", "zh-TW", "zh-CN", "ko", "th", "vi", "es"];
+  const decision = await window.KoshiLocale.resolveAsync({ supported, defaultLocale: "ja" });
+  document.documentElement.lang = decision.locale;
+  document.documentElement.dataset.localeSource = decision.source;
+  document.querySelectorAll("a[href]").forEach((link) => {
+    if (!link.getAttribute("href")?.startsWith("#")) link.href = window.KoshiLocale.localizeUrl(link.href, decision.locale);
+  });
+  document.dispatchEvent(new CustomEvent("koshi:locale", { detail: decision }));
+});
