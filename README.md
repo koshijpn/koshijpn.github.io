@@ -107,3 +107,7 @@ Google Search Console ownership can be verified with the existing GTM or GA4 ins
 - External links opened in a new tab use `noopener noreferrer`.
 - CSP uses an allowlist and does not permit `unsafe-eval`.
 - Report vulnerabilities according to [SECURITY.md](./SECURITY.md).
+
+## Locale resolution
+
+`js/locale-resolver.js` uses this order: manual choice → stored preference → URL locale → browser languages → country hint → site default. Only an explicit selector change is stored in `koshi.preferredLocale`. Country is an optional hint; the frontend performs no IP lookup and never forces a language from IP alone.
