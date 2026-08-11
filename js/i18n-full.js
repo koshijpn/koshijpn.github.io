@@ -140,3 +140,15 @@ const careerSummaryTranslations = {
   es:"A la espera del resultado final de finalización del grado en Hokkaido Information University. Admitido en el máster de Administración de Empresas Internacionales de Wenzao, con ingreso previsto en septiembre de 2026."
 };
 Object.entries(careerSummaryTranslations).forEach(([language, value]) => { translations[language]["career.2026summary"] = value; });
+
+const developerCredentialTranslations = {
+  en:{"credentials.developerTitle":"Developer-related credentials","credentials.developerIntro":"Only credentials and completed courses related to web, IT, design, digital marketing, and AI are listed. Evidence links are not published.","credentials.fullProfile":"View education, languages, and other experience on the personal profile ↗"},
+  ja:{"credentials.developerTitle":"開発・デジタル関連の資格","credentials.developerIntro":"Web、IT、デザイン、デジタルマーケティング、AIに関連する資格・修了講座のみ掲載しています。証明書リンクは公開していません。","credentials.fullProfile":"学歴・語学・その他の経歴は個人プロフィールで見る ↗"},
+  "zh-TW":{"credentials.developerTitle":"開發與數位相關資格","credentials.developerIntro":"僅列出與網頁、IT、設計、數位行銷及AI相關的資格與結業課程，不公開證明文件連結。","credentials.fullProfile":"前往個人網站查看學歷、語言與其他經歷 ↗"},
+  "zh-CN":{"credentials.developerTitle":"开发与数字相关资格","credentials.developerIntro":"仅列出与网页、IT、设计、数字营销及AI相关的资格与结业课程，不公开证明文件链接。","credentials.fullProfile":"前往个人网站查看学历、语言与其他经历 ↗"},
+  ko:{"credentials.developerTitle":"개발·디지털 관련 자격","credentials.developerIntro":"웹, IT, 디자인, 디지털 마케팅 및 AI 관련 자격과 수료 과정만 게재하며 증빙 링크는 공개하지 않습니다.","credentials.fullProfile":"학력, 언어 및 기타 경력은 개인 프로필에서 보기 ↗"},
+  th:{"credentials.developerTitle":"คุณวุฒิด้านการพัฒนาและดิจิทัล","credentials.developerIntro":"แสดงเฉพาะคุณวุฒิและหลักสูตรที่เกี่ยวข้องกับเว็บ ไอที การออกแบบ การตลาดดิจิทัล และ AI โดยไม่เผยแพร่ลิงก์เอกสารรับรอง","credentials.fullProfile":"ดูการศึกษา ภาษา และประสบการณ์อื่นในเว็บไซต์ส่วนตัว ↗"},
+  vi:{"credentials.developerTitle":"Chứng chỉ phát triển và kỹ thuật số","credentials.developerIntro":"Chỉ hiển thị chứng chỉ và khóa học liên quan đến web, CNTT, thiết kế, tiếp thị số và AI; không công khai liên kết minh chứng.","credentials.fullProfile":"Xem học vấn, ngôn ngữ và kinh nghiệm khác trên hồ sơ cá nhân ↗"},
+  es:{"credentials.developerTitle":"Credenciales de desarrollo y ámbito digital","credentials.developerIntro":"Solo se muestran credenciales y cursos de web, TI, diseño, marketing digital e IA. No se publican enlaces a documentos acreditativos.","credentials.fullProfile":"Ver formación, idiomas y otra experiencia en el perfil personal ↗"}
+};
+Object.entries(developerCredentialTranslations).forEach(([language, values]) => Object.assign(translations[language], values));

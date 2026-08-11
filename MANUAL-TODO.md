@@ -16,6 +16,7 @@
 - [x] **タグ二重読み込み防止**: GTM (`GTM-T6BQ47G3`), GA4 (`G-ZKZNCJZ6DF`), Clarity (`xy6zsg56uc`) の二重ロードガードを全ページ適用。
 - [x] **README.md 強化**: リポジトリ冒頭だけで目的、ライブデモ、提供スキル、主要プロジェクトが理解できるよう構成を刷新。
 - [x] **セキュリティ & CSP**: APIキー・認証トークンの露出がないことをスキャンし、CSP設定を適用。
+- [x] **Microsoft Clarity CSP補正**: Clarity (`xy6zsg56uc`) の配信・収集先 `*.clarity.ms` と `c.bing.com` を許可し、既存の単一ローダーを維持。
 
 ---
 
@@ -25,20 +26,26 @@
 
 ### 🌐 GitHub Repository Settings (`koshijpn/koshijpn.github.io`)
 - [ ] **Description の設定**:
-  `Koshi Sugawara's developer portfolio — multilingual web development, JavaScript, WordPress, AI-assisted development, SEO and selected projects.`
+  `Multilingual developer portfolio and project showcase by Koshi Sugawara.`
 - [ ] **Homepage の設定**:
   `https://koshijpn.github.io/`
 - [ ] **Topics (タグ) の設定**:
-  `portfolio`, `web-development`, `javascript`, `wordpress`, `frontend`, `multilingual`, `seo`, `github-pages`, `developer-portfolio`, `ai-assisted-development`
+  `portfolio`, `web-development`, `javascript`, `multilingual`, `frontend`, `github-pages`
 
 ### 🔍 Google Search Console
+- [ ] **Developer Portfolioプロパティの登録**:
+  URLプレフィックス `https://koshijpn.github.io/` を登録し、所有権確認を完了する。
 - [ ] **プロパティ追加・確認**:
   3サイト (`https://koshijpn.com/`, `https://sleeplatelab.com/`, `https://koshijpn.github.io/`) が個別プロパティとして登録されているか確認。
 - [ ] **Sitemap 送信**:
   - `https://koshijpn.github.io/sitemap.xml` を送信。
   - `https://koshijpn.com/sitemap.xml` および `https://sleeplatelab.com/sitemap.xml` も同様に送信。
+- [ ] **主要URLのインデックス確認**:
+  トップ、Projects、Profile、Contact、Case Studies、Articlesと各詳細ページをURL検査し、未登録ページはインデックス登録をリクエストする。
 
 ### 📊 Google Tag Manager (GTM) & Analytics
+- [ ] **GA4とSearch Consoleのリンク**:
+  GA4管理画面の「Search Console のリンク」で `https://koshijpn.github.io/` のプロパティを関連付ける。
 - [ ] **GTM コンテナの Publish**:
   将来 GTM 側で GA4 タグや Clarity タグを設定・公開する場合は、`js/main.js` の Direct Loader と二重計測にならないよう GTM プレビュー画面で確認してコンテナをバージョン公開する。
 - [ ] **GA4 リアルタイム画面での確認**:

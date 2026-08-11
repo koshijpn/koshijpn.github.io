@@ -4,7 +4,7 @@
   const containerId = "GTM-T6BQ47G3";
   const measurementId = "G-ZKZNCJZ6DF";
   const clarityId = "xy6zsg56uc";
-  const csp = "default-src 'self'; connect-src 'self' https://koshijpn.com https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self' https://koshijpn.com; upgrade-insecure-requests";
+  const csp = "default-src 'self'; connect-src 'self' https://koshijpn.com https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms https://c.bing.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://*.clarity.ms; frame-src https://www.googletagmanager.com https://*.clarity.ms; object-src 'none'; base-uri 'self'; form-action 'self' https://koshijpn.com; upgrade-insecure-requests";
   if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
     const policy = document.createElement("meta");
     policy.httpEquiv = "Content-Security-Policy";
