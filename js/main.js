@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!window.KoshiLocale) {
     await new Promise((resolve) => {
       const script = document.createElement("script");
-      script.src = new URL("/js/locale-resolver.js?v=20260811-2", location.origin).href;
+      script.src = new URL("/js/locale-resolver.js?v=20260812-3", location.origin).href;
       script.onload = resolve;
       script.onerror = resolve;
       document.head.append(script);
