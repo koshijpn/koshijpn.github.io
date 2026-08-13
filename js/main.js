@@ -73,6 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.referrer && !document.referrer.includes(location.hostname) && !sessionStorage.getItem("koshi.initial_referrer")) {
       sessionStorage.setItem("koshi.initial_referrer", document.referrer);
     }
+    if (!sessionStorage.getItem("koshi.initial_landing_page")) {
+      sessionStorage.setItem("koshi.initial_landing_page", location.href);
+    }
   } catch (_) {}
 
   document.querySelectorAll('a[href="#contact"], a[href$="index.html#contact"]').forEach((link) => {
@@ -192,6 +195,17 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, link_url: href, link_text: link.textContent.trim() });
   });
+
+  const path = location.pathname;
+  const pageEvent = path === "/projects.html" ? "project_view"
+    : /^\/projects\/[^/]+\/$/.test(path) ? "case_study_view"
+      : path === "/development-notes/" ? "development_note_view"
+        : path === "/contact/" ? "contact_view"
+          : null;
+  if (pageEvent) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: pageEvent, page_location: location.href.split("?")[0] });
+  }
 });
 
 // Pages without the full inline translation catalogue still use the same

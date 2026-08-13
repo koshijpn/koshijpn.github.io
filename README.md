@@ -71,6 +71,19 @@ No framework, package installation, or build step is required to run or deploy.
 
 ## Development
 
+### Engineering evidence model
+
+`data/project-inventory.json` is the public metadata source for project status, dates, stack, repository/live availability, role and known limitations. Only verified public repositories receive URLs; private repositories remain `null`.
+
+Detailed pages use a consistent sequence: Problem → Requirements → Constraints → Architecture → Implementation → Failed Approach → Root Cause → Fix → Testing → Evidence → Result → Known Limitations → Lessons Learned → AI Collaboration → Timeline. Shorter reusable investigations live under `development-notes/`.
+
+Status meanings:
+
+- `Production`: the public URL was checked successfully.
+- `Beta`: implementation evidence exists, but Production is not verified.
+- `WIP`: a required release or validation gate remains open.
+- `Archived`: retained as historical work and not actively operated.
+
 Serve the repository root with any static web server. For example:
 
 ```sh

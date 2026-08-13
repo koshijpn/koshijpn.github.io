@@ -1,0 +1,66 @@
+{
+  "updated": "2026-08-13",
+  "statuses": ["Production", "Beta", "WIP", "Archived"],
+  "projects": [
+    {
+      "id": "developer-portfolio",
+      "name": "Developer Portfolio",
+      "status": "Production",
+      "started": "2021",
+      "lastUpdated": "2026-08-13",
+      "stack": ["HTML", "CSS", "JavaScript", "GitHub Pages", "GitHub API"],
+      "repository": "https://github.com/koshijpn/koshijpn.github.io",
+      "liveDemo": "https://koshijpn.github.io/",
+      "role": "Direction, information architecture, implementation, SEO and QA",
+      "currentLimitations": "GitHub API data is supplementary and may be rate-limited."
+    },
+    {
+      "id": "visual-dictionary",
+      "name": "Visual Dictionary",
+      "status": "Beta",
+      "started": null,
+      "lastUpdated": "2026-08-09",
+      "stack": ["HTML", "CSS", "JavaScript", "Service Worker", "JSON"],
+      "repository": null,
+      "liveDemo": null,
+      "role": "Direction, implementation review and QA",
+      "currentLimitations": "Production URL is not verified; vocabulary JSON is loaded as one large file."
+    },
+    {
+      "id": "onii-media",
+      "name": "ONII Media",
+      "status": "Beta",
+      "started": null,
+      "lastUpdated": "2026-08-09",
+      "stack": ["HTML", "CSS", "JavaScript", "Node.js", "Notion API"],
+      "repository": null,
+      "liveDemo": null,
+      "role": "Product direction, editorial rules, implementation review and QA",
+      "currentLimitations": "Configured production domain does not currently resolve."
+    },
+    {
+      "id": "hokkai-trace",
+      "name": "HOKKAI TRACE",
+      "status": "WIP",
+      "started": null,
+      "lastUpdated": "2026-08-13",
+      "stack": ["Astro", "Node.js", "Notion API", "GitHub Actions", "GitHub Pages"],
+      "repository": null,
+      "liveDemo": null,
+      "role": "Product direction, approval policy, pipeline implementation review and QA",
+      "currentLimitations": "GitHub Pages production returns 404; live approval-to-publish E2E is pending."
+    },
+    {
+      "id": "borderlens",
+      "name": "BorderLens",
+      "status": "Beta",
+      "started": null,
+      "lastUpdated": "2026-08-13",
+      "stack": ["HTML", "CSS", "JavaScript", "Service Worker", "JSON rule engine"],
+      "repository": null,
+      "liveDemo": null,
+      "role": "Product direction, rule design, implementation review and QA",
+      "currentLimitations": "Production URL is not verified; travel information still requires source-date review."
+    }
+  ]
+}

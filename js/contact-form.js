@@ -9,9 +9,11 @@
     let firstUtm = {};
     try { firstUtm = JSON.parse(sessionStorage.getItem('koshi.first_utm') || '{}'); } catch (_) {}
     const initialReferrer = sessionStorage.getItem('koshi.initial_referrer') || '';
+    const landingPage = sessionStorage.getItem('koshi.initial_landing_page') || location.href;
     const refParam = params.get('ref') || params.get('from') || '';
     const srcPage = refParam ? `${location.href} (via ${refParam})` : location.href;
     setValue('sourcePage', srcPage);
+    setValue('landingPage', landingPage);
     setValue('pageTitle', document.title);
     setValue('referrer', document.referrer || initialReferrer);
     setValue('language', document.documentElement.lang || 'en');
