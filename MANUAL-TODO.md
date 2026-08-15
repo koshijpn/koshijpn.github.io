@@ -17,7 +17,9 @@
 - [x] **README.md 強化**: リポジトリ冒頭だけで目的、ライブデモ、提供スキル、主要プロジェクトが理解できるよう構成を刷新。
 - [x] **セキュリティ & CSP**: APIキー・認証トークンの露出がないことをスキャンし、CSP設定を適用。
 - [x] **Microsoft Clarity CSP補正**: Clarity (`xy6zsg56uc`) の配信・収集先 `*.clarity.ms` と `c.bing.com` を許可し、既存の単一ローダーを維持。
-- [x] **Contact フォーム AJAX 疎通修復**: `js/contact-form.js` 内の `fetch()` リクエストに `X-Requested-With: 'XMLHttpRequest'` ヘッダーと堅牢な JSON/303 レスポンスハンドリングを追加。`https://koshijpn.com/contact/send.php` との CORS/CSRF/JSON 通信を正常化。
+- [x] **Contact フォーム AJAX 疎通修復**: `js/contact-form.js` 内の `fetch()` リクエストに `X-Requested-With: 'XMLHttpRequest'` ヘッダーと堅牢な JSON/303 レスポンスハンドリングを追加。`https://koshijpn.com/contact/send.php` との CORS/CSRF/JSON 通信を正常化（2026-08-16 01:23:23 JST テスト送信にて `HTTP/2 200 OK` ＋ `{"ok":true,"code":"sent"}` 実測達成）。
+- [ ] **Contact メール Gmail 到達 & UTF-8 表示の最終確認**: 送信テスト（件名: `【GITHUB Contact DELIVERY QA】 2026-08-16 01:23:23`）が Gmail（Inbox / Spam / All Mail）に到達し、日本語表示が化けていないかを管理画面・アプリ等で実測確認。
+
 
 
 ---
