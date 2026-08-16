@@ -10,10 +10,9 @@
     try { firstUtm = JSON.parse(sessionStorage.getItem('koshi.first_utm') || '{}'); } catch (_) {}
     const initialReferrer = sessionStorage.getItem('koshi.initial_referrer') || '';
     const landingPage = sessionStorage.getItem('koshi.initial_landing_page') || location.href;
-    const refParam = params.get('ref') || params.get('from') || '';
-    const srcPage = refParam ? `${location.href} (via ${refParam})` : location.href;
-    setValue('sourcePage', srcPage);
-    setValue('landingPage', landingPage);
+    const cleanUrl = location.href.split('#')[0];
+    setValue('sourcePage', cleanUrl);
+    setValue('landingPage', landingPage.split('#')[0]);
     setValue('pageTitle', document.title);
     setValue('referrer', document.referrer || initialReferrer);
     setValue('language', document.documentElement.lang || 'en');
@@ -37,5 +36,30 @@
     event.preventDefault();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({event:'contact_form_submit',form_name:'github_portfolio_contact'});
-    if(!validate())return;const key='portfolio_contact_last_submit';if(Date.now()-Number(sessionStorage.getItem(key)||0)<60000){show(text().wait||'Please wait about one minute before sending another message.','error');return;}submit.disabled=true;submit.setAttribute('aria-busy','true');submit.dataset.originalLabel||=submit.textContent;submit.textContent=text().sending||'Sending…';show(text().pending||'Sending your message…','pending');try{await issueToken();const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'},mode:'cors',credentials:'omit'});const result=await response.json().catch(()=>({ok:response.ok && !response.redirected,code:response.ok ? '' : 'invalid_response'}));if(!response.ok||!result.ok)throw new Error(result.code||'send_failed');const inquiryType=String(form.elements.namedItem('inquiryType').value||'general');window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'generate_lead',source_site:'koshijpn.github.io',form_name:'github_portfolio_contact',inquiry_type:inquiryType,page_location:location.href.split('?')[0]});sessionStorage.setItem(key,String(Date.now()));form.reset();formStarted=false;setMetadata();show(text().success||'Message sent. I usually reply within 2–3 business days.','success');}catch(error){show(error.message==='rate_limited'?'Please wait before sending another message.':error.message==='server_not_configured'?(text().config||'The contact service has not been configured yet.'):error.message==='csrf_unavailable'?(text().token||'The security token could not be created. Please wait and try again.'):(text().failed||'Your message could not be sent. Please wait and try again.'),'error');}finally{submit.disabled=false;submit.removeAttribute('aria-busy');submit.textContent=submit.dataset.originalLabel;}});
+    if(!validate())return;const key='portfolio_contact_last_submit';if(Date.now()-Number(sessionStorage.getItem(key)||0)<60000){show(text().wait||'Please wait about one minute before sending another message.','error');return;}submit.disabled=true;submit.setAttribute('aria-busy','true');submit.dataset.originalLabel||=submit.textContent;submit.textContent=text().sending||'Sending…';show(text().pending||'Sending your message…','pending');
+    try{
+      const startedAtVal = Number(form.elements.namedItem('startedAt')?.value || Date.now());
+      const elapsed = Date.now() - startedAtVal;
+      if(elapsed < 3100) { await new Promise(res => setTimeout(res, 3100 - elapsed)); }
+      await issueToken();
+      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'},mode:'cors',credentials:'omit'});
+      const result=await response.json().catch(()=>({ok:response.ok && !response.redirected,code:response.ok ? '' : 'invalid_response'}));
+      if(!response.ok||!result.ok)throw new Error(result.code||'send_failed');
+      const inquiryType=String(form.elements.namedItem('inquiryType').value||'general');
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'generate_lead',source_site:'koshijpn.github.io',form_name:'github_portfolio_contact',inquiry_type:inquiryType,page_location:location.href.split('?')[0]});
+      sessionStorage.setItem(key,String(Date.now()));
+      form.reset();formStarted=false;setMetadata();
+      show(text().success||'Message sent. I usually reply within 2–3 business days.','success');
+    }catch(error){
+      const errCode = error.message;
+      const copy = text();
+      const msg = errCode === 'rate_limited' ? (copy.rate_limited || 'Message limit reached. Please wait about 10 minutes.') :
+                  errCode === 'invalid_timing' ? (copy.invalid_timing || 'Submission was too fast. Please try again.') :
+                  errCode === 'invalid_input' ? (copy.invalid_input || 'Please check your input fields.') :
+                  (errCode === 'csrf_failed' || errCode === 'csrf_unavailable') ? (copy.token || 'Security token verification failed.') :
+                  errCode === 'server_not_configured' ? (copy.config || 'The contact service has not been configured yet.') :
+                  (copy.failed || 'Your message could not be sent. Please check your inputs and try again.');
+      show(msg, 'error');
+    }finally{submit.disabled=false;submit.removeAttribute('aria-busy');submit.textContent=submit.dataset.originalLabel;}});
 })();
