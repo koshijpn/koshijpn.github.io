@@ -3,7 +3,7 @@
   const form = document.querySelector('[data-contact-form]'); if (!form) return;
   const status = form.querySelector('[data-form-status]'); const submit = form.querySelector('button[type="submit"]'); const params = new URLSearchParams(location.search);
   const setValue = (name,value) => { const field=form.elements.namedItem(name); if(field) field.value=value; };
-  const issueToken = async () => { const response=await fetch('https://koshijpn.com/contact/token.php',{headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'},mode:'cors',credentials:'omit'}); const result=await response.json().catch(()=>({ok:false})); if(!response.ok||!result.ok||!/^[a-f0-9]{64}$/.test(result.token||''))throw new Error('csrf_unavailable'); setValue('csrfToken',result.token); };
+  const issueToken = async () => { const response=await fetch('https://koshijpn.com/contact/token.php',{headers:{Accept:'application/json'},mode:'cors',credentials:'omit'}); const result=await response.json().catch(()=>({ok:false})); if(!response.ok||!result.ok||!/^[a-f0-9]{64}$/.test(result.token||''))throw new Error('csrf_unavailable'); setValue('csrfToken',result.token); };
   const setMetadata = () => {
     setValue('startedAt', String(Date.now()));
     let firstUtm = {};
@@ -45,7 +45,7 @@
       const elapsed = Date.now() - startedAtVal;
       if(elapsed < 3100) { await new Promise(res => setTimeout(res, 3100 - elapsed)); }
       await issueToken();
-      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'},mode:'cors',credentials:'omit'});
+      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'},mode:'cors',credentials:'omit'});
       const result=await response.json().catch(()=>({ok:response.ok && !response.redirected,code:response.ok ? '' : 'invalid_response'}));
       if(!response.ok||!result.ok)throw new Error(result.code||'send_failed');
       const inquiryType=String(form.elements.namedItem('inquiryType').value||'general');
@@ -56,6 +56,7 @@
       show(text().success||'Message sent. I usually reply within 2–3 business days.','success');
     }catch(error){
       const errCode = error.message;
+      if(errCode === 'invalid_timing') { setValue('startedAt', String(Date.now())); }
       const copy = text();
       const msg = errCode === 'rate_limited' ? (copy.rate_limited || 'Message limit reached. Please wait about 10 minutes.') :
                   errCode === 'invalid_timing' ? (copy.invalid_timing || 'Submission was too fast. Please try again.') :
