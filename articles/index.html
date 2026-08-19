@@ -1,1 +1,98 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Technical Articles | Koshi</title><meta name="description" content="静的Web開発、多言語対応、GitHub API、SEOに関する技術記事。"><link rel="canonical" href="https://koshijpn.github.io/articles/"><meta property="og:type" content="website"><meta property="og:title" content="Technical Articles | Koshi"><meta property="og:description" content="静的Web開発、多言語対応、GitHub API、SEOに関する技術記事。"><meta property="og:url" content="https://koshijpn.github.io/articles/"><meta property="og:image" content="https://koshijpn.github.io/img/og/portfolio-og.png"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" type="application/rss+xml" href="../rss.xml"><link rel="icon" href="/favicon.svg?v=ksemicolon-20260809" type="image/svg+xml"><link rel="icon" href="/favicon.ico?v=ksemicolon-20260809" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ksemicolon-20260809"><link rel="manifest" href="/site.webmanifest?v=ksemicolon-20260809"><link rel="stylesheet" href="../css/style.css"></head><body data-page="detail"><header class="site-header scrolled"><a class="site-mark" href="../">KOSHI</a></header><main class="detail-main"><header class="page-hero content-width"><p class="eyebrow">WRITING</p><h1>技術記事</h1><p>実装判断とプロジェクト成果をつなぐ技術記事です。</p></header><section class="section section-muted"><div class="now-grid content-width"><article><p class="eyebrow">STATIC WEB / I18N / SEO</p><h2>多言語静的ポートフォリオの設計</h2><p>ビルド不要の構成で、多言語、GitHub API、SEO、障害時表示をどう整理したか。</p><a class="text-link" href="./multilingual-static-portfolio/">記事を読む →</a></article></div></section></main><footer><nav><a href="../">Home</a><a href="../case-study/">Case Studies</a></nav><p id="footer"></p></footer><script src="../js/locale-resolver.js?v=20260812-2"></script><script src="../js/main.js?v=20260813-1"></script></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6BQ47G3');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technical Articles | Koshi Sugawara Developer Portfolio</title>
+  <meta name="description" content="静的Web開発、CORS/CSRFセキュリティ、Service Workerキャッシュデバッグ、多言語i18n設計に関する実践的な技術記事と障害解決の記録。">
+  <link rel="canonical" href="https://koshijpn.github.io/articles/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Technical Articles | Koshi Sugawara Developer Portfolio">
+  <meta property="og:description" content="静的Web開発、CORS/CSRFセキュリティ、Service Workerキャッシュデバッグ、多言語i18n設計の実践技術記事。">
+  <meta property="og:url" content="https://koshijpn.github.io/articles/">
+  <meta property="og:image" content="https://koshijpn.github.io/img/og/portfolio-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" href="../rss.xml">
+  <link rel="icon" href="/favicon.svg?v=ksemicolon-20260809" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v=ksemicolon-20260809" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ksemicolon-20260809">
+  <link rel="manifest" href="/site.webmanifest?v=ksemicolon-20260809">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="detail">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6BQ47G3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header scrolled">
+    <a class="site-mark" href="../">KOSHI</a>
+    <a class="text-link" href="../">← Portfolio</a>
+  </header>
+
+  <main id="main-content" class="detail-main">
+    <header class="page-hero content-width">
+      <p class="eyebrow">ENGINEERING ARTICLES &amp; TROUBLESHOOTING LOGS</p>
+      <h1>技術記事・実装ノート</h1>
+      <p>自分のリポジトリやプロダクト開発において、実際に直面した課題・アーキテクチャの選択理由・障害対応ログをまとめた実践技術記事です。一般論ではなく、一次情報と実証コードに基づいて執筆しています。</p>
+    </header>
+
+    <section class="section section-muted">
+      <div class="articles-grid content-width" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
+
+        <article class="card-item" style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <p class="eyebrow" style="font-size:12px;font-weight:700;color:#2563eb;letter-spacing:1px;margin-bottom:8px;">SECURITY / CORS &amp; CSRF</p>
+          <h2 style="font-size:20px;font-weight:700;margin-bottom:12px;"><a href="./contact-form-cors-csrf/" style="color:#0f172a;text-decoration:none;">静的サイトにおけるクロスオリジン問い合わせフォームの CORS・CSRF・タイミング制御</a></h2>
+          <p style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:16px;"><strong>解決課題:</strong> GitHub Pagesから外部PHP APIへの送信時に発生した303 Redirect追従エラー、DOM再構成時のチェックボックス値フォールバック、およびスパム用invalid_timing判定の現場デバッグ。</p>
+          <div style="font-size:13px;color:#64748b;margin-bottom:16px;background:#f8fafc;padding:12px;border-radius:6px;">
+            <p style="margin:0 0 4px 0;"><strong>技術スタック:</strong> Vanilla JS, Fetch API, PHP 8.2, Simple CORS, CSRF Token</p>
+            <p style="margin:0;"><strong>対象読者:</strong> 静的ホスティングと外部APIを安全に接続したいWeb開発者</p>
+          </div>
+          <a class="text-link" href="./contact-form-cors-csrf/" style="font-weight:600;color:#2563eb;text-decoration:none;">記事を読む (詳細なログとコード) →</a>
+        </article>
+
+        <article class="card-item" style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <p class="eyebrow" style="font-size:12px;font-weight:700;color:#2563eb;letter-spacing:1px;margin-bottom:8px;">PWA / SERVICE WORKER</p>
+          <h2 style="font-size:20px;font-weight:700;margin-bottom:12px;"><a href="./service-worker-cache-debugging/" style="color:#0f172a;text-decoration:none;">BuildレスPure Static Webアプリにおける Service Worker キャッシュと相対パス設計</a></h2>
+          <p style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:16px;"><strong>解決課題:</strong> Webpack/Vite等のバンドラーを挟まないPure Static構成で、GitHub Pagesサブパス環境とカスタムドメイン環境の双方でオフラインキャッシュ整合性を保つ設計。</p>
+          <div style="font-size:13px;color:#64748b;margin-bottom:16px;background:#f8fafc;padding:12px;border-radius:6px;">
+            <p style="margin:0 0 4px 0;"><strong>技術スタック:</strong> Service Worker API, Native ES Modules, Python (Pre-flight verify)</p>
+            <p style="margin:0;"><strong>対象読者:</strong> ビルドツール非依存のPure Static PWAアプリを運用したいエンジニア</p>
+          </div>
+          <a class="text-link" href="./service-worker-cache-debugging/" style="font-weight:600;color:#2563eb;text-decoration:none;">記事を読む (アーキテクチャと検証) →</a>
+        </article>
+
+        <article class="card-item" style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <p class="eyebrow" style="font-size:12px;font-weight:700;color:#2563eb;letter-spacing:1px;margin-bottom:8px;">STATIC WEB / ARCHITECTURE</p>
+          <h2 style="font-size:20px;font-weight:700;margin-bottom:12px;"><a href="./multilingual-static-portfolio/" style="color:#0f172a;text-decoration:none;">多言語静的ポートフォリオの設計</a></h2>
+          <p style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:16px;"><strong>解決課題:</strong> ビルド不要の単一HTML構成で、多言語切替、GitHub API連携、SEO、および障害時Fallback表示を整理する設計パターン。</p>
+          <div style="font-size:13px;color:#64748b;margin-bottom:16px;background:#f8fafc;padding:12px;border-radius:6px;">
+            <p style="margin:0 0 4px 0;"><strong>技術スタック:</strong> HTML5, CSS3, Vanilla JS, GitHub Pages, JSON-LD</p>
+            <p style="margin:0;"><strong>対象読者:</strong> 高速・軽量で多言語対応した個人ポートフォリオを構築したいエンジニア</p>
+          </div>
+          <a class="text-link" href="./multilingual-static-portfolio/" style="font-weight:600;color:#2563eb;text-decoration:none;">記事を読む (設計思考と構成) →</a>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../case-study/">Case Studies</a>
+      <a href="../development-notes/">Dev Notes</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+    <p id="footer"></p>
+  </footer>
+  <script src="../js/locale-resolver.js?v=20260812-2"></script>
+  <script src="../js/main.js?v=20260813-1"></script>
+</body>
+</html>

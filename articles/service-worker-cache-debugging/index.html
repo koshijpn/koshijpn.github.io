@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6BQ47G3');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuildレスPure StaticWebアプリにおける Service Worker キャッシュと相対パス設計 | Koshi Developer Portfolio</title>
+  <meta name="description" content="WebpackやViteを使用しないPure Static HTML5/ES Modulesウェブアプリにおいて、GitHub Pagesサブパス環境とカスタムドメイン環境の両方で動作するService Workerオフラインキャッシュ構築テクニック。">
+  <meta name="author" content="Koshi Sugawara">
+  <meta name="theme-color" content="#111111">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://koshijpn.com https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.clarity.ms https://c.bing.com; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://*.clarity.ms 'sha256-oa9GB1YkAXCXiHPQDvGs0Y/HKPZ9YWPOlVtgk8cOnJc='; frame-src https://www.googletagmanager.com https://*.clarity.ms; object-src 'none'; base-uri 'self'; form-action 'self' https://koshijpn.com; upgrade-insecure-requests">
+  <link rel="canonical" href="https://koshijpn.github.io/articles/service-worker-cache-debugging/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://koshijpn.github.io/articles/service-worker-cache-debugging/">
+  <meta property="og:title" content="BuildレスPure StaticWebアプリにおける Service Worker キャッシュと相対パス設計">
+  <meta property="og:description" content="ビルドツール非依存のPure Static ES Modulesアプリでオフライントラブルを防ぐService Worker運用ノウハウ。">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://koshijpn.github.io/img/og/portfolio-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "BuildレスPure StaticWebアプリにおける Service Worker キャッシュと相対パス設計",
+    "description": "ビルドツールのベースパス置換に頼らないPure StaticアプリでのService Workerキャッシュ更新と相対パス設計の記録。",
+    "author": {"@type": "Person", "@id": "https://koshijpn.com/#koshi", "name": "Koshi Sugawara"},
+    "publisher": {"@type": "Organization", "@id": "https://sleeplatelab.com/#organization", "name": "SLEEP LATE LAB"},
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-08-19",
+    "mainEntityOfPage": "https://koshijpn.github.io/articles/service-worker-cache-debugging/"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg?v=ksemicolon-20260809" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v=ksemicolon-20260809" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ksemicolon-20260809">
+  <link rel="manifest" href="/site.webmanifest?v=ksemicolon-20260809">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body data-page="detail">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6BQ47G3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header scrolled">
+    <a class="site-mark" href="../../">KOSHI</a>
+    <a class="text-link" href="../">← Articles</a>
+  </header>
+
+  <main id="main-content" class="detail-main">
+    <article class="page-hero prose content-width">
+      <p class="eyebrow">TECHNICAL ARTICLE / PWA &amp; PERFORMANCE</p>
+      <h1>BuildレスPure Static Webアプリにおける Service Worker キャッシュと相対パス設計</h1>
+      <p class="lead">Vite や Webpack 等のバンドラーを使用せず、標準の HTML5 / CSS3 / Native ES Modules のみで構成された Pure Static アプリ（BorderLens 等）において、GitHub Pages サブパスとルートドメイン環境で完全なオフラインキャッシュと自動更新を両立させた開発ノート。</p>
+
+      <hr>
+
+      <h2>1. 背景と課題 (Problem)</h2>
+      <p>渡航制限・危険情報・ビザ要件を可視化する静的アプリ BorderLens の開発において、開発の軽量化と長期的なメンテナンス性を維持するため、TypeScript やビルドステップを一切挟まない <strong>Pure Static HTML/ES Modules 構成</strong> を採用しました。</p>
+      <p>しかし、Service Worker（PWA オフライン対応）を導入する際、以下の課題に突き当たりました。</p>
+      <ul>
+        <li><strong>デプロイ先URLの絶対パス依存</strong>: GitHub Pages サブパス（<code>/borderlens/</code>）と Cloudflare Pages / カスタムドメイン（<code>/</code>）で静的アセットの fetch パスがズレる。</li>
+        <li><strong>キャッシュ更新漏れによる古い状態の永続化</strong>: ビルドステップによるハッシュ付きファイル名生成（例: <code>app.a1b2c3.js</code>）が存在しないため、ブラウザキャッシュが残り続ける。</li>
+      </ul>
+
+      <h2>2. 解決アプローチと相対パスの統一 (Architecture &amp; Implementation)</h2>
+
+      <h3>① 100% 相対パス (<code>./</code>) の徹底</h3>
+      <p>Service Worker のアセット定義リスト（キャッシュマニフェスト）および ES Modules の `import` 文において、先頭の `/` を排除し、すべて <code>./</code> から始まる相対パスで静的アセット（全 45 ファイル）を指定しました。</p>
+
+      <pre><code>// sw.js 内のキャッシュ対象リスト定義
+const CACHE_NAME = 'borderlens-v1.0.4';
+const ASSETS_TO_CACHE = [
+  './',
+  './index.html',
+  './404.html',
+  './styles.css',
+  './src/pages/MainApp.js',
+  './src/services/dataStore.js',
+  './src/data/countries.json',
+  './src/data/official-portals.json',
+  './src/data/visa-rules.json'
+];
+
+// install イベントでのアセット一括追加
+self.addEventListener('install', (event) =&gt; {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =&gt; {
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
+  );
+  self.skipWaiting();
+});
+</code></pre>
+
+      <h3>② Python による Pre-flight 自動検証スクリプト</h3>
+      <p>手動でのファイル追加忘れやパス間違いを防止するため、デプロイ前に <code>python3 scripts/verify_build.py</code> を実行する事前検証パイプラインを構築しました。全 JSON の構文チェック、ES Modules の依存関係テスト、および <code>sw.js</code> にリストされた全アセットの実ファイル存在チェックを自動実行します。</p>
+
+      <pre><code># verify_build.py からの抜粋（アセット自動整合性アサート）
+for asset_path in sw_cache_assets:
+    local_path = asset_path.lstrip('./')
+    if not os.path.exists(local_path):
+        print(f"❌ SW Cache Asset Missing: {asset_path}")
+        sys.exit(1)
+print("✅ ALL SERVICE WORKER ASSETS PASSED INTEGRITY CHECK!")
+</code></pre>
+
+      <h2>3. 得られた成果と結果 (Results)</h2>
+      <ul>
+        <li><strong>マルチ環境対応</strong>: 同一のリポジトリコードで、<code>https://borderlens.com/</code> でも <code>https://koshijpn.github.io/borderlens/</code> でも修正なしでオフライン起動が可能になりました。</li>
+        <li><strong>ゼロ障害デプロイ</strong>: Pre-flight 検証スクリプトにより、45 ファイル中 1 つでも欠落していた場合は CI/CD やローカルコミットで即時にブロックされる安全性を確保しました。</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="../../">Home</a>
+      <a href="../">Articles</a>
+      <a href="../../privacy.html">Privacy Policy</a>
+      <a href="../../contact/">Contact</a>
+    </nav>
+    <p id="footer"></p>
+  </footer>
+</body>
+</html>
