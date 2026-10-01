@@ -130,14 +130,14 @@ const heroCommercialTranslations = {
 Object.entries(heroCommercialTranslations).forEach(([language, value]) => { translations[language]["hero.commercial"] = value; });
 
 const careerSummaryTranslations = {
-  en:"Awaiting final degree-completion results from Hokkaido Information University. Admitted to Wenzao’s Master’s Program in International Business Administration, with enrollment expected in September 2026.",
-  ja:"北海道情報大学の卒業要件に関する最終結果待ち。文藻外語大学 国際企業管理系修士課程に合格し、2026年9月入学予定。",
-  "zh-TW":"目前等待北海道情報大學學位完成的最終結果。已錄取文藻外語大學國際企業管理系碩士班，預計2026年9月入學。",
-  "zh-CN":"目前等待北海道情报大学学位完成的最终结果。已录取文藻外语大学国际企业管理硕士课程，预计2026年9月入学。",
-  ko:"홋카이도정보대학교 학위 완료 최종 결과를 기다리고 있습니다. 원자오외국어대학교 국제기업관리 석사과정에 합격했으며 2026년 9월 입학 예정입니다.",
-  th:"กำลังรอผลสุดท้ายเกี่ยวกับการสำเร็จการศึกษาจากมหาวิทยาลัยสารสนเทศฮอกไกโด และได้รับการตอบรับเข้าหลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศของมหาวิทยาลัยภาษาเหวินจ่าว โดยคาดว่าจะเข้าเรียนในเดือนกันยายน 2026",
-  vi:"Đang chờ kết quả cuối cùng về việc hoàn tất bằng cấp tại Đại học Thông tin Hokkaido. Đã trúng tuyển chương trình Thạc sĩ Quản trị Kinh doanh Quốc tế tại Wenzao, dự kiến nhập học tháng 9/2026.",
-  es:"A la espera del resultado final de finalización del grado en Hokkaido Information University. Admitido en el máster de Administración de Empresas Internacionales de Wenzao, con ingreso previsto en septiembre de 2026."
+  en:"Graduated from Hokkaido Information University with a Bachelor of Business Administration and Information Science degree. Currently enrolled in the Master’s Program of International Business Administration (MBA Program), College of New Media and Management, Wenzao Ursuline University of Languages.",
+  ja:"北海道情報大学 経営情報学部 卒業・学士（経営情報学）。文藻外語大学 新媒體暨管理學院 国際企業管理系修士課程 在学中。",
+  "zh-TW":"畢業於北海道情報大學經營情報學部，取得學士（經營情報學）。目前就讀文藻外語大學新媒體暨管理學院國際企業管理系碩士班。",
+  "zh-CN":"毕业于北海道情报大学。目前就读文藻外语大学国际企业管理硕士课程。",
+  ko:"홋카이도정보대학교를 졸업했습니다. 현재 원자오외국어대학교 국제기업관리 석사과정에 재학 중입니다.",
+  th:"สำเร็จการศึกษาจากมหาวิทยาลัยสารสนเทศฮอกไกโด และกำลังศึกษาในหลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศของมหาวิทยาลัยภาษาเหวินจ่าว",
+  vi:"Đã tốt nghiệp Đại học Thông tin Hokkaido. Hiện đang theo học chương trình Thạc sĩ Quản trị Kinh doanh Quốc tế tại Wenzao.",
+  es:"Graduado por Hokkaido Information University. Actualmente cursa el máster en Administración de Empresas Internacionales de Wenzao."
 };
 Object.entries(careerSummaryTranslations).forEach(([language, value]) => { translations[language]["career.2026summary"] = value; });
 

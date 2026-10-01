@@ -2,14 +2,14 @@
 // be updated from one place when enrolment status changes.
 const career2026 = {
   education: {
-    ja: ["北海道情報大学：卒業要件に関する最終結果待ち", "文藻外語大学 国際企業管理系修士課程：合格済み・2026年9月入学予定"],
-    en: ["Hokkaido Information University: awaiting final degree-completion results", "Wenzao Master’s Program in International Business Administration: admitted; expected enrollment September 2026"],
-    "zh-TW": ["北海道情報大學：等待學位完成的最終結果", "文藻外語大學國際企業管理系碩士班：已錄取，預計2026年9月入學"],
-    "zh-CN": ["北海道情报大学：等待学位完成的最终结果", "文藻外语大学国际企业管理硕士课程：已录取，预计2026年9月入学"],
-    ko: ["홋카이도정보대학교: 학위 완료 최종 결과 대기 중", "원자오외국어대학교 국제기업관리 석사과정: 합격, 2026년 9월 입학 예정"],
-    th: ["มหาวิทยาลัยสารสนเทศฮอกไกโด: กำลังรอผลสุดท้ายเกี่ยวกับการสำเร็จการศึกษา", "หลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศ มหาวิทยาลัยภาษาเหวินจ่าว: ผ่านการคัดเลือกและคาดว่าจะเข้าเรียนในเดือนกันยายน 2026"],
-    vi: ["Đại học Thông tin Hokkaido: đang chờ kết quả cuối cùng về việc hoàn tất bằng cấp", "Thạc sĩ Quản trị Kinh doanh Quốc tế tại Wenzao: đã trúng tuyển, dự kiến nhập học tháng 9/2026"],
-    es: ["Hokkaido Information University: a la espera del resultado final de finalización del grado", "Máster en Administración de Empresas Internacionales de Wenzao: admitido; ingreso previsto en septiembre de 2026"]
+    ja: ["北海道情報大学 経営情報学部：卒業・学士（経営情報学）", "文藻外語大学 新媒體暨管理學院 国際企業管理系修士課程：在学中"],
+    en: ["Hokkaido Information University: Bachelor of Business Administration and Information Science degree", "Wenzao Ursuline University of Languages, College of New Media and Management, Master’s Program of International Business Administration (MBA Program): currently enrolled"],
+    "zh-TW": ["北海道情報大學經營情報學部：畢業・學士（經營情報學）", "文藻外語大學新媒體暨管理學院國際企業管理系碩士班：在學中"],
+    "zh-CN": ["北海道情报大学：毕业", "文藻外语大学国际企业管理硕士课程：在读"],
+    ko: ["홋카이도정보대학교: 졸업", "원자오외국어대학교 국제기업관리 석사과정: 재학 중"],
+    th: ["มหาวิทยาลัยสารสนเทศฮอกไกโด: สำเร็จการศึกษา", "หลักสูตรปริญญาโทบริหารธุรกิจระหว่างประเทศ มหาวิทยาลัยภาษาเหวินจ่าว: กำลังศึกษา"],
+    vi: ["Đại học Thông tin Hokkaido: đã tốt nghiệp", "Thạc sĩ Quản trị Kinh doanh Quốc tế tại Wenzao: đang theo học"],
+    es: ["Hokkaido Information University: graduado", "Máster en Administración de Empresas Internacionales de Wenzao: actualmente matriculado"]
   },
   international: {
     ja: ["文藻外語大学 華語中心（2025年9月〜2026年8月）"],

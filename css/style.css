@@ -156,11 +156,11 @@ body:not([data-page="home"]) .site-header {
 .career-copy { min-width: 0; padding-left: 12px; }
 .career-copy p { margin: 0 0 7px; line-height: 1.55; }
 .career-copy p:last-child { margin-bottom: 0; }
-.career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大学：卒業要件に関する最終結果待ち。\A 文藻外語大学大学院：合格済み・2026年9月入学予定。"; white-space: pre-line; }
+.career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大学 経営情報学部：卒業・学士（経営情報学）。\A 文藻外語大学 新媒體暨管理學院 国際企業管理系修士課程：在学中。"; white-space: pre-line; }
 .career-copy[data-career-2026="international"]:empty::after { content: "文藻外語大学 華語中心（2025年9月〜2026年8月）。"; }
-html[lang="en"] .career-copy[data-career-2026="education"]:empty::after { content: "Hokkaido Information University: awaiting final degree-completion results.\A Wenzao master’s program: admitted; expected enrollment September 2026."; }
+html[lang="en"] .career-copy[data-career-2026="education"]:empty::after { content: "Hokkaido Information University: Bachelor of Business Administration and Information Science degree.\A Wenzao, College of New Media and Management, MBA Program: currently enrolled."; }
 html[lang="en"] .career-copy[data-career-2026="international"]:empty::after { content: "Wenzao Chinese Language Center (September 2025–August 2026)."; }
-html[lang="zh-TW"] .career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大學：等待學位完成的最終結果。\A 文藻外語大學碩士班：已錄取，預計2026年9月入學。"; }
+html[lang="zh-TW"] .career-copy[data-career-2026="education"]:empty::after { content: "北海道情報大學經營情報學部：畢業・學士（經營情報學）。\A 文藻外語大學新媒體暨管理學院國際企業管理系碩士班：在學中。"; }
 html[lang="zh-TW"] .career-copy[data-career-2026="international"]:empty::after { content: "文藻外語大學華語中心（2025年9月至2026年8月）。"; }
 .career-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
 .career-groups h3 { margin: 0 0 28px; font-size: 16px; }
