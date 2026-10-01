@@ -48,6 +48,8 @@
 ### 【分類 C】thin / utility / 重複性が高く、AdSense審査上注意なページ (0 ページ - 非掲載対応済み)
 - ユーティリティページ（`uses/`, `now/`）は独自価値の観点から AdSense 審査で thin content とみなされるリスクがあるため、すでに正しく `<meta name="robots" content="noindex,follow">` が設定され、`sitemap.xml` から除外されています。
 
+> **2026-10-01 更新**: 上記は2026年8月時点の監査記録です。`uses/` と `now/` は通常コンテンツページとして `noindex` を解除し、`sitemap.xml` に追加して indexable に変更しました。現在 noindex を維持するHTMLは `404.html`、`contact/thanks.html`、`contact/error.html` の3件です。
+
 ### 【分類 D】broken / placeholder / unfinished / 公開すべきでないページ (0 ページ)
 - 削除整理済み: 重複旧ファイル `./case-study/index 2.html` は正式ファイル `./case-study/index.html` との diff 差分を確認・記録のうえ整理完了。
 

@@ -23,6 +23,7 @@ class PageParser(HTMLParser):
         self.html_lang = ""
         self.metas: list[dict[str, str]] = []
         self.links: list[dict[str, str]] = []
+        self.anchor_refs: list[str] = []
         self.refs: list[str] = []
         self.images: list[dict[str, str]] = []
         self.scripts: list[dict[str, str]] = []
@@ -53,6 +54,8 @@ class PageParser(HTMLParser):
             for attribute in ("href", "src", "poster"):
                 if data.get(attribute):
                     self.refs.append(data[attribute])
+                    if tag == "a" and attribute == "href":
+                        self.anchor_refs.append(data[attribute])
 
 
 def public_url(path: Path) -> str:
@@ -86,6 +89,8 @@ def resolve_local(page: Path, reference: str) -> Path | None:
 def main() -> int:
     errors: list[str] = []
     indexable: set[str] = set()
+    parsed_pages: dict[Path, PageParser] = {}
+    indexable_paths: set[Path] = set()
     pages = sorted(
         path for path in ROOT.rglob("*.html")
         if not any(part in IGNORED_DIRS for part in path.relative_to(ROOT).parts)
@@ -94,6 +99,7 @@ def main() -> int:
     for page in pages:
         parser = PageParser()
         parser.feed(page.read_text(encoding="utf-8"))
+        parsed_pages[page.resolve()] = parser
         label = page.relative_to(ROOT).as_posix()
         meta = {(item.get("name") or item.get("property", "")).lower(): item.get("content", "") for item in parser.metas}
         canonical = next((item.get("href", "") for item in parser.links if "canonical" in item.get("rel", "").split()), "")
@@ -112,6 +118,7 @@ def main() -> int:
 
         if not noindex:
             indexable.add(public_url(page))
+            indexable_paths.add(page.resolve())
             if not meta.get("description"):
                 errors.append(f"{label}: missing meta description")
             if canonical != public_url(page):
@@ -128,6 +135,33 @@ def main() -> int:
                 errors.append(f"{label}: local reference escapes site root: {reference}")
             elif target is not None and not target.exists():
                 errors.append(f"{label}: broken local reference: {reference}")
+
+    incoming: dict[Path, set[Path]] = {page: set() for page in indexable_paths}
+    outgoing: dict[Path, set[Path]] = {page: set() for page in indexable_paths}
+    for source in indexable_paths:
+        for reference in parsed_pages[source].anchor_refs:
+            target = resolve_local(source, reference)
+            if target is not None:
+                target = target.resolve()
+            if target in indexable_paths and target != source:
+                outgoing[source].add(target)
+                incoming[target].add(source)
+
+    home = (ROOT / "index.html").resolve()
+    orphan_pages = sorted(page for page, sources in incoming.items() if page != home and not sources)
+    for page in orphan_pages:
+        errors.append(f"{page.relative_to(ROOT).as_posix()}: orphan indexable page (no incoming internal links)")
+
+    reachable = {home}
+    pending = [home]
+    while pending:
+        source = pending.pop()
+        for target in outgoing.get(source, set()):
+            if target not in reachable:
+                reachable.add(target)
+                pending.append(target)
+    for page in sorted(indexable_paths - reachable):
+        errors.append(f"{page.relative_to(ROOT).as_posix()}: indexable page is not reachable from Home")
 
     sitemap = ElementTree.parse(ROOT / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -149,6 +183,7 @@ def main() -> int:
             print(f"- {error}", file=sys.stderr)
         return 1
     print(f"Site audit passed: {len(pages)} HTML files, {len(indexable)} indexable URLs.")
+    print("Orphan pages: 0")
     return 0
 
 
