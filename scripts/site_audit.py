@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ORIGIN = "https://koshijpn.github.io"
 IGNORED_DIRS = {".git", "node_modules", "vendor"}
 REQUIRED_SOCIAL = {"og:title", "og:description", "og:url", "og:image", "twitter:card"}
+ADSENSE_SELLER_ID = "f08c47fec0942fa0"
 
 
 class PageParser(HTMLParser):
@@ -176,6 +177,23 @@ def main() -> int:
     expected_sitemap = f"Sitemap: {ORIGIN}/sitemap.xml"
     if expected_sitemap not in robots:
         errors.append(f"robots.txt: missing {expected_sitemap}")
+
+    publisher_ids = {
+        source.split("ca-pub-", 1)[1].split('"', 1)[0]
+        for page in pages
+        for source in (script.get("src", "") for script in parsed_pages[page.resolve()].scripts)
+        if "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-" in source
+    }
+    if len(publisher_ids) != 1:
+        errors.append(f"AdSense: expected one publisher ID, found {sorted(publisher_ids)}")
+    else:
+        publisher_id = next(iter(publisher_ids))
+        expected_ads = f"google.com, pub-{publisher_id}, DIRECT, {ADSENSE_SELLER_ID}"
+        ads_path = ROOT / "ads.txt"
+        if not ads_path.is_file():
+            errors.append("ads.txt: missing from site root")
+        elif ads_path.read_text(encoding="utf-8").strip() != expected_ads:
+            errors.append("ads.txt: publisher record does not match the AdSense loader")
 
     if errors:
         print("Site audit failed:", file=sys.stderr)

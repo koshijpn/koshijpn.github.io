@@ -1,6 +1,8 @@
 {
   "name": "Koshi Sugawara",
   "short_name": "Koshi",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/icon-192.png",
